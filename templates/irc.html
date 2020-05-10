@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}{{ genre.name }} {% endblock %}
+
+{% block content %}
+
+{% load static %}
+	
+	  <!-- second part -->
+     <div class="container second">
+
+      <div class="row row-offcanvas row-offcanvas-right" id="xz">
+
+        <div class="col-xs-12 col-sm-9">
+          <div class="row" id="wrpbr">
+          
+          {% for movie in movies.object_list %} 
+            
+            <div class = "col-lg-10" id="br">
+                <div class = "row">
+                  <h2 id = "title">{{ movie.title  }} ({{ movie.year }})</h2>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <div class = "col-lg-4 col-md-4 col-sm-4">
+                    <a href ="{% url 'detail' movie.id %}"><img class="img-thumbnail" src = "{{ movie.poster.url }}"/></a>
+                  </div><!-- col-lg-4 -->
+                  <div class = "col-lg-8 col-md-8 col-sm-8 disc">
+                    <h3><strong>Название</strong>:{{ movie.title }}</h3>
+                    <h3><strong>Страна</strong>: {{ movie.country }} </h3>
+                    <h3><strong>Год выхода</strong>: {{ movie.year }}</h3>
+                    <h3><strong>Жанры:</strong>
+                     {% for i in movie.genres.all %}
+                        
+                        {{ i.name }},
+                     
+                     {% endfor %}
+                   </h3>
+                    <h3><strong>Режиссер:</strong>
+                      {% for i in movie.directors.all %}
+                          
+                          {% if i.wikipedia %}
+                            
+                            <a target="_blank" href="{{ i.wikipedia }}">{{ i.name }}</a>,
+                          
+                          {% else %}
+                            
+                            {{ i.name }},
+
+                          {% endif %}
+                        
+                        
+                      {% endfor %}
+                    </h3>
+                    <br/>
+                    <h3><strong>В ролях:</strong> 
+                      {% for i in movie.actors.all %}
+                        
+                        {% if i.wikipedia %}
+                            
+                            <a target="_blank" href="{{ i.wikipedia }}">{{ i.name }}</a>,
+                          
+                        {% else %}
+                            
+                            {{ i.name }},
+
+                        {% endif %}
+
+
+                      {% endfor %}
+                    </h3>
+                    <h3><strong>Премьера:</strong> {{ movie.world_premiere }}</h3>
+                  </div><!-- row -->
+                </div>
+              </div><!-- chapter col-lg-10 -->
+
+            {% endfor %}
+              
+           
+          </div><!--/row-->
+          
+          <ul class ="pager hidden-lg hidden-md hidden-sm visible-xs">
+          {% if movies.has_previous %}
+            <li><a href="?page={{ movies.previous_page_number }}">Назад</a></li>
+          {% endif %}
+    
+          {% for pg in movies.paginator.page_range %}
+            {% if movies.number == pg %}
+              <a href="?page={{ pg }}">{{ pg }}</a>
+          {% else %}
+              <a href="?page={{ pg }}">{{ pg }}</a>
+            {% endif %}
+          {% endfor %}
+    
+          {% if movies.has_next %}
+              <li><a href="?page={{ movies.next_page_number }}">Вперед</a></li>
+          {% endif %}
+          
+          </ul>
+           
+        </div><!--/.col-xs-12.col-sm-9-->
+	
+
+
+
+
+	{% include 'sidebar.html' %}
+
+
+<ul class ="pager hidden-xs">
+    {% if movies.has_previous %}
+      <li><a href="?page={{ movies.previous_page_number }}">Назад</a></li>
+    {% endif %}
+    
+    {% for pg in movies.paginator.page_range %}
+      {% if movies.number == pg %}
+        <a href="?page={{ pg }}">{{ pg }}</a>
+      {% else %}
+        <a href="?page={{ pg }}">{{ pg }}</a>
+      {% endif %}
+    {% endfor %}
+    
+    {% if movies.has_next %}
+       <li><a href="?page={{ movies.next_page_number }}">Вперед</a></li>
+    {% endif %}
+</ul>
+
+{% endblock %}
+
+{% block footer %}
+   <div class = "container text-center">
+      <footer>
+        <p>&copy; 2020 Moviegram, Inc.</p>
+      </footer>
+  </div>
+{% endblock %}

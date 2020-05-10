@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+<div class = "container">
+  
+  <div id="telegramblock">
+
+    <h2 class="text-center">Что такое платформа Moviegram?</h2>
+    <h4 class="text-center">Больше чем просто фильмы...</h4>
+    
+    <br />
+    
+    <div id="imgwrp">
+       <img src="{% static '/img/chat.jpeg' %}"> 
+    </div>
+    <h5 class="text-center">Папка с фильмами</h5> 
+    <br />
+
+     <p id = "telegram-info"> Наш <strong>сайт предназначен для поиска и просмотра фильмов, предварительно скачав их и подгрузив вы сможете смотреть в дальнейшем без интернета</strong>. Чем больше люди смотрят фильмы в <strong><a href="https://telegram.org/">Telegram</a></strong>, тем быстрее они подгружаются. Этим сайтом мы хотели показать, что <strong><a href="https://telegram.org/">Telegram</a></strong><strong> больше, чем просто мэссэнджер</strong>. Что не только контакты в мэссэнджере можна рассматривать как отдельные сущности, но и фильмы. После появления папок в <strong><a href="https://telegram.org/">Telegram</a></strong> нам прийшла в голову идея создания этого сайта.</p>
+
+     <br />
+
+     <h2 class="text-center">Добавить фильм на сайт</h2>
+     <br />
+
+     <p id = "telegram-info">
+     Вы можете <strong>помочь нашему сайту развиваться и рости</strong>, просто создав публичный <strong><a href="https://telegram.org/">Telegram</a></strong> канал с кратким описанием фильма, загрузив фильм в возможном для воспроизведения формате не больше 1.5gb. Скидывайте нам ссылку на канал и делитесь фильмами со всеми <strong>бесплатно</strong>.
+     </p>
+   
+
+    <br />
+    <br/>
+
+    <div class="raw" id="limitless">
+     <div class = "col-lg-8 col-lg-offset-2" id="exception">
+        <img src="{% static 'img/limitless.jpeg' %}"/>
+     </div><!-- col-lg-12 -->
+    </div><!-- raw -->
+    <br />
+
+    <h2 id = "turl" class="text-center"><label id="basic-url">Ссылка на ваш канал</label></h2>
+    <br />
+    <form action="{% url 'addtelegram' %}" method="post" autocomplete="off">
+      {% csrf_token %}
+      <div class="input-group input-group-lg">
+        <span class="input-group-addon" id="basic-addon3">https://t.me/</span>
+        <input type="text" name="telegramchannel" class="form-control" id ="basic-url" aria-describedby="basic-addon3" placeholder="Вставте ссылку на канал и нажмите Enter...">
+      </div>
+    </form>
+
+    <br />
+
+    <p id = "telegram-info">
+     После валидации и проверки ваш канал добавится на наш сайт. Если фильм, сериал или мультфильм, который вы добавили не повторяется - он будет добавлен. Если вы добавили канал, но фильм лучшего качества - он также будет добавлен.
+    </p>
+
+
+
+
+
+
+
+
+</div><!-- telegram block -->
+
+
+
+{% endblock %}
+
+{% block footer %}
+   <div class = "container text-center">
+      <footer>
+        <p>&copy; 2020 Moviegram, Inc.</p>
+      </footer>
+  </div>
+{% endblock %}

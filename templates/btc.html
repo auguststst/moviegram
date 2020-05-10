@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class = "container">
+
+  <div id="telegramblock">
+    <br/>
+    <br/>
+    
+    <div id="imgwrp2">
+      <img src="{% static 'img/btc.jpeg' %}">
+    </div><!-- imgwrp -->
+    
+    <br />
+    
+    <h3 class="text-center">Поддержите нас</h3>
+    
+    <a target="_blank" href="https://bitcoin.org/ru/" class="text-center" id="adress">1dGggQBGDvyQ1p61vQ4bwk54YQRWcYDZc</a>
+
+    
+    <br/>
+    <p id = "telegram-info">
+     Ваше пожертвование поможет нам продолжать разработку Moviegram как свободной платформы для поиска и просмотра фильмов. Только благодаря вашей поддержке мы сможем продолжать предоставлять доступ к Moviegram людям со всего мира.
+    </p>
+ </div><!-- telegram block -->
+
+{% endblock %}

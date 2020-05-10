@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %} {{movie.title}} {% endblock %}
+{% block description %} {{ movie.MetaDescription }}{% endblock %}
+
+{% block content %}
+
+<!-- second part -->
+     <div class="container second">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+          <div class="row" style = "margin-top:-49px!important;">
+            <div class = "col-lg-11">
+              <div class="page-header">
+                <h1><strong>{{ movie.title }}<strong></h1>
+              </div>
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="{{ movie.youtube }}" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <br>
+            <a target="_blank" href="{{ movie.telegram }}" class="btn btn-lg btn-primary btn-block watch">
+            Смотреть</a>
+            <h2>{{ movie.description }}</h2>
+            <p style = "margin-top: 20px; font-size: 29px;">Подробнее о  <a target="_blank" href="{{ movie.wikipedia }}">{{ movie.title }} </a> вы можете узнать здесь...</p>
+            </div><!-- 12 --> 
+          </div><!--/row-->
+        </div><!--/.col-xs-12.col-sm-9-->
+
+         {% include 'sidebar.html' %}
+
+
+
+
+{% endblock %}
+
+{% block footer %}
+   <div class = "container text-center hidden-lg hidden-md hidden-sm hidden-xs">
+      <footer>
+        <p>&copy; 2020 Moviegram, Inc.</p>
+      </footer>
+  </div>
+{% endblock %}

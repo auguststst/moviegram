@@ -1,0 +1,30 @@
+
+ <div class="col-xs-12 col-sm-3 sidebar-offcanvas" id="sidebar">
+          
+
+          <div class="sidebar-module sidebar-module-inset">
+            <h3 class = "bb">О нас</h3>
+            <p>Мы создали сайт для любителей смотреть фильмы в Телеграме. Сайт довольно интересный. С его помощью вы сможете найти свои любимые фильмы а также смотреть новинки первыми.</p>
+          </div>
+          
+
+          <div class="sidebar-module clearfix">
+            <h3>Категории</h3>
+            <ol class="list-unstyled">
+            {% for g in genres %}
+                <li><a href="{% url 'genremovies' g.url %}">{{ g.name }}</a></li>
+            {% endfor %}  
+            </ol>
+          </div>
+          
+
+          <div class="sidebar-module">
+            <h3>Другое</h3>
+            <ol class="list-unstyled">
+              <li><a target="_blank" href="https://telegram.org/">Telegram</a></li>
+              <li><a target="_blank" href="https://www.utorrent.com/">Torrent</a></li>
+              <li><a target="_blank" href="https://thepirate-bay.org/home/">PirateBay</a></li>
+            </ol>
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+      </div><!--/row-->
