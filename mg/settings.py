@@ -5,7 +5,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 
-SECRET_KEY = os.environ['SECRET_KEY']
+with open('/secret_key.txt') as f:
+    SECRET_KEY = f.read().strip()
 
 
 DEBUG = False

@@ -47,9 +47,7 @@ def genremovies(request, slug):
 	template = 'irc.html'
 	
 	genre = get_object_or_404(Genre, url__exact=slug)
-	
 	movie_list = genre.movie_set.all().order_by('-id')
-	
 	paginator = Paginator(movie_list, 5)
 	
 	try:
@@ -82,14 +80,11 @@ def categorymovies(request, cat):
 
    
    genres = Genre.objects.all().order_by('name')
-   
    categories = Category.objects.all()
-   
    category = get_object_or_404(Category, url__exact=cat)
-   
    movies = category.movie_set.all()
-   
    paginator = Paginator(movies, 6)
+   
    page = request.GET.get('page')
    try:
        movies = paginator.page(page)
@@ -113,7 +108,6 @@ def categorymovies(request, cat):
 def addChannel(request):
 	
 	if request.method == "POST":
-		
 		check = is_valid_url(request.POST.get('telegramchannel'))
 
 		if (request.POST.get('telegramchannel') and check == True):
@@ -121,7 +115,6 @@ def addChannel(request):
 			channel = TelegramChannel()
 			channel.link = request.POST.get('telegramchannel')
 			channel.save()
-			
 			return redirect('index')
 		
 		elif check == False:
@@ -143,13 +136,11 @@ def is_valid_url(url):
 def telegram(request):
 	
 	template = 'telegram.html'
-
 	categories = Category.objects.all()
 
 	context = {
 		'categories': categories,
 	}
-
 
 	return render(request, template, context)
 
@@ -159,7 +150,6 @@ def email(request):
 	template = 'email.html'
 
 	categories = Category.objects.all()
-
 	context = {
 		'categories': categories,
 	}
@@ -171,7 +161,6 @@ def donate(request):
 	template = 'btc.html'
 
 	categories = Category.objects.all()
-
 	context = {
 		'categories': categories,
 	}
@@ -181,29 +170,20 @@ def donate(request):
 
 def search(request):
 
-
-
    template = "search.html"
 	
    categories = Category.objects.all()
-
    query = request.GET.get('q')
-   
    file = open("logfile","a+")
-   
    file.write(query)
-
    file.close()
-
    results = Movie.objects.filter(Q(title__icontains=query) | Q(year__icontains=query))
 
    context = {
 		'results': results,
 		'categories': categories,
    }
-
-
-
+   
    return render(request, "search.html", context)
 
 
