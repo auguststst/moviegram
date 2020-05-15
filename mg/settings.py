@@ -1,17 +1,18 @@
 import os
+import json
 
+with open("/etc/config.json") as config_file:
+	config = json.load(config_file)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 
-with open('/secret_key.txt') as f:
-    SECRET_KEY = f.read().strip()
-
+SECRET_KEY = config["SECRET_KEY"]
 
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['194.58.92.196','www.themoviegram.com']
 
 
 INSTALLED_APPS = [
@@ -60,9 +61,9 @@ WSGI_APPLICATION = 'mg.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
+        'NAME': config["NAME"],
+        'USER': config["USER"],
+        'PASSWORD': config["PASSWORD"],
         'HOST': '',
         'PORT': '',
     }
@@ -100,10 +101,11 @@ USE_L10N = True
 USE_TZ = True
 
 
-
 STATIC_URL = '/static/'
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = (STATIC_DIR,)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/') 
+#STATICFILES_DIRS = [
+#	os.path.join(BASE_DIR, 'static')
+#]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

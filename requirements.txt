@@ -1,8 +1,8 @@
 asgiref==3.2.7
-Django==3.0.5
-django-endless-pagination==2.0
+Django==3.0.6
+mod-wsgi==4.7.1
+mod-wsgi-httpd==2.4.41.1
 Pillow==7.1.2
-pkg-resources==0.0.0
 PyMySQL==0.9.3
-pytz==2019.3
+pytz==2020.1
 sqlparse==0.3.1

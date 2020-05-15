@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+
+
+{% load static %}
+
+{% block content %}
+
+
+<!-- second part -->
+     <div class="container second">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+
+        <div class="col-xs-12 col-sm-9">
+          <div class="jumbotron">
+            <h1><strong>Фильмы в Telegram <img class = "telegram" src = "{% static 'img/logo.png'%}"/></strong></h1>
+            <h2>Смотрите и скачивайте фильмы в Telegram вместе с Moviegram...</h2>
+          </div>
+
+          <div class="container hidden-lg hidden-md hidden-sm visible-xs text-center" id="phoneicons">
+            <a href="{% url 'telegram' %}">О сайте</a>
+            <a href="{% url 'email' %}">Контакты</a>
+            <a href="{% url 'donate' %}">Поддержите нас</a>
+        </div>
+
+
+          <form method="GET" autocomplete="off" action="{% url 'search' %}" class="navbar-form hidden-md hidden-sm hidden-lg visible-xs">
+            <div class="form-group">
+              <input name = "q" value="{{ request.GET.q }}" type="text" class="form-control" placeholder="Поиск...">
+            </div>
+            <button type="submit" class="btn btn-primary">Поиск</button>
+        </form>
+
+          <div class="row" id="eq">
+
+          {% for x in movies %}
+
+            <div class="col-xs-12 col-md-6 col-sm-6 col-lg-4">
+              
+              <h2>{{ x.title }}</h2>
+              <a href = "{% url 'detail' x.id %}"><img id="sz" src = "{{x.poster.url}}" id ="transperent" class = "img-thumbnail"/></a>
+              
+              <p class = "inside">{{x.ShortenText}}...</p>
+              
+              <p><a class="btn btn-lg btn-default" id="more" href="{% url 'detail' x.id %}" role="button">Смотреть &raquo;</a></p>
+            
+            </div><!--/.col-xs-6.col-lg-4-->
+
+          
+          {% endfor %}
+        
+
+
+
+          </div><!--/row-->
+        </div><!--/.col-xs-12.col-sm-9-->
+
+        
+
+
+      {% include 'sidebar.html' %}
+<hr />
+
+
+{% endblock %}
+
+{% block footer %}
+      <footer>
+        <p>&copy; 2020 Moviegram, Inc.</p>
+      </footer>
+{% endblock %}

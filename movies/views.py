@@ -174,7 +174,7 @@ def search(request):
 	
    categories = Category.objects.all()
    query = request.GET.get('q')
-   file = open("logfile","a+")
+   file = open("/home/august/mg/logfile","a+")
    file.write(query)
    file.close()
    results = Movie.objects.filter(Q(title__icontains=query) | Q(year__icontains=query))
