@@ -6,11 +6,18 @@ from django.db.models import Q
 from django.core.validators import URLValidator
 
 
+
+class PageUrl:
+
+	i = None
+
 def index(request):
+
+	PageUrl.i = None
 	
 	template = 'index.html'
 
-	movies = Movie.objects.filter(wall=True)
+	movies = Movie.objects.filter(wall=True).order_by('-id')
 	genres = Genre.objects.all().order_by('name')
 	categories = Category.objects.all()
 
@@ -47,7 +54,20 @@ def genremovies(request, slug):
 	template = 'irc.html'
 	
 	genre = get_object_or_404(Genre, url__exact=slug)
-	movie_list = genre.movie_set.all().order_by('-id')
+	
+	pag=""
+	
+	if PageUrl.i is not None:
+	    pag = get_object_or_404(Category, url__exact=PageUrl.i)
+	
+	if pag:
+	    movie_list = genre.movie_set.all().order_by('-id').filter(category__exact=pag)
+	else:
+	    movie_list = genre.movie_set.all().order_by('-id')
+
+	
+
+
 	paginator = Paginator(movie_list, 5)
 	
 	try:
@@ -78,11 +98,13 @@ def categorymovies(request, cat):
    
    template = 'categorymov.html'
 
+   PageUrl.i = cat
+
    
    genres = Genre.objects.all().order_by('name')
    categories = Category.objects.all()
    category = get_object_or_404(Category, url__exact=cat)
-   movies = category.movie_set.all()
+   movies = category.movie_set.all().order_by('-id')
    paginator = Paginator(movies, 6)
    
    page = request.GET.get('page')
@@ -174,9 +196,9 @@ def search(request):
 	
    categories = Category.objects.all()
    query = request.GET.get('q')
-   file = open("/home/august/mg/logfile","a+")
-   file.write(query)
-   file.close()
+   #file = open("/home/august/mg/logfile","a+")
+   #file.write(query)
+   #file.close()
    results = Movie.objects.filter(Q(title__icontains=query) | Q(year__icontains=query))
 
    context = {

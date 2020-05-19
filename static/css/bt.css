@@ -479,6 +479,10 @@ img:hover{
 	#telegramblock{
 		padding: 0!important;
 	}
+	#telegram-info{
+		font-size: 25px;
+		font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	}
 
 	#limitless{
 		height: 500px!important;
@@ -498,7 +502,10 @@ img:hover{
 	#component{
 		padding: 0 0;
 	}
-
+	#mobdesc{
+		text-align: justify;
+	}	
+	
 }	
 
 /* Medium devices (tablets, 768px and up) */
