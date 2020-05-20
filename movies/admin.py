@@ -11,7 +11,7 @@ class MovieAdmin(admin.ModelAdmin):
 	list_display_links = ("telegram",)
 	list_filter = ("category",)
 	search_fields = ("title",)
-	
+	filter_horizontal = ('actors','directors',)
 	list_editable = ("wall",)
 	readonly_fields = ("get_image",)
 

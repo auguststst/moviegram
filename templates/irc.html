@@ -53,6 +53,7 @@
                         
                       {% endfor %}
                     </h3>
+		    {% if movie.actors.all %}
                     <br/>
                     <h3><strong>В ролях:</strong> 
                       {% for i in movie.actors.all %}
@@ -69,6 +70,9 @@
 
 
                       {% endfor %}
+		{% else %}
+
+		{% endif %}
                     </h3>
                     <h3><strong>Премьера:</strong> {{ movie.world_premiere }}</h3>
                   </div><!-- row -->

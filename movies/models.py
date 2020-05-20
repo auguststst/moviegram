@@ -88,7 +88,7 @@ class Movie(models.Model):
 	
 	country			= models.CharField("Страна", max_length=30)
 	directors		= models.ManyToManyField(Director, verbose_name="режиссеры")
-	actors			= models.ManyToManyField(Actor, verbose_name="актеры")
+	actors			= models.ManyToManyField(Actor, verbose_name="актеры", blank=True)
 	genres 			= models.ManyToManyField(Genre, verbose_name="жанры")
 	world_premiere  = models.DateField("Премьера", default=timezone.now)
 
