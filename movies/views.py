@@ -61,9 +61,9 @@ def genremovies(request, slug):
 	    pag = get_object_or_404(Category, url__exact=PageUrl.i)
 	
 	if pag:
-	    movie_list = genre.movie_set.all().order_by('-id').filter(category__exact=pag)
+	    movie_list = genre.movie_set.all().order_by('-year').filter(category__exact=pag)
 	else:
-	    movie_list = genre.movie_set.all().order_by('-id')
+	    movie_list = genre.movie_set.all().order_by('-year')
 
 	
 
@@ -104,7 +104,7 @@ def categorymovies(request, cat):
    genres = Genre.objects.all().order_by('name')
    categories = Category.objects.all()
    category = get_object_or_404(Category, url__exact=cat)
-   movies = category.movie_set.all().order_by('-id')
+   movies = category.movie_set.all().order_by('-year')
    paginator = Paginator(movies, 6)
    
    page = request.GET.get('page')

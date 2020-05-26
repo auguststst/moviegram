@@ -5,6 +5,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('movies.urls')),  
-    path('d5aa1729c8c253e5d917a5264855eab8/', admin.site.urls),
+    path('45ccf107862b33ec48ec52f4a78c845c/', admin.site.urls),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

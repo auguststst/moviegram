@@ -1,6 +1,20 @@
 					
 /** the solution for firefox(zoom) **/
 
+@font-face {
+  font-family: 'Bevan';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../webfonts/Bevan-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Dancing Script';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../webfonts/DancingScript-VariableFont_wght.ttf);
+}
+
 @-moz-document url-prefix() {
   
   #browser{
@@ -178,6 +192,11 @@ img:hover{
 .sidebar-module a{
 	font-weight: normal!important;
 	font-size: 24px;
+}
+.sidebar-module a:hover{
+	color: #000!important;
+	font-weight: bold!important;
+	text-decoration: none;
 }
 
 

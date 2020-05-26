@@ -7,7 +7,7 @@ from .models import Category, Genre, Actor, Director, Movie, TelegramChannel
 
 
 class MovieAdmin(admin.ModelAdmin):
-	list_display = ("title","telegram","wall")
+	list_display = ("title","telegram","wall","year")
 	list_display_links = ("telegram",)
 	list_filter = ("category",)
 	search_fields = ("title",)

@@ -27,9 +27,9 @@
                     <a href ="{% url 'detail' movie.id %}"><img class="img-thumbnail" src = "{{ movie.poster.url }}"/></a>
                   </div><!-- col-lg-4 -->
                   <div class = "col-lg-8 col-md-8 col-sm-8 disc">
-                    <h3><strong>Название</strong>:{{ movie.title }}</h3>
-                    <h3><strong>Страна</strong>: {{ movie.country }} </h3>
-                    <h3><strong>Год выхода</strong>: {{ movie.year }}</h3>
+                    <h3><strong>Название:</strong>{{ movie.title }}</h3>
+                    <h3><strong>Страна:</strong> {{ movie.country }} </h3>
+                    <h3><strong>Год выхода:</strong>{{ movie.year }}</h3>
                     <h3><strong>Жанры:</strong>
                      {% for i in movie.genres.all %}
                         
