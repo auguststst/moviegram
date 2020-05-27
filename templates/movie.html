@@ -11,8 +11,50 @@
       <div class="row row-offcanvas row-offcanvas-right">
 
         <div class="col-xs-12 col-sm-9">
+          
           <div class="row" style = "margin-top:-49px!important;">
-            <div class = "col-lg-11">
+            
+
+          {% if movies.count > 1 %}
+
+          <div class = "col-lg-11">
+              <div class="page-header" style="border-bottom: none;">
+                  <h1><strong>{{ movie.title }}<strong></h1>
+                  <ul class="nav nav-tabs" role="tablist" id="mennu">
+            
+                    {%for x in movies %}
+                      <li role="presentation"><a href="#home{{forloop.counter}}" aria-controls="home{{forloop.counter}}" role="tab" data-toggle="tab">{{ forloop.counter }} часть</a></li>
+                  {% endfor %}
+                  </ul>
+              </div><!-- page-header -->
+
+          
+
+          <div class="tab-content">
+            {% for i in movies %}
+              <div role="tabpanel" class="tab-pane{% if i.title == movie.title %} active in {% endif %}" id="home{{forloop.counter}}">
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="{{ i.youtube }}" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <br>
+                <a target="_blank" href="{{ i.telegram }}" class="btn btn-lg btn-primary btn-block watch">
+                Смотреть</a>
+                <h2 id="movie-desc">{{ i.description }}</h2>
+                <p style = "margin-top: 20px; font-size: 29px;">Подробнее о  <a target="_blank" href="{{ i.wikipedia }}">{{ i.title }} </a> вы можете узнать здесь...</p>
+              </div>
+           
+           {% endfor %}
+
+          </div><!-- tab-content -->
+         </div><!-- 11 -->
+
+          
+           
+          
+          {% else %}
+
+
+          <div class = "col-lg-11">
               <div class="page-header">
                 <h1><strong>{{ movie.title }}<strong></h1>
               </div>
@@ -22,15 +64,22 @@
             <br>
             <a target="_blank" href="{{ movie.telegram }}" class="btn btn-lg btn-primary btn-block watch">
             Смотреть</a>
-            <h2 id="mobdesc">{{ movie.description }}</h2>
+            <h2 id="movie-desc">{{ movie.description }}</h2>
             <p style = "margin-top: 20px; font-size: 29px;">Подробнее о  <a target="_blank" href="{{ movie.wikipedia }}">{{ movie.title }} </a> вы можете узнать здесь...</p>
-            </div><!-- 12 --> 
+          </div><!-- 11 --> 
+
+
+           {% endif %}
+
+
+
+
+
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
-
+         
          {% include 'sidebar.html' %}
-
-
+               
 
 
 {% endblock %}

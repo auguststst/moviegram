@@ -38,13 +38,14 @@ def detail(request, pk):
 	movie = get_object_or_404(Movie,pk=pk)
 	genres = Genre.objects.all().order_by('name')
 	categories = Category.objects.all()
-
+	movies = Movie.objects.filter(telegram__exact=movie.telegram)
+	
 	context = {
 
 		"movie":movie,
 		"genres": genres,
 		'categories': categories,
-
+		"movies": movies,
 	}
 	return render(request, template, context)
 

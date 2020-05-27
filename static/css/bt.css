@@ -247,7 +247,9 @@ img:hover{
 .disc h3 strong{
 	font-size: 29px;
 }
-
+#mennu a{
+	font-size: 34px!important;
+}
 
 					/*--------- pagination ---------*/
 
@@ -395,6 +397,14 @@ img:hover{
 /*Small devices (landscape phones, 576px and up)*/
 
 @media only screen and (max-width: 576px) {
+	body{
+	font-family: 'PT Serif', serif!important;
+	}
+	
+	.jumbotron strong{
+		font-size: 67px!important;
+	}
+
 	.navbar-nav > li > a {
     	text-align: center!important;
 	}
@@ -521,8 +531,8 @@ img:hover{
 	#component{
 		padding: 0 0;
 	}
-	#mobdesc{
-		text-align: justify;
+	#movie-desc{
+		text-align: justify!important;
 	}	
 	
 }	
