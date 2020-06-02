@@ -37,11 +37,12 @@
   	height: 400px!important;
   }
 
+
 }
 					/*------- general -------*/
 
 *{
-	zoom: 94%!important;
+	zoom: 93.6%!important;
 	font-size: 106%;
 }
 
@@ -169,6 +170,30 @@ img:hover{
 	margin-left: 0;
 }
 
+#languages a{
+	font-size: 26px!important;
+	margin-left: 13px;
+	font-family: Tahoma;
+	color: #000;
+}
+
+#languages a:hover{
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#languages{
+	height: 20px!important;
+	padding-top: 31px;
+	margin-top: -20px;
+	text-align: right;
+}
+
+#languages a:nth-child(1){
+	margin-left: 0;
+}
+
+
 
 						/*--------- sidebar  -------*/
 
@@ -247,6 +272,7 @@ img:hover{
 .disc h3 strong{
 	font-size: 29px;
 }
+
 #mennu a{
 	font-size: 34px!important;
 }
@@ -432,6 +458,7 @@ img:hover{
 	.jumbotron{
 		margin-top: -30px;
 		text-align: center;
+		height: 370px;	
 	}
 
 	.jumbotron h2{
@@ -533,6 +560,15 @@ img:hover{
 	}
 	#movie-desc{
 		text-align: justify!important;
+	}
+
+	#languages{
+		text-align: center!important;
+	}
+	
+	#languages a{
+		font-size: 28px!important;
+		color: blue;
 	}	
 	
 }	

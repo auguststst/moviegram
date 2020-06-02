@@ -200,7 +200,7 @@ def search(request):
    #file = open("/home/august/mg/logfile","a+")
    #file.write(query)
    #file.close()
-   results = Movie.objects.filter(Q(title__icontains=query) | Q(year__icontains=query))
+   results = Movie.objects.filter(Q(title__icontains=query) | Q(year__icontains=query)).order_by('-id')
 
    context = {
 		'results': results,

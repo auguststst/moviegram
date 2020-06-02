@@ -82,21 +82,22 @@ class Movie(models.Model):
 	
 
 	title 			= models.CharField("Название", max_length=100, unique=True)
+	short_title     	= models.CharField("Короткое название", max_length=100, blank=True, help_text='для фильмов которые делятся на части')
 	poster 			= models.ImageField("Изображение", upload_to="movies/")
-	description 	= models.TextField("Описание")
+	description 		= models.TextField("Описание")
 	year 			= models.PositiveSmallIntegerField("Год Выпуска", default=2020)
 	
 	country			= models.CharField("Страна", max_length=30)
 	directors		= models.ManyToManyField(Director, verbose_name="режиссеры")
 	actors			= models.ManyToManyField(Actor, verbose_name="актеры", blank=True)
 	genres 			= models.ManyToManyField(Genre, verbose_name="жанры")
-	world_premiere  = models.DateField("Премьера", default=timezone.now)
+	world_premiere  	= models.DateField("Премьера", default=timezone.now)
 
 
 	wall 			= models.BooleanField("Главная страница", default=False)
 	telegram		= models.URLField("Telegram", max_length=100)
 	youtube			= models.URLField("Youtube", max_length=100,help_text='https://www.youtube.com/embed/')
-	wikipedia       = models.URLField("Wikipedia", max_length=100)
+	wikipedia       	= models.URLField("Wikipedia", max_length=100)
 
 
 	category 		= models.ForeignKey(
