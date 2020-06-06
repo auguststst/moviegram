@@ -4,7 +4,7 @@ from .models import Movie, Genre, Category, TelegramChannel
 from django.core.paginator import Paginator, EmptyPage, InvalidPage, PageNotAnInteger
 from django.db.models import Q
 from django.core.validators import URLValidator
-
+from django.utils import translation
 
 
 class PageUrl:
@@ -17,7 +17,7 @@ def index(request):
 	
 	template = 'index.html'
 
-	movies = Movie.objects.filter(wall=True).order_by('-id')
+	movies = Movie.objects.filter(wall=True).order_by('-id').exclude(title=None)
 	genres = Genre.objects.all().order_by('name')
 	categories = Category.objects.all()
 
@@ -62,9 +62,9 @@ def genremovies(request, slug):
 	    pag = get_object_or_404(Category, url__exact=PageUrl.i)
 	
 	if pag:
-	    movie_list = genre.movie_set.all().order_by('-year').filter(category__exact=pag)
+	    movie_list = genre.movie_set.all().order_by('-year').filter(category__exact=pag).exclude(title=None)
 	else:
-	    movie_list = genre.movie_set.all().order_by('-year')
+	    movie_list = genre.movie_set.all().order_by('-year').exclude(title=None)
 
 	
 
@@ -105,7 +105,7 @@ def categorymovies(request, cat):
    genres = Genre.objects.all().order_by('name')
    categories = Category.objects.all()
    category = get_object_or_404(Category, url__exact=cat)
-   movies = category.movie_set.all().order_by('-year')
+   movies = category.movie_set.all().order_by('-year').exclude(title=None)
    paginator = Paginator(movies, 6)
    
    page = request.GET.get('page')
@@ -200,7 +200,7 @@ def search(request):
    #file = open("/home/august/mg/logfile","a+")
    #file.write(query)
    #file.close()
-   results = Movie.objects.filter(Q(title__icontains=query) | Q(year__icontains=query)).order_by('-id')
+   results = Movie.objects.filter(Q(title__icontains=query) | Q(year__icontains=query)).order_by('-id').exclude(title=None)
 
    context = {
 		'results': results,
@@ -210,6 +210,9 @@ def search(request):
    return render(request, "search.html", context)
 
 
-
-	
-	
+def changelanguage(request, language_code):
+	#redirect_to = request.META.get('HTTP_REFERER')
+   language_code = language_code
+   translation.activate(language_code)
+   request.session[translation.LANGUAGE_SESSION_KEY] = language_code
+   return redirect('index')

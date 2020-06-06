@@ -97,7 +97,7 @@ class Movie(models.Model):
 	wall 			= models.BooleanField("Главная страница", default=False)
 	telegram		= models.URLField("Telegram", max_length=100)
 	youtube			= models.URLField("Youtube", max_length=100,help_text='https://www.youtube.com/embed/')
-	wikipedia       	= models.URLField("Wikipedia", max_length=100)
+	wikipedia       	= models.URLField("Wikipedia", max_length=100, blank=True)
 
 
 	category 		= models.ForeignKey(

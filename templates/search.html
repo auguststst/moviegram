@@ -2,7 +2,7 @@
 
 {% block title %} Поиск {% endblock %}
 
-{% load static %}
+{% load static i18n %}
 
 {% block content %}
 
@@ -19,7 +19,7 @@
 {% endfor %}
 {% else %}
   <div id = "component">
-    <h1 class="text-center">Ничего не найдено...</h1>
+    <h1 class="text-center">{% trans "Ничего не найдено..." %}</h1>
   </div>
 {% endif %}
 

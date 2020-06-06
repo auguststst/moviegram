@@ -4,7 +4,7 @@
 
 {% block content %}
 
-{% load static %}
+{% load static i18n %}
 	
 	  <!-- second part -->
      <div class="container second">
@@ -24,20 +24,20 @@
                   <br/>
                   <br/>
                   <div class = "col-lg-4 col-md-4 col-sm-4">
-                    <a href ="{% url 'detail' movie.id %}"><img class="img-thumbnail" src = "{{ movie.poster.url }}"/></a>
+                    <a href ="{% url 'detail' movie.id %}"><img class="img-thumbnail" src = "{{ movie.poster.url }}" alt="{{ movie.title  }}"/></a>
                   </div><!-- col-lg-4 -->
                   <div class = "col-lg-8 col-md-8 col-sm-8 disc">
-                    <h3><strong>Название:</strong>{{ movie.title }}</h3>
-                    <h3><strong>Страна:</strong> {{ movie.country }} </h3>
-                    <h3><strong>Год выхода:</strong>{{ movie.year }}</h3>
-                    <h3><strong>Жанры:</strong>
+                    <h3><strong>{% trans "Название" %}:</strong>{{ movie.title }}</h3>
+                    <h3><strong>{% trans "Страна" %}:</strong> {{ movie.country }} </h3>
+                    <h3><strong>{% trans "Год выхода" %}:</strong>{{ movie.year }}</h3>
+                    <h3><strong>{% trans "Жанры" %}:</strong>
                      {% for i in movie.genres.all %}
                         
                         {{ i.name }},
                      
                      {% endfor %}
                    </h3>
-                    <h3><strong>Режиссер:</strong>
+                    <h3><strong>{% trans "Режиссер" %}:</strong>
                       {% for i in movie.directors.all %}
                           
                           {% if i.wikipedia %}
@@ -55,7 +55,7 @@
                     </h3>
 		    {% if movie.actors.all %}
                     <br/>
-                    <h3><strong>В ролях:</strong> 
+                    <h3><strong>{% trans "В ролях" %}:</strong> 
                       {% for i in movie.actors.all %}
                         
                         {% if i.wikipedia %}
@@ -74,7 +74,7 @@
 
 		{% endif %}
                     </h3>
-                    <h3><strong>Премьера:</strong> {{ movie.world_premiere }}</h3>
+                    <h3><strong>{% trans "Премьера" %}:</strong> {{ movie.world_premiere }}</h3>
                   </div><!-- row -->
                 </div>
               </div><!-- chapter col-lg-10 -->
@@ -86,7 +86,7 @@
           
           <ul class ="pager hidden-lg hidden-md hidden-sm visible-xs">
           {% if movies.has_previous %}
-            <li><a href="?page={{ movies.previous_page_number }}">Назад</a></li>
+            <li><a href="?page={{ movies.previous_page_number }}">{% trans "Назад" %}</a></li>
           {% endif %}
     
           {% for pg in movies.paginator.page_range %}
@@ -98,7 +98,7 @@
           {% endfor %}
     
           {% if movies.has_next %}
-              <li><a href="?page={{ movies.next_page_number }}">Вперед</a></li>
+              <li><a href="?page={{ movies.next_page_number }}">{% trans "Вперед" %}</a></li>
           {% endif %}
           
           </ul>
@@ -111,7 +111,7 @@
 
 <ul class ="pager hidden-xs">
     {% if movies.has_previous %}
-      <li><a href="?page={{ movies.previous_page_number }}">Назад</a></li>
+      <li><a href="?page={{ movies.previous_page_number }}">{% trans "Назад" %}</a></li>
     {% endif %}
     
     {% for pg in movies.paginator.page_range %}
@@ -123,7 +123,7 @@
     {% endfor %}
     
     {% if movies.has_next %}
-       <li><a href="?page={{ movies.next_page_number }}">Вперед</a></li>
+       <li><a href="?page={{ movies.next_page_number }}">{% trans "Вперед" %}</a></li>
     {% endif %}
 </ul>
 

@@ -16,6 +16,7 @@ ALLOWED_HOSTS = ['194.58.92.196','www.themoviegram.com']
 
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'movies',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -33,6 +34,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 
@@ -90,7 +92,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = ('ru')
 
 TIME_ZONE = 'UTC'
 
@@ -99,6 +101,18 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+gettext = lambda s: s
+
+LANGUAGES = (
+    ('ru', gettext('Russian')),
+    ('en', gettext('English')),
+)
+
+LOCALE_PATHS = (
+	os.path.join(BASE_DIR, 'locale'),
+)
 
 
 STATIC_URL = '/static/'

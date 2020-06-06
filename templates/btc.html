@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
-{% load static %}
+{% load static i18n %}
+
+{% block description %}{% trans "Ваше пожертвование поможет нам продолжать разработку Moviegram как свободной платформы для поиска и просмотра фильмов. Только благодаря вашей поддержке мы сможем продолжать предоставлять доступ к Moviegram людям со всего мира." %} {% endblock %}
 
 {% block content %}
 
@@ -17,15 +19,13 @@
     
     <br />
     
-    <h3 class="text-center">Поддержите нас</h3>
+    <h3 class="text-center">{% trans "Поддержите нас" %}</h3>
     
     <a target="_blank" href="https://bitcoin.org/ru/" class="text-center" id="adress">1dGggQBGDvyQ1p61vQ4bwk54YQRWcYDZc</a>
 
     
     <br/>
-    <p id = "telegram-info">
-     Ваше пожертвование поможет нам продолжать разработку Moviegram как свободной платформы для поиска и просмотра фильмов. Только благодаря вашей поддержке мы сможем продолжать предоставлять доступ к Moviegram людям со всего мира.
-    </p>
+    <p id = "telegram-info">{% trans "Ваше пожертвование поможет нам продолжать разработку Moviegram как свободной платформы для поиска и просмотра фильмов. Только благодаря вашей поддержке мы сможем продолжать предоставлять доступ к Moviegram людям со всего мира." %}</p>
  </div><!-- telegram block -->
 
 {% endblock %}

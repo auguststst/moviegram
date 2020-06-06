@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 
 <html lang="ru">
@@ -6,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="{% block description %}Наш сайт предназначен для поиска и просмотра фильмов, предварительно скачав их и подгрузив вы сможете смотреть в дальнейшем без интернета{% endblock%}">
+    <meta name="description" content="{% block description %}{% trans "Наш сайт предназначен для поиска и просмотра фильмов, предварительно скачав их и подгрузив вы сможете смотреть в дальнейшем без интернета" %}{% endblock%}">
     <title>{% block title %}Moviegram{% endblock %}</title>
     <link href = "{% static 'css/bt.css' %}" rel = "stylesheet">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -55,23 +56,23 @@
               <li><a href="{% url 'categorymovies' a.url %}">{{ a.name }}</a></li>
             {% endfor %}
             <li class="dropdown hidden-xs">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Подборки<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Подборки" %}<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Скоро на сайте</a></li>
+                <li><a href="#">{% trans "Скоро на сайте" %}</a></li>
                 <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Поддержка</li>
-                <li><a href="{% url 'telegram' %}">О сайте</a></li>
-                <li><a href="{% url 'email' %}">Контакты</a></li>
-                <li><a href="{% url 'donate' %}">Пожертвовать на сайт</a></li>
+                <li class="dropdown-header">{% trans "Поддержка" %}</li>
+                <li><a href="{% url 'telegram' %}">{% trans "О сайте" %}</a></li>
+                <li><a href="{% url 'email' %}">{% trans "Контакты" %}</a></li>
+                <li><a href="{% url 'donate' %}">{% trans "Пожертвовать на сайт" %}</a></li>
               </ul>
             </li>
           </ul>
 
           <form method="GET" autocomplete="off" action="{% url 'search' %}" class="navbar-form navbar-left hidden-sm hidden-md hidden-xs" id="search">
             <div class="form-group">
-              <input name = "q" value="{{ request.GET.q }}" type="text" class="form-control" placeholder="Поиск...">
+              <input name = "q" value="{{ request.GET.q }}" type="text" class="form-control" placeholder="{% trans 'Поиск...' %}">
             </div>
-            <button type="submit" class="btn btn-primary">Поиск</button>
+            <button type="submit" class="btn btn-primary">{% trans "Поиск" %}</button>
           </form>
 
           <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs" id ="browser">

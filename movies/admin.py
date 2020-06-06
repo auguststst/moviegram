@@ -3,10 +3,10 @@ from django.contrib import admin
 # Register your models here.
 from django.utils.safestring import mark_safe
 from .models import Category, Genre, Actor, Director, Movie, TelegramChannel
+from modeltranslation.admin import TranslationAdmin
 
 
-
-class MovieAdmin(admin.ModelAdmin):
+class MovieAdmin(TranslationAdmin):
 	list_display = ("title","telegram","wall","year")
 	list_display_links = ("telegram",)
 	list_filter = ("category",)
@@ -20,13 +20,13 @@ class MovieAdmin(admin.ModelAdmin):
 	
 	get_image.short_description = "Изображение"
 
-class MovieActor(admin.ModelAdmin):
+class MovieActor(TranslationAdmin):
 	list_display = ("id","name", "wikipedia")
 	list_display_links = ("name",)
 	search_fields = ("name", "wikipedia")
 
 
-class MovieDirector(admin.ModelAdmin):
+class MovieDirector(TranslationAdmin):
 	list_display = ("id","name", "wikipedia")
 	list_display_links = ("name",)
 	search_fields = ("name", "wikipedia")

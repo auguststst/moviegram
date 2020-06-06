@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}{{ category.name }} {% endblock %}
 
-{% load static %}
+{% load static i18n %}
 
 
 {% block content %}
@@ -37,17 +37,17 @@
             <div class="col-xs-12 col-md-6 col-sm-6 col-lg-4 infinite-item">
               
               <h2>{{ a.title }}</h2>
-              <a href = "{% url 'detail' a.id %}"><img id="sz" src = "{{a.poster.url}}" id ="transperent" class = "img-thumbnail"/></a>
+              <a href = "{% url 'detail' a.id %}"><img id="sz" src = "{{a.poster.url}}" alt="{{ a.title }}" id ="transperent" class = "img-thumbnail"/></a>
               
               <p class = "inside">{{a.ShortenText}}...</p>
               
-              <p><a class="btn btn-lg btn-default" id="more" href="{% url 'detail' a.id %}" role="button">Смотреть &raquo;</a></p>
+              <p><a class="btn btn-lg btn-default" id="more" href="{% url 'detail' a.id %}" role="button">{% trans "Смотреть" %}&raquo;</a></p>
             
             </div><!--/.col-xs-6.col-lg-4-->
           {% endfor %}
 
           {% if movies.has_next %}
-            <a style ="display: block; text-decoration: none;" href="?page={{ movies.next_page_number }}"><button type="button" class="btn btn-block" >More results</button></a>
+            <a style ="display: block; text-decoration: none;" href="?page={{ movies.next_page_number }}"><button type="button" class="btn btn-block" >{% trans "Больше"%}</button></a>
           {% endif %}
 
           </div><!--/row-->

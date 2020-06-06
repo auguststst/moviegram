@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static i18n %}
 {% block title %} {{movie.title}} {% endblock %}
 {% block description %} {{ movie.MetaDescription }}{% endblock %}
 
@@ -23,7 +23,7 @@
                   <ul class="nav nav-tabs" role="tablist" id="mennu">
             
                     {%for x in movies %}
-                      <li role="presentation"><a href="#home{{forloop.counter}}" aria-controls="home{{forloop.counter}}" role="tab" data-toggle="tab">{{ forloop.counter }} часть</a></li>
+                      <li role="presentation"><a href="#home{{forloop.counter}}" aria-controls="home{{forloop.counter}}" role="tab" data-toggle="tab">{{ forloop.counter }} {% trans "часть" %}</a></li>
                   {% endfor %}
                   </ul>
               </div><!-- page-header -->
@@ -37,10 +37,9 @@
                   <iframe class="embed-responsive-item" src="{{ i.youtube }}" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <br>
-                <a target="_blank" href="{{ i.telegram }}" class="btn btn-lg btn-primary btn-block watch">
-                Смотреть</a>
+                <a target="_blank" href="{{ i.telegram }}" class="btn btn-lg btn-primary btn-block watch">{% trans "Смотреть" %}</a>
                 <h2 id="movie-desc" style="font-size:28px;">{{ i.description }}</h2>
-                <p style = "margin-top: 20px; font-size: 29px; font-weight:bold;">Подробнее о  <a target="_blank" href="{{ i.wikipedia }}">{{ i.title }} </a> вы можете узнать здесь...</p>
+                <p style = "margin-top: 20px; font-size: 29px; font-weight:bold;">{% trans "Подробнее о" %} <a target="_blank" href="{{ i.wikipedia }}">{{ i.title }} </a> {% trans "вы можете узнать здесь..." %}</p>
               </div>
            
            {% endfor %}
@@ -62,11 +61,15 @@
               <iframe class="embed-responsive-item" src="{{ movie.youtube }}" frameborder="0" allowfullscreen></iframe>
             </div>
             <br>
-            <a target="_blank" href="{{ movie.telegram }}" class="btn btn-lg btn-primary btn-block watch">
-            Смотреть</a>
+            <a target="_blank" href="{{ movie.telegram }}" class="btn btn-lg btn-primary btn-block watch">{% trans "Смотреть" %}</a>
             <h2 id="movie-desc" style="font-size: 28px;">{{ movie.description }}</h2>
-            <p style = "margin-top: 20px; font-size: 29px; font-weight:bold;">Подробнее о  <a target="_blank" href="{{ movie.wikipedia }}">{{ movie.title }} </a> вы можете узнать здесь...</p>
-          </div><!-- 11 --> 
+            {% if movie.wikipedia %}
+	    <p style = "margin-top: 20px; font-size: 29px; font-weight:bold;">{% trans "Подробнее о" %}<a target="_blank" href="{{ movie.wikipedia }}">{{ movie.title }} </a>{% trans "вы можете узнать здесь..." %}</p>
+            {% else %}
+	    
+	    {% endif %}  
+
+	</div><!-- 11 --> 
 
 
            {% endif %}

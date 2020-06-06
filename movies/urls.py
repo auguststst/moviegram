@@ -18,6 +18,6 @@ urlpatterns = [
 	path('genremovies/<str:slug>/', views.genremovies, name='genremovies'),
 
 	path('categorymovies/<str:cat>/',views.categorymovies, name='categorymovies'),
-
+	path('language/<str:language_code>/', views.changelanguage, name='activate_language'),
 ]
 

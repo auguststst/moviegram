@@ -313,7 +313,7 @@ img:hover{
 }
 
 #telegram-info{
-	font-size: 28px;
+	font-size: 26px;
 	text-align: justify;
 	font-family: Tahoma;
 	line-height: 32px;
@@ -463,6 +463,10 @@ img:hover{
 
 	.jumbotron h2{
 		font-size: 27px!important;
+	}
+
+	.jumbotron strong{
+		font-size: 82px!important;
 	}
 	.sidebar-module{
 		margin-top: 30px!important;
