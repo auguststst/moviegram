@@ -96,6 +96,8 @@ class Movie(models.Model):
 
 	wall 			= models.BooleanField("Главная страница", default=False)
 	telegram		= models.URLField("Telegram", max_length=100)
+	online 			= models.URLField("Online", max_length=160, blank=True)
+	wallpaper 		= models.ImageField("Обложка", upload_to="wallpapers/", blank=True)
 	youtube			= models.URLField("Youtube", max_length=100,help_text='https://www.youtube.com/embed/')
 	wikipedia       	= models.URLField("Wikipedia", max_length=100, blank=True)
 

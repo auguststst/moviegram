@@ -24,14 +24,11 @@
 
           	
 	    <div id="languages">
-                <a href="#">العربية</a>
 		{% for language in languages %}
                 <a href="{% url 'activate_language' language.code %}">{{ language.name }}</a>
                	{% endfor %}
-                <a href="#">Dautsch</a>
                 <a href="#">Italiano</a>
                 <a href="#">Español</a>
-                <a href="#">Français</a>
 		<a href="#">中文</a>
             </div><!-- languages -->
 

@@ -17,7 +17,7 @@ def index(request):
 	
 	template = 'index.html'
 
-	movies = Movie.objects.filter(wall=True).order_by('-id').exclude(title=None)
+	movies = Movie.objects.filter(wall=True).order_by('-id').exclude(title=None)[:6]
 	genres = Genre.objects.all().order_by('name')
 	categories = Category.objects.all()
 

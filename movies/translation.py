@@ -19,5 +19,5 @@ class DirectorTranslationOptions(TranslationOptions):
 
 @register(Movie)
 class MovieTranslationOptions(TranslationOptions):
-	fields = ('title','short_title','poster','wall','description','country', 'world_premiere', 'telegram', 'youtube', 'wikipedia')
+	fields = ('title','short_title','poster','wall','description','country', 'world_premiere', 'telegram', 'online', 'youtube', 'wikipedia')
 
