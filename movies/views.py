@@ -5,7 +5,9 @@ from django.core.paginator import Paginator, EmptyPage, InvalidPage, PageNotAnIn
 from django.db.models import Q
 from django.core.validators import URLValidator
 from django.utils import translation
+import logging
 
+logging.basicConfig(filename="/home/august/mg/logfile", level=logging.INFO)
 
 class PageUrl:
 
@@ -119,7 +121,7 @@ def categorymovies(request, cat):
    
    context = {
 	  "page": page,
-      "genres": genres,
+          "genres": genres,
    	  "categories": categories,
    	  "movies": movies,
    	  "category": category,
@@ -197,11 +199,9 @@ def search(request):
 	
    categories = Category.objects.all()
    query = request.GET.get('q')
-   #file = open("/home/august/mg/logfile","a+")
-   #file.write(query)
-   #file.close()
+   logging.info(query)
    results = Movie.objects.filter(Q(title__icontains=query) | Q(year__icontains=query)).order_by('-id').exclude(title=None)
-
+   
    context = {
 		'results': results,
 		'categories': categories,
@@ -211,7 +211,6 @@ def search(request):
 
 
 def changelanguage(request, language_code):
-	#redirect_to = request.META.get('HTTP_REFERER')
    language_code = language_code
    translation.activate(language_code)
    request.session[translation.LANGUAGE_SESSION_KEY] = language_code

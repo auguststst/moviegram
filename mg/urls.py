@@ -10,7 +10,7 @@ urlpatterns = [
 
 
 urlpatterns += i18n_patterns(
-	path('03b81e0d332cf70c35050357747f59db/', admin.site.urls),
+	path('c5deb46a7a6031c25b71423213c4cd56/', admin.site.urls),
 	path('', include('movies.urls')),
 	prefix_default_language=False
 )
