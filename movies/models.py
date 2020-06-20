@@ -117,7 +117,8 @@ class Movie(models.Model):
 	def MetaDescription(self):
 		return self.description[:160]
 
-
+	def get_absolute_url(self):
+		return "%i/" % self.id
 
 
 

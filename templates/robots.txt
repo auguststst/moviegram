@@ -1,0 +1,24 @@
+# robots.txt file for Moviegram
+# Impossible means that you haven't found a solution yet. (Henry Ford)
+
+User-agent: *
+Disallow: /admin/
+Disallow: /genremovies/anime/
+Disallow: /genremovies/biography/
+Disallow: /genremovies/action/
+Disallow: /genremovies/detective/
+Disallow: /genremovies/documentary/
+Disallow: /genremovies/drama/
+Disallow: /genremovies/history/
+Disallow: /genremovies/comedy/
+Disallow: /genremovies/criminal/
+Disallow: /genremovies/melodrama/
+Disallow: /genremovies/adventure/
+Disallow: /genremovies/sport/
+Disallow: /genremovies/fiction/
+Disallow: /genremovies/fantasy/
+Disallow: /categorymovies/movies/
+Disallow: /categorymovies/series/
+Disallow: /categorymovies/multiki/
+
+Sitemap: https://www.themoviegram.com/sitemap.xml

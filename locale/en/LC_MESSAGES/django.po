@@ -87,7 +87,7 @@ msgstr "Watch"
 
 #: templates/categorymov.html:50
 msgid "Больше"
-msgstr "More results"
+msgstr "See more"
 
 #: templates/index.html:18
 msgid "Фильмы в Telegram"
