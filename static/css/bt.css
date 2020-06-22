@@ -122,9 +122,18 @@ img:hover{
 	-webkit-border-radius: 25px !important;
 	-moz-border-radius: 25px !important; 
 	height: 33px;
-	width: 130%;
+	width: 100%;
 	background: aliceblue;
 }
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-size: 14px;
+}
+
+.form-control{
+	font-size: 19px!important;
+}
+
 
 
 .navbar-form button[type="submit"]{
@@ -135,7 +144,6 @@ img:hover{
 	outline: none!important;
 	cursor: pointer;
 	font-weight: bold;
-	margin-left: 70px;
 	margin-top: 1px;
 
 }
@@ -418,6 +426,12 @@ img:hover{
 	font-size: 32px;
 }
 
+.center{
+	display: block; 
+	margin: 20px auto; 
+	text-align: center;
+}
+
 				/*----------- search -------------*/
 #searchpart{
 	margin-top: 50px;
@@ -481,9 +495,18 @@ img:hover{
 
 	.navbar-form input[type="text"]{
 		width: 90%;
-		height: 30px!important;
+		height: 31px!important;
 		margin: 0 auto;
 	}
+
+	.form-control{
+		font-size: 27px!important;
+	}
+
+	::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  		font-size: 19px;
+	}
+	
 	.navbar-form button[type="submit"]{
 		margin-left: 25px!important;
 		width: 90%;

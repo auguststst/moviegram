@@ -12,3 +12,22 @@ $(function() {
           });
 
 });
+
+
+function wallet(text) {
+            
+            var dummy = document.createElement("textarea");
+            
+            document.body.appendChild(dummy);
+            
+            dummy.value = text;
+            
+            dummy.select();
+            
+            document.execCommand("copy");
+            
+            alert("Copied the wallet" + " " + dummy.value);
+
+            document.body.removeChild(dummy);
+            
+        }

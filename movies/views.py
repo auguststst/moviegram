@@ -5,9 +5,9 @@ from django.core.paginator import Paginator, EmptyPage, InvalidPage, PageNotAnIn
 from django.db.models import Q
 from django.core.validators import URLValidator
 from django.utils import translation
-import logging
+#import logging
 
-logging.basicConfig(filename="/home/august/mg/logfile", level=logging.INFO)
+#logging.basicConfig(filename="/home/august/mg/logfile", level=logging.INFO)
 
 class PageUrl:
 
@@ -199,8 +199,11 @@ def search(request):
 	
    categories = Category.objects.all()
    query = request.GET.get('q')
-   logging.info(query)
-   results = Movie.objects.filter(Q(title__icontains=query) | Q(year__icontains=query)).order_by('-id').exclude(title=None)
+ #  logging.info(query)
+   results = Movie.objects.filter(Q(title__icontains=query) |
+                                  Q(year__icontains=query)  |
+                                  Q(short_title__icontains=query)
+                                  ).order_by('-id').exclude(title=None)
    
    context = {
 		'results': results,

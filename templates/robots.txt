@@ -20,5 +20,6 @@ Disallow: /genremovies/fantasy/
 Disallow: /categorymovies/movies/
 Disallow: /categorymovies/series/
 Disallow: /categorymovies/multiki/
+Disallow: /search/
 
 Sitemap: https://www.themoviegram.com/sitemap.xml
