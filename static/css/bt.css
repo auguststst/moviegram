@@ -15,6 +15,21 @@
   src: url(../webfonts/DancingScript-VariableFont_wght.ttf);
 }
 
+@font-face {
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../webfonts/PTSerif-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../webfonts/Roboto-Regular.ttf);
+}
+
+
 @-moz-document url-prefix() {
   
   body{
@@ -473,8 +488,14 @@ img:hover{
 /*Small devices (landscape phones, 576px and up)*/
 
 @media only screen and (max-width: 576px) {
+	
+	footer{
+		text-align: center!important;
+	}
+
+
 	body{
-	font-family: 'PT Serif', serif!important;
+		font-family: 'PT Serif', serif!important;
 	}
 	
 	.jumbotron strong{
@@ -497,14 +518,6 @@ img:hover{
 		width: 90%;
 		height: 31px!important;
 		margin: 0 auto;
-	}
-
-	.form-control{
-		font-size: 27px!important;
-	}
-
-	::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  		font-size: 19px;
 	}
 	
 	.navbar-form button[type="submit"]{
@@ -560,10 +573,22 @@ img:hover{
 		width: 100%;
 	}
 
-	.sidebar-module a {
-    	float: left;
-    	margin-left: 15px;
+	#mm{
+		text-align: center!important;
 	}
+
+	#mm h3{
+		font-size: 37px;
+	}
+
+	#mm a{
+		margin-left: 15px;
+	    	font-size: 29px!important;
+	}
+	#mm ol li{
+		display: inline-block!important;
+	}
+	#gm{display: none;}
 
 	#mobile-menu a:hover {
 		background: #E0FFFF!important;

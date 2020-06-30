@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Movie, Genre, Category, TelegramChannel
@@ -5,9 +6,14 @@ from django.core.paginator import Paginator, EmptyPage, InvalidPage, PageNotAnIn
 from django.db.models import Q
 from django.core.validators import URLValidator
 from django.utils import translation
-#import logging
+import logging
+import locale;
 
-#logging.basicConfig(filename="/home/august/mg/logfile", level=logging.INFO)
+if locale.getpreferredencoding().upper() != 'UTF-8':
+	locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
+
+
+logging.basicConfig(filename="/home/august/mg/logfile", level=logging.INFO)
 
 class PageUrl:
 
@@ -199,12 +205,15 @@ def search(request):
 	
    categories = Category.objects.all()
    query = request.GET.get('q')
- #  logging.info(query)
    results = Movie.objects.filter(Q(title__icontains=query) |
                                   Q(year__icontains=query)  |
                                   Q(short_title__icontains=query)
                                   ).order_by('-id').exclude(title=None)
    
+   
+   query.encode("utf-8")
+   logging.info(query)
+
    context = {
 		'results': results,
 		'categories': categories,

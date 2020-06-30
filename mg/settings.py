@@ -12,7 +12,7 @@ SECRET_KEY = config["SECRET_KEY"]
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['194.58.92.196','www.themoviegram.com']
+ALLOWED_HOSTS = ['194.58.92.196','www.themoviegram.com', 'themoviegram.com']
 
 
 INSTALLED_APPS = [

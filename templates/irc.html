@@ -7,6 +7,16 @@
 {% load static i18n %}
 	
 	  <!-- second part -->
+
+     <div id = "mm" class="hidden-lg hidden-md hidden-sm visible-xs clearfix">
+       <h3 id="gt" class="bnt btn-info" style="margin-top: -21px!important;">{% trans "Жанры" %}</h3>
+       <ol id="gm" class="list-unstyled">
+        {% for g in genres %}
+           <li><a style="font-size: 24px!important;" href="{% url 'genremovies' g.url %}" rel="nofollow">{{ g.name }}</a></li>
+        {% endfor %}  
+       </ol>
+
+    </div><!-- mm -->
      <div class="container second">
 
       <div class="row row-offcanvas row-offcanvas-right" id="xz">

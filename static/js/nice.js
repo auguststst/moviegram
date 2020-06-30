@@ -11,6 +11,11 @@ $(function() {
             $('#full, #full1, #full2, #full3, #full4, #full5, #full6, #full7, #full8, #full9, #full10').hide(300);
           });
 
+	  $("#gt").on('click',function(){
+              $(this).css("display","none");
+              $("#gm").css("display","block");
+          });
+
 });
 
 
