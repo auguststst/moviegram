@@ -3,23 +3,19 @@
 
 User-agent: *
 Disallow: /admin/
-Disallow: /genremovies/anime/
-Disallow: /genremovies/biography/
-Disallow: /genremovies/action/
-Disallow: /genremovies/detective/
-Disallow: /genremovies/documentary/
-Disallow: /genremovies/drama/
-Disallow: /genremovies/history/
-Disallow: /genremovies/comedy/
-Disallow: /genremovies/criminal/
-Disallow: /genremovies/melodrama/
-Disallow: /genremovies/adventure/
-Disallow: /genremovies/sport/
-Disallow: /genremovies/fiction/
-Disallow: /genremovies/fantasy/
-Disallow: /categorymovies/movies/
-Disallow: /categorymovies/series/
-Disallow: /categorymovies/multiki/
+Disallow: /genremovies/
+Disallow: /en/genremovies/
+Disallow: /de/genremovies/
+Disallow: /fr/genremovies/
+Disallow: /ar/genremovies/
 Disallow: /search/
+Disallow: /en/search/
+Disallow: /de/search/
+Disallow: /fr/search/
+Disallow: /ar/search/
+
+User-agent: Riddler
+Disallow: /
+
 
 Sitemap: https://www.themoviegram.com/sitemap.xml

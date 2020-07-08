@@ -242,7 +242,7 @@ msgid ""
 "делитесь фильмами со всеми"
 msgstr ""
 "mit einer kurzen Beschreibung des Films erstellen und den Film in einem "
-"wiedergegebenen nicht mehr als 1.5gb. Format  herunterladen. Schreiben Sie uns einen Link zum Kanal und "
+"wiedergegebenen nicht mehr als 2gb. Format  herunterladen. Schreiben Sie uns einen Link zum Kanal und "
 "teilen Sie Filme kostenloss "
 
 #: templates/telegram.html:31

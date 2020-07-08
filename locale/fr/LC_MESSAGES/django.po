@@ -249,7 +249,7 @@ msgid ""
 "делитесь фильмами со всеми"
 msgstr ""
 "chaine avec une courte description du film, telechargement du film possible pour "
-"format de visionnage, pas plus de 1.5Go. Envoyez-nous le lien de la chaine et "
+"format de visionnage, pas plus de 2Go. Envoyez-nous le lien de la chaine et "
 "partager des films avec tout le monde "
 
 #: templates/telegram.html:31

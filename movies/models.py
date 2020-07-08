@@ -76,7 +76,6 @@ class TelegramChannel(models.Model):
 
 
 
-
 class Movie(models.Model):
 	
 	
@@ -87,7 +86,7 @@ class Movie(models.Model):
 	description 		= models.TextField("Описание")
 	year 			= models.PositiveSmallIntegerField("Год Выпуска", default=2020)
 	
-	country			= models.CharField("Страна", max_length=30)
+	country			= models.CharField("Страна", max_length=130)
 	directors		= models.ManyToManyField(Director, verbose_name="режиссеры")
 	actors			= models.ManyToManyField(Actor, verbose_name="актеры", blank=True)
 	genres 			= models.ManyToManyField(Genre, verbose_name="жанры")

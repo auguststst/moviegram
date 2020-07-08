@@ -29,6 +29,9 @@
   src: url(../webfonts/Roboto-Regular.ttf);
 }
 
+body{
+  color: #300!important;
+}
 
 @-moz-document url-prefix() {
   
@@ -93,7 +96,6 @@
 	zoom: 93.6%!important;
 	font-size: 106%;
 }
-
 
 
 
@@ -679,6 +681,10 @@ img:hover{
 	#languages a{
 		font-size: 28px!important;
 		color: blue;
+	}
+
+	#stb{
+		border-radius: 60px!important;
 	}	
 	
 }	

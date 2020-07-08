@@ -57,7 +57,7 @@
           {% endfor %}
 
           {% if movies.has_next %}
-            <a style ="display: block; text-decoration: none;" href="?page={{ movies.next_page_number }}"><button type="button" class="btn btn-block" >{% trans "Больше"%}</button></a>
+            <a style ="display: block; text-decoration: none;" href="?page={{ movies.next_page_number }}"><button type="button" id="stb" class="btn btn-block" >{% trans "Больше"%}</button></a>
           {% endif %}
 
           </div><!--/row-->

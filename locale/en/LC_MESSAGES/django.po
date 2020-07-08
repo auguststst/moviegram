@@ -257,7 +257,7 @@ msgid ""
 "делитесь фильмами со всеми"
 msgstr ""
 "channel with short description of movie, downloading movie in possible for "
-"watching format, not more than 1.5gb. Send us the link of the channel and "
+"watching format, not more than 2gb. Send us the link of the channel and "
 "share movies with everyone "
 
 #: templates/telegram.html:31
