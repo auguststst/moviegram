@@ -205,18 +205,15 @@ def search(request):
 	
    categories = Category.objects.all()
    query = request.GET.get('q')
-   
    if query is not None:
-
-	   results = Movie.objects.filter(Q(title__icontains=query) |
-                    	                  Q(year__icontains=query)  |
-                                          Q(short_title__icontains=query)
-                                    ).order_by('-id').exclude(title=None)
-
-
-
-   query.encode("utf-8")
-   logging.info(query)
+   		results = Movie.objects.filter(Q(title__icontains=query) | 
+   								      Q(year__icontains=query)  |
+   								      Q(short_title__icontains=query)
+   								       ).order_by('-imdb').exclude(title=None)
+   		
+   	
+   		query.encode("utf-8")
+   		logging.info(query)
 
    context = {
 		'results': results,

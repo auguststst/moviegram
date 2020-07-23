@@ -2,7 +2,6 @@
 {% load static i18n %}
 {% block title %} {{movie.title}} {% endblock %}
 {% block description %} {{ movie.MetaDescription }}{% endblock %}
-
 {% block content %}
 
 {% get_current_language as LANGUAGE_CODE %}
@@ -63,7 +62,8 @@
 	        <h2 id="movie-desc{{forloop.counter}}">{{ i.description | truncatechars:160 }}</h2>
                 <h2 id="full{{forloop.counter}}" style="min-height:100px;">{{ i.description | linebreaksbr }}</h2>
 		<p style = "margin-top: 20px; font-size: 29px; font-weight:bold;">{% trans "Подробнее о" %} <a target="_blank" href="{{ i.wikipedia }}">{{ i.title }} </a> {% trans "вы можете узнать здесь..." %}</p>
-              </div>
+            	<i id="imbd" class="fa fa-star" aria-hidden="true"> {{ i.imdb }}</i>  
+	    </div>
 
 	    
               {% if i.online and LANGUAGE_CODE == "ru" %}
@@ -106,8 +106,8 @@
 
 
           <div class = "col-lg-11">
-              <div class="page-header">
-                <h1><strong>{{ movie.title }}</strong></h1>
+              <div class="page-header clearfix">
+		<h1><strong>{{ movie.title }}</strong>  <i style="float: right; font-size: 36px;" class="fa fa-star" aria-hidden="true"> {{ movie.imdb }}</i></h1>
               </div>
             <div class="embed-responsive embed-responsive-16by9">
               <iframe class="embed-responsive-item" src="{{ movie.youtube }}" frameborder="0" allowfullscreen></iframe>

@@ -335,6 +335,14 @@ img:hover{
 	font-size: 34px!important;
 }
 
+#imbd{
+	float: right; 
+	font-size: 36px; 
+	top: 60px; 
+	right: 20px; 
+	position: absolute;
+}
+
 
 
 
@@ -685,6 +693,10 @@ img:hover{
 
 	#stb{
 		border-radius: 60px!important;
+	}
+	
+	#imbd{
+		top: 0;
 	}	
 	
 }	

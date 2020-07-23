@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block title %}{{ genre.name }} {% endblock %}
-
 {% block content %}
 
 {% load static i18n %}
@@ -37,9 +36,9 @@
                     <a href ="{% url 'detail' movie.id %}"><img class="img-thumbnail" src = "{{ movie.poster.url }}" alt="{{ movie.title  }}"/></a>
                   </div><!-- col-lg-4 -->
                   <div class = "col-lg-8 col-md-8 col-sm-8 disc">
-                    <h3><strong>{% trans "Название" %}:</strong>{{ movie.title }}</h3>
+                    <h3><strong>{% trans "Название" %}:</strong> {{ movie.title }}</h3>
                     <h3><strong>{% trans "Страна" %}:</strong> {{ movie.country }} </h3>
-                    <h3><strong>{% trans "Год выхода" %}:</strong>{{ movie.year }}</h3>
+                    <h3><strong>{% trans "Год выхода" %}:</strong> {{ movie.year }}</h3>
                     <h3><strong>{% trans "Жанры" %}:</strong>
                      {% for i in movie.genres.all %}
                         

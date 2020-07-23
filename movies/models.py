@@ -99,7 +99,7 @@ class Movie(models.Model):
 	wallpaper 		= models.ImageField("Обложка", upload_to="wallpapers/", blank=True)
 	youtube			= models.URLField("Youtube", max_length=100,help_text='https://www.youtube.com/embed/')
 	wikipedia       	= models.URLField("Wikipedia", max_length=100, blank=True)
-
+	imdb 			= models.FloatField("imdb", max_length=10, default=10)
 
 	category 		= models.ForeignKey(
 		Category, verbose_name="Категория", on_delete=models.SET_NULL, null=True
