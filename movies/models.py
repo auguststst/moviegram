@@ -9,6 +9,10 @@ class Category(models.Model):
 	name = models.CharField("Категория", max_length=100)
 	url  = models.SlugField(max_length=160, unique=True)
 	
+
+	def get_items(self):
+	   return self.movie_set.exclude(title=None).count()
+
 	def __str__(self):
 		return self.name
 

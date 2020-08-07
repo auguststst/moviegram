@@ -4,8 +4,6 @@
 {% load static i18n %}
 
 {% block content %}
-
-	
    <!-- second part -->
      <div class="container second">
 
@@ -33,7 +31,7 @@
                  <li><a href="{% url 'genremovies' g.url %}" rel="nofollow">{{ g.name }}</a></li>
              {% endfor %}  
             </ol>
-         </div><!-- mm -->
+          </div><!-- mm -->
 	<br />
 
 	  {% if movies.has_previous %}

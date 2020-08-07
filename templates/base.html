@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="{% block description %}{% trans "Наш сайт предназначен для поиска и просмотра фильмов, предварительно скачав их и подгрузив вы сможете смотреть в дальнейшем без интернета" %}{% endblock%}">
     <title>{% block title %}Moviegram{% endblock %}</title>
-    <link href = "{% static 'css/bt.css' %}" rel = "stylesheet">
+    <link href = "{% static 'css/fast.css' %}" rel = "stylesheet">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/logo.png' %}" />
     <link href="{% static 'css/all.min.css' %}" rel="stylesheet">
@@ -22,23 +22,16 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->      
     {% block extrahead %}
-       <!-- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> -->
        <script defer src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="crossorigin="anonymous"></script>
        <script defer src="{% static 'js/bootstrap.min.js' %}"></script>
        <script defer src="{% static 'js/nice.js' %}"></script>       
     {% endblock extrahead %}
    </head>
   <body> 
+   <nav class="navbar navbar-default">
+    <div class="container mid">
 
-
-    <!-- ********************************************** -->
-
-    <nav class="navbar navbar-default">
-
-
-      <div class="container mid">
-
-		<div class="navbar-header">
+    <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -46,16 +39,14 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="{% url 'index' %}">Moviegram</a>
-        </div>
+    </div>
 
-         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         
-        <!--<div id="navbar"> -->
-        
-        <ul class="nav navbar-nav" id="mobile-menu">
+	<ul class="nav navbar-nav" id="mobile-menu">
 
             {% for a in categories %}
-              <li><a href="{% url 'categorymovies' a.url %}" rel="nofollow">{{ a.name }} {% if LANGUAGE_CODE == "ru" %} <span class="hidden-lg hidden-md hidden-sm" style="font-weight: bold; color:#2F4F4F; font-size:23px;">{{ a.movie_set.all.count }}</span> {% endif %}</a></li>
+              <li><a href="{% url 'categorymovies' a.url %}" rel="nofollow">{{ a.name }} <span class="hidden-lg hidden-md hidden-sm" style="font-weight: bold; color:#2F4F4F; font-size:23px;">{{ a.get_items }}</span> </a></li>
             {% endfor %}
 
               <li class="dropdown hidden-xs">
@@ -87,9 +78,6 @@
       </div><!--/.nav-collapse -->
 	</div>
 </nav>
-
-
-
 
 {% block content %}
 

@@ -5,8 +5,6 @@
 {% load static %}
 
 {% block content %}
-
-
 <!-- second part -->
      <div class="container second">
 
@@ -30,13 +28,13 @@
             </div><!-- languages -->
 
 
-	    </div>
+	  </div>
 
           <div class="container hidden-lg hidden-md hidden-sm visible-xs text-center" id="phoneicons">
             <a href="{% url 'telegram' %}">{% trans "О сайте" %}</a>
             <a href="{% url 'email' %}">{% trans "Контакты" %}</a>
             <a href="{% url 'donate' %}">{% trans "Поддержите нас" %}</a>
-        </div>
+          </div>
 
 
           <form method="GET" autocomplete="off" action="{% url 'search' %}" class="navbar-form hidden-md hidden-sm hidden-lg visible-xs">
@@ -44,7 +42,7 @@
               <input name = "q" value="{{ request.GET.q }}" type="text" class="form-control" placeholder="{% trans 'Поиск...' %}">
             </div>
             <button type="submit" class="btn btn-primary">{% trans "Поиск" %}</button>
-        </form>
+          </form>
 
           <div class="row" id="eq">
 
@@ -70,10 +68,7 @@
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
 
-        
-
-
-      {% include 'sidebar.html' %}
+       {% include 'sidebar.html' %}
 <hr />
 
 
