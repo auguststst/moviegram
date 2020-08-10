@@ -61,7 +61,10 @@
 	        <h2 id="movie-desc{{forloop.counter}}">{{ i.description | truncatechars:160 }}</h2>
                 <h2 id="full{{forloop.counter}}" style="min-height:100px;">{{ i.description | linebreaksbr }}</h2>
 		<p style = "margin-top: 20px; font-size: 29px; font-weight:bold;">{% trans "Подробнее о" %} <a target="_blank" href="{{ i.wikipedia }}">{{ i.title }} </a> {% trans "вы можете узнать здесь..." %}</p>
-            	<i id="imbd" class="fa fa-star" aria-hidden="true"> {{ i.imdb }}</i>  
+            	<br/>
+		<br/>
+		<br/>
+		<i id="imbd" class="fa fa-star" aria-hidden="true"> {{ i.imdb }}</i>  
 	    </div>
 
 	    
@@ -134,8 +137,13 @@
             
 	    {% if movie.wikipedia %}
 	    	<p style = "margin-top: 20px; font-size: 29px; font-weight:bold;">{% trans "Подробнее о" %}<a target="_blank" href="{{ movie.wikipedia }}">{{ movie.title }} </a>{% trans "вы можете узнать здесь..." %}</p>
-            {% else %}
-	    
+            	<br />
+		<br />
+		<br />
+	    {% else %}
+		<br />
+                <br />
+		<br />
 	    {% endif %}  
 
 	</div><!-- 11 --> 
@@ -184,6 +192,9 @@
 
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
+	{% for film in movies|slice:"1" %}
+	    <a class="hidden-lg hidden-md hidden-sm btn btn-lg btn-default btn-block" style="position: fixed; bottom: 0; background-color: #f0f0f0;" href="{% url 'detail' film.Random %}">{% trans "Случайный фильм" %}</a>
+	{% endfor %}
          
          {% include 'sidebar.html' %}
                

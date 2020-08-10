@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-09 23:43+0100\n"
+"POT-Creation-Date: 2020-08-10 07:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,112 +18,113 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: templates/base.html:10
+#: templates/base.html:12
 msgid ""
 "Наш сайт предназначен для поиска и просмотра фильмов, предварительно скачав "
 "их и подгрузив вы сможете смотреть в дальнейшем без интернета"
 msgstr ""
-"Notre site Web est destine a rechercher et regarder des films, a les pre-telecharger "
-"Vous pouvez regarder plus tard sans Internet"
+"Notre site Web est destine a rechercher et regarder des films, a les pre-"
+"telecharger Vous pouvez regarder plus tard sans Internet"
 
-
-#: templates/base.html:59
+#: templates/base.html:53
 msgid "Подборки"
 msgstr "Selection"
 
-#: templates/base.html:61
-msgid "Скоро на сайте"
-msgstr "Sorties de films"
+#: templates/base.html:56 templates/movie.html:196
+msgid "Случайный фильм"
+msgstr "Film Aléatoire"
 
-#: templates/base.html:63
+#: templates/base.html:59
 msgid "Поддержка"
 msgstr "Soutien"
 
-#: templates/base.html:64 templates/index.html:39
+#: templates/base.html:60 templates/index.html:34
 msgid "О сайте"
 msgstr "A propos du site Web"
 
-#: templates/base.html:65 templates/index.html:40
+#: templates/base.html:61 templates/index.html:35
 msgid "Контакты"
 msgstr "Nous contacter"
 
-#: templates/base.html:66
+#: templates/base.html:62
 msgid "Пожертвовать на сайт"
 msgstr "Faire un don"
 
-#: templates/base.html:73 templates/index.html:47
+#: templates/base.html:69 templates/index.html:42
 msgid "Поиск..."
 msgstr "Chercher..."
 
-#: templates/base.html:75 templates/index.html:49
+#: templates/base.html:71 templates/index.html:44
 msgid "Поиск"
 msgstr "Chercher"
 
-#: templates/btc.html:5 templates/btc.html:28
+#: templates/btc.html:4 templates/btc.html:28
 msgid ""
 "Ваше пожертвование поможет нам продолжать разработку Moviegram как свободной "
 "платформы для поиска и просмотра фильмов. Только благодаря вашей поддержке "
 "мы сможем продолжать предоставлять доступ к Moviegram людям со всего мира."
 msgstr ""
-"Votre don nous aidera a continuer a travailler sur Movigram en tant que plateforme gratuite "
-"pour rechercher et regarder des films. Ce n'est que grace a votre don que nous pourrons "
-"pour continuer a donner un acces a Moviegram pour les gens de partout dans le monde."
+"Votre don nous aidera a continuer a travailler sur Movigram en tant que "
+"plateforme gratuite pour rechercher et regarder des films. Ce n'est que "
+"grace a votre don que nous pourrons pour continuer a donner un acces a "
+"Moviegram pour les gens de partout dans le monde."
 
-#: templates/btc.html:22 templates/index.html:41
+#: templates/btc.html:19 templates/index.html:36
 msgid "Поддержите нас"
 msgstr "Soutien"
 
-#: templates/categorymov.html:44 templates/index.html:63
-#: templates/movie.html:48 templates/movie.html:53 templates/movie.html:117
-#: templates/movie.html:121
-msgid "Смотреть"
-msgstr "Regarder"
-
-#: templates/categorymov.html:50
-msgid "Больше"
-msgstr "Plus de resultats"
-
-#: templates/index.html:18
-msgid "Фильмы в Telegram"
-msgstr "Films telegrammes"
-
-#: templates/index.html:19
-msgid "Смотрите и скачивайте фильмы в Telegram вместе с Moviegram..."
-msgstr "Regardez et telechargez des films sur Telegram avec Moviegram ..."
-
-#: templates/irc.html:30
-msgid "Название"
-msgstr "Titre"
-
-#: templates/irc.html:31
-msgid "Страна"
-msgstr "Pays"
-
-#: templates/irc.html:32
-msgid "Год выхода"
-msgstr "Liberation"
-
-#: templates/irc.html:33 templates/sidebar.html:12
+#: templates/categorymov.html:28 templates/irc.html:11 templates/irc.html:42
+#: templates/sidebar.html:12
 msgid "Жанры"
 msgstr "Le genre"
 
+#: templates/categorymov.html:51 templates/index.html:58
+#: templates/movie.html:48 templates/movie.html:53 templates/movie.html:123
+#: templates/movie.html:127
+msgid "Смотреть"
+msgstr "Regarder"
+
+#: templates/categorymov.html:57
+msgid "Больше"
+msgstr "Plus de resultats"
+
+#: templates/index.html:16
+msgid "Фильмы в Telegram"
+msgstr "Films telegrammes"
+
+#: templates/index.html:17
+msgid "Смотрите и скачивайте фильмы в Telegram вместе с Moviegram..."
+msgstr "Regardez et telechargez des films sur Telegram avec Moviegram ..."
+
+#: templates/irc.html:39
+msgid "Название"
+msgstr "Titre"
+
 #: templates/irc.html:40
+msgid "Страна"
+msgstr "Pays"
+
+#: templates/irc.html:41
+msgid "Год выхода"
+msgstr "Liberation"
+
+#: templates/irc.html:49
 msgid "Режиссер"
 msgstr "Realisateur"
 
-#: templates/irc.html:58
+#: templates/irc.html:67
 msgid "В ролях"
 msgstr "Acteur"
 
-#: templates/irc.html:77
+#: templates/irc.html:86
 msgid "Премьера"
 msgstr "Premiere"
 
-#: templates/irc.html:89 templates/irc.html:114
+#: templates/irc.html:98 templates/irc.html:123
 msgid "Назад"
 msgstr "Precedent"
 
-#: templates/irc.html:101 templates/irc.html:126
+#: templates/irc.html:110 templates/irc.html:135
 msgid "Вперед"
 msgstr "Suivant"
 
@@ -131,15 +132,15 @@ msgstr "Suivant"
 msgid "часть"
 msgstr "partie"
 
-#: templates/movie.html:61 templates/movie.html:130
+#: templates/movie.html:63 templates/movie.html:139
 msgid "Подробнее о"
 msgstr "Plus de details sur "
 
-#: templates/movie.html:61 templates/movie.html:130
+#: templates/movie.html:63 templates/movie.html:139
 msgid "вы можете узнать здесь..."
 msgstr "vous pouvez le decouvrir ici ..."
 
-#: templates/search.html:22
+#: templates/search.html:23
 msgid "Ничего не найдено..."
 msgstr "Rien n'a ete trouve..."
 
@@ -153,16 +154,15 @@ msgid ""
 "интересный. С его помощью вы сможете найти свои любимые фильмы а также "
 "смотреть новинки первыми."
 msgstr ""
-"Ce site est assez interessant. Avec lui, vous pouvez trouver "
-"vos films preferes et regardez d'abord "
-"les nouveaux articles"
+"Ce site est assez interessant. Avec lui, vous pouvez trouver vos films "
+"preferes et regardez d'abord les nouveaux articles"
 
 #: templates/sidebar.html:22
 msgid "Другое"
 msgstr "Autre"
 
-#: templates/sidebar.html:24 templates/telegram.html:23
-#: templates/telegram.html:31
+#: templates/sidebar.html:24 templates/telegram.html:22
+#: templates/telegram.html:30
 msgid "Telegram"
 msgstr "Telegram"
 
@@ -174,100 +174,154 @@ msgstr "Torrent"
 msgid "PirateBay"
 msgstr "PirateBay"
 
-#: templates/telegram.html:12
+#: templates/telegram.html:11
 msgid "Что такое платформа Moviegram?"
 msgstr "Qu'est-ce que la plate-forme Moviegram?"
 
-#: templates/telegram.html:13
+#: templates/telegram.html:12
 msgid "Больше чем просто фильмы..."
 msgstr "Plus que des films ..."
 
-#: templates/telegram.html:20
+#: templates/telegram.html:19
 msgid "Папка с фильмами"
 msgstr "Dossier avec des films"
 
-#: templates/telegram.html:23
+#: templates/telegram.html:22
 msgid "Наш"
 msgstr "Notre"
 
-#: templates/telegram.html:23
+#: templates/telegram.html:22
 msgid ""
 "сайт предназначен для поиска и просмотра фильмов, предварительно скачав их и "
 "подгрузив вы сможете смотреть в дальнейшем без интернета"
 msgstr ""
-"le site Web est destine a rechercher et regarder des films, a les pre-telecharger "
-"peut regarder plus tard sans Internet"
+"le site Web est destine a rechercher et regarder des films, a les pre-"
+"telecharger peut regarder plus tard sans Internet"
 
-#: templates/telegram.html:23
+#: templates/telegram.html:22
 msgid "Чем больше люди смотрят фильмы в"
 msgstr "Plus les gens regardent de films "
 
-#: templates/telegram.html:23
+#: templates/telegram.html:22
 msgid "тем быстрее они подгружаются. Этим сайтом мы хотели показать, что"
-msgstr "plus de films sont telecharges plus rapidement. Apres avoir cree ce site Web, nous voulions montrer ca "
+msgstr ""
+"plus de films sont telecharges plus rapidement. Apres avoir cree ce site "
+"Web, nous voulions montrer ca "
 
-#: templates/telegram.html:23
+#: templates/telegram.html:22
 msgid "Telegram "
 msgstr "Telegram "
 
-#: templates/telegram.html:23
+#: templates/telegram.html:22
 msgid "больше, чем просто мэссэнджер"
 msgstr "plus qu'un simple messager"
 
-#: templates/telegram.html:23
+#: templates/telegram.html:22
 msgid ""
 "Что не только контакты в мэссэнджере можна рассматривать как отдельные "
 "сущности, но и фильмы. После появления папок в "
 msgstr ""
-"Que non seulement les contacts dans le messager peuvent etre decrits comme des entites distinctes, "
-"mais aussi des films. Apres que les dossiers apparaissent dans "
+"Que non seulement les contacts dans le messager peuvent etre decrits comme "
+"des entites distinctes, mais aussi des films. Apres que les dossiers "
+"apparaissent dans "
 
-#: templates/telegram.html:23
+#: templates/telegram.html:22
 msgid "нам прийшла в голову идея создания этого сайта."
 msgstr "nous sommes venus a l'idee de creer ce site Web."
 
-#: templates/telegram.html:27
+#: templates/telegram.html:26
 msgid "Добавить фильм на сайт"
 msgstr "Ajout d'un film au site Web"
 
-#: templates/telegram.html:31
+#: templates/telegram.html:30
 msgid "Вы можете"
 msgstr "Tu peux"
 
-#: templates/telegram.html:31
+#: templates/telegram.html:30
 msgid "помочь нашему сайту развиваться и рости"
 msgstr "aidez notre site web a se developer"
 
-#: templates/telegram.html:31
+#: templates/telegram.html:30
 msgid "просто создав публичный"
 msgstr "créer une publicite "
 
-#: templates/telegram.html:31
+#: templates/telegram.html:30
 msgid ""
 "канал с кратким описанием фильма, загрузив фильм в возможном для "
 "воспроизведения формате не больше 1.5gb. Скидывайте нам ссылку на канал и "
 "делитесь фильмами со всеми"
 msgstr ""
-"chaine avec une courte description du film, telechargement du film possible pour "
-"format de visionnage, pas plus de 2Go. Envoyez-nous le lien de la chaine et "
-"partager des films avec tout le monde "
+"chaine avec une courte description du film, telechargement du film possible "
+"pour format de visionnage, pas plus de 2Go. Envoyez-nous le lien de la "
+"chaine et partager des films avec tout le monde "
 
-#: templates/telegram.html:31
+#: templates/telegram.html:30
 msgid "бесплатно"
 msgstr "gratuitement"
 
-#: templates/telegram.html:45
+#: templates/telegram.html:44
 msgid "Ссылка на ваш канал"
 msgstr "Lien de votre chaine"
 
-#: templates/telegram.html:57
+#: templates/telegram.html:56
 msgid ""
 "После валидации и проверки ваш канал добавится на наш сайт. Если фильм, "
 "сериал или мультфильм, который вы добавили не повторяется - он будет "
 "добавлен. Если вы добавили канал, но фильм лучшего качества - он также будет "
 "добавлен."
 msgstr ""
-"Apres validation et verification, votre chaine sera ajoutee a notre site Web. Si "
-"film, serie televisee ou dessin anime, qui a ete ajoute ne se repete pas - il le fera "
-"etre ajoute. Si vous avez ajoute une chaine, mais que le film est de meilleure qualite - ce serait "
-"ajoute aussi."
+"Apres validation et verification, votre chaine sera ajoutee a notre site "
+"Web. Si film, serie televisee ou dessin anime, qui a ete ajoute ne se repete "
+"pas - il le fera etre ajoute. Si vous avez ajoute une chaine, mais que le "
+"film est de meilleure qualite - ce serait ajoute aussi."
+
+#: venv/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:7
+msgid "Django: the Web framework for perfectionists with deadlines."
+msgstr ""
+
+#: venv/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:346
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: venv/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:368
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: venv/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:369
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+"\">DEBUG=True</a> is in your settings file and you have not configured any "
+"URLs."
+msgstr ""
+
+#: venv/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:384
+msgid "Django Documentation"
+msgstr ""
+
+#: venv/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:385
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: venv/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:396
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: venv/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:397
+msgid "Get started with Django"
+msgstr ""
+
+#: venv/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:408
+msgid "Django Community"
+msgstr ""
+
+#: venv/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:409
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#~ msgid "Скоро на сайте"
+#~ msgstr "Sorties de films"

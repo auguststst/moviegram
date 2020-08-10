@@ -113,7 +113,7 @@ def categorymovies(request, cat):
    genres = Genre.objects.all().order_by('name')
    categories = Category.objects.all()
    category = get_object_or_404(Category, url__exact=cat)
-   movies = category.movie_set.all().order_by('-year').exclude(title=None)
+   movies = category.movie_set.all().order_by('-world_premiere').exclude(title=None)
    paginator = Paginator(movies, 6)
    
    page = request.GET.get('page')
@@ -202,7 +202,8 @@ def donate(request):
 def search(request):
 
    template = "search.html"
-	
+   
+   movies = Movie.objects.all()
    categories = Category.objects.all()
    query = request.GET.get('q')
    if query is not None:
@@ -216,6 +217,7 @@ def search(request):
    		logging.info(query)
 
    context = {
+		'movies': movies,
 		'results': results,
 		'categories': categories,
    }

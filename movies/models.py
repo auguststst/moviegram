@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-
+from random import choice
 
 
 class Category(models.Model):
@@ -123,7 +123,14 @@ class Movie(models.Model):
 	def get_absolute_url(self):
 		return "%i/" % self.id
 
+	def Random(self):
+		movies = Movie.objects.all().exclude(title=None)
+		options = []
 
+		for m in movies:
+		    options.append(m.id)
+
+		return choice(options)
 
 	class Meta:
 

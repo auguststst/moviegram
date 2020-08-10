@@ -52,8 +52,10 @@
               <li class="dropdown hidden-xs">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Подборки" %}<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">{% trans "Скоро на сайте" %}</a></li>
-                <li role="separator" class="divider"></li>
+	      {% for x in movies|slice:"1" %}
+                <li><a href="{% url 'detail' x.Random %}">{% trans "Случайный фильм" %}</a></li>
+              {% endfor %}  
+		<li role="separator" class="divider"></li>
                 <li class="dropdown-header">{% trans "Поддержка" %}</li>
                 <li><a href="{% url 'telegram' %}">{% trans "О сайте" %}</a></li>
                 <li><a href="{% url 'email' %}">{% trans "Контакты" %}</a></li>
