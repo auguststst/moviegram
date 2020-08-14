@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% load static i18n %}
 {% block title %} {{movie.title}} {% endblock %}
-{% block description %} {{ movie.MetaDescription }}{% endblock %}
-
-
+{% block description %} {{ movie.MetaDescription }} {% endblock %}
 {% get_current_language as LANGUAGE_CODE %}
+
+{% block content %}
 <!-- second part -->
      <div class="container second">
 
