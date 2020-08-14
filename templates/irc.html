@@ -42,7 +42,7 @@
                     <h3><strong>{% trans "Жанры" %}:</strong>
                      {% for i in movie.genres.all %}
                         
-                        {{ i.name }},
+                        {{ i.name }}{% if  forloop.counter == 0 %} {% elif forloop.last %} {% else %},{% endif %}
                      
                      {% endfor %}
                     </h3>
@@ -51,11 +51,11 @@
                           
                           {% if i.wikipedia %}
                             
-                            <a target="_blank" href="{{ i.wikipedia }}">{{ i.name }}</a>,
+                            <a target="_blank" href="{{ i.wikipedia }}">{{ i.name }}</a>{% if  forloop.counter == 0 %} {% elif forloop.last %} {% else %},{% endif %}
                           
                           {% else %}
                             
-                            {{ i.name }},
+                            {{ i.name }}{% if  forloop.counter == 0 %} {% elif forloop.last %} {% else %},{% endif %}
 
                           {% endif %}
                         
@@ -69,11 +69,11 @@
                         
                         {% if i.wikipedia %}
                             
-                            <a target="_blank" href="{{ i.wikipedia }}">{{ i.name }}</a>,
+                            <a target="_blank" href="{{ i.wikipedia }}">{{ i.name }}</a>{% if  forloop.counter == 0 %} {% elif forloop.last %} {% else %},{% endif %}
                           
                         {% else %}
                             
-                            {{ i.name }},
+                            {{ i.name }}{% if  forloop.counter == 0 %} {% elif forloop.last %} {% else %},{% endif %}
 
                         {% endif %}
 
