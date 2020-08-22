@@ -168,8 +168,9 @@ def telegram(request):
 	
 	template = 'telegram.html'
 	categories = Category.objects.all()
-
+	movies = Movie.objects.all()
 	context = {
+		'movies': movies,
 		'categories': categories,
 	}
 
@@ -179,10 +180,11 @@ def telegram(request):
 def email(request):
 
 	template = 'email.html'
-
+	movies = Movie.objects.all()
 	categories = Category.objects.all()
 	context = {
 		'categories': categories,
+		'movies': movies,
 	}
 	
 	return render(request, template, context)
@@ -190,9 +192,10 @@ def email(request):
 def donate(request):
 	
 	template = 'btc.html'
-
+	movies = Movie.objects.all()
 	categories = Category.objects.all()
 	context = {
+		'movies':movies,
 		'categories': categories,
 	}
 

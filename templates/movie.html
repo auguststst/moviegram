@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load static i18n %}
 {% block title %} {{movie.title}} {% endblock %}
+{% block t %} {{movie.title}} {% endblock %}
+{% block im %}{% if movie.wallpaper.url != Null %}{{movie.wallpaper.url}}{% else %}{{movie.poster.url}}{% endif %}{% endblock %}
+{% block d %} {{movie.MetaDescription}} {% endblock %}
 {% block description %} {{ movie.MetaDescription }} {% endblock %}
 {% get_current_language as LANGUAGE_CODE %}
 
@@ -58,9 +61,9 @@
 
 
 
-	        <h2 id="movie-desc{{forloop.counter}}">{{ i.description | truncatechars:160 }}</h2>
-                <h2 id="full{{forloop.counter}}" style="min-height:100px;">{{ i.description | linebreaksbr }}</h2>
-		<p style = "margin-top: 20px; font-size: 29px; font-weight:bold;">{% trans "Подробнее о" %} <a target="_blank" href="{{ i.wikipedia }}">{{ i.title }} </a> {% trans "вы можете узнать здесь..." %}</p>
+	        <h2 style="font-size: 34px!important;" id="movie-desc{{forloop.counter}}">{{ i.description | truncatechars:160 }}</h2>
+                <h2 style="font-size: 34px!important;" id="full{{forloop.counter}}" style="min-height:100px;">{{ i.description | linebreaksbr }}</h2>
+		<p style = "margin-top: 20px; font-size: 33px!important; font-weight:bold;">{% trans "Подробнее о" %} <a target="_blank" href="{{ i.wikipedia }}">{{ i.title }} </a> {% trans "вы можете узнать здесь..." %}</p>
             	<br/>
 		<br/>
 		<br/>
