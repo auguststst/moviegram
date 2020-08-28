@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import Movie, Genre, Category, TelegramChannel
 from django.core.paginator import Paginator, EmptyPage, InvalidPage, PageNotAnInteger
 from django.db.models import Q
 from django.core.validators import URLValidator
+from django.template.loader import render_to_string
 from django.utils import translation
 import logging
-import locale;
+import locale
 
 if locale.getpreferredencoding().upper() != 'UTF-8':
 	locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
@@ -28,6 +29,24 @@ def index(request):
 	movies = Movie.objects.filter(wall=True).order_by('-id').exclude(title=None)[:6]
 	genres = Genre.objects.all().order_by('name')
 	categories = Category.objects.all()
+	
+	if request.method == "GET":
+		text = request.GET.get('search_text')
+		if text is not None and text != "":
+			search_text = request.GET.get('search_text')
+			results = Movie.objects.filter(Q(title__icontains=text) | Q(short_title__icontains=text)).order_by('-id').exclude(title=None)
+		else:
+			results = []
+	
+	
+
+
+
+	
+
+	if request.is_ajax():
+	    html = render_to_string(template_name="search_ajax.html", context={ "results": results })
+	    return JsonResponse({ 'seconds':html }, status=200)
 
 	context = {
 
@@ -209,15 +228,15 @@ def search(request):
    movies = Movie.objects.all()
    categories = Category.objects.all()
    query = request.GET.get('q')
-   if query is not None:
-   		results = Movie.objects.filter(Q(title__icontains=query) | 
-   								      Q(year__icontains=query)  |
-   								      Q(short_title__icontains=query)
-   								       ).order_by('-imdb').exclude(title=None)
-   		
-   	
+   if query is not None and query != "":
    		query.encode("utf-8")
    		logging.info(query)
+
+   results = Movie.objects.filter(Q(title__icontains=query) | 
+                                                                      Q(year__icontains=query)  |
+                                                                      Q(short_title__icontains=query)
+                                                                       ).order_by('-imdb').exclude(title=None)
+
 
    context = {
 		'movies': movies,

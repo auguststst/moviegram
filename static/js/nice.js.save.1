@@ -16,24 +16,14 @@ $(function() {
               $("#gm").css("display","block");
           });
 
-          $('#film').keyup(function(){
-
-                console.log($(this).val());
-                $("#part").remove();
-
-                $.ajax({
-                    type: "GET",
-                    url: '/',
-                    data: {
-                        'search_text' : $('#film').val(),
-			'csrfmiddlewaretoken': window.CSRF_TOKEN
-                    },
-                    success: function(response){
-                        $('#ajax').html(response.seconds)
-                    }
-                });
-
-            });
+	  $(document).ready(function() {
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
 
 });
 
