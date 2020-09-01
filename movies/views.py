@@ -143,6 +143,9 @@ def categorymovies(request, cat):
    except EmptyPage:
    	   movies = paginator.page(paginator.num_pages)
    
+   if request.is_ajax():
+       html = render_to_string(template_name="film.html", context={"movies": movies })
+       return JsonResponse({'posts_html':html, 'has_next':movies.has_next()}, status=200)
    
    context = {
 	  "page": page,

@@ -34,35 +34,18 @@
           </div><!-- mm -->
 	<br />
 
-	  {% if movies.has_previous %}
-            <a style ="display: block; text-decoration: none; text-align: center;" href="?page={{ movies.previous_page_number }}"><i style="font-size: 30px;"class="glyphicon glyphicon-menu-up"></i></a>
-          {% endif %}
-          
+	<div style="display:flex; flex-wrap: wrap; align-items: stretch;" id="lazyload">{% include "film.html" %}</div>
+        
+        <br />
 
-          {% for a in movies %} 
-
-            <div class="col-xs-12 col-md-6 col-sm-6 col-lg-4 infinite-item">
-              
-              <h2>{{ a.title }}</h2>
-              <a href = "{% url 'detail' a.id %}"><img id="sz" src = "{{a.poster.url}}" alt="{{ a.title }}" id ="transperent" class = "img-thumbnail"/></a>
-              
-              <p class = "inside">{{a.ShortenText}}...</p>
-              
-              <p><a class="btn btn-lg btn-default" id="more" href="{% url 'detail' a.id %}" role="button">{% trans "Смотреть" %}&raquo;</a></p>
-            
-            </div><!--/.col-xs-6.col-lg-4-->
-          {% endfor %}
-
-          {% if movies.has_next %}
-            <a style ="display: block; text-decoration: none;" href="?page={{ movies.next_page_number }}"><button type="button" id="stb" class="btn btn-block" >{% trans "Больше"%}</button></a>
-          {% endif %}
+        <a style ="display: block; text-decoration: none;" id="lazyLoadLink" href="javascript:void(0);" data-page="2"><button type="button" id="stb" class="btn btn-block" >{% trans "Больше"%}</button></a>
 
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
 
 
     {% include 'sidebar.html' %}
-
+    <div id="sentinel"></div>
 <hr />
 
 

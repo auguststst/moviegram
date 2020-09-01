@@ -38,6 +38,65 @@ $(function() {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
+            let sentinel = document.getElementById("sentinel");
+            let end = false;
+            let observer = new IntersectionObserver((entries) => {
+              entry = entries[0];
+              if (entry.intersectionRatio > 0) {
+                
+
+                $(function() {
+                      
+                      var link = $("#lazyLoadLink");
+                      var page = link.data('page');
+                      var end = false;
+
+                      $.ajax({
+                        type: 'get',
+                        url: url_switch(window.location.href),
+                        data: {
+                          'page': page,
+                          'csrfmiddlewaretoken': window.CSRF_TOKEN
+                        },
+                        success: function(data) {
+
+                         if (data.has_next) {
+                              link.data('page', page+1);
+                              $('#lazyload').append(data.posts_html);
+                          } else {
+                              link.hide();
+                              end = true;
+                          }
+                        },
+                        error: function(xhr, status, error) {
+                          alert('shit happen');
+                        }
+                      });
+
+                });
+              }
+
+            })
+            observer.observe(sentinel);
+          });
+
+function url_switch(url){
+            switch(url){
+              case "https://www.themoviegram.com/categorymovies/movies/":
+                return "/categorymovies/movies/";
+                break;
+              case "https://www.themoviegram.com/categorymovies/series/":
+                return "/categorymovies/series/"
+                break;
+              case "https://www.themoviegram.com/categorymovies/multiki/":
+                break;
+              default:
+                console.log("shit happens with url");
+            }
+          }
+
+
 function wallet(text) {
             
             var dummy = document.createElement("textarea");
