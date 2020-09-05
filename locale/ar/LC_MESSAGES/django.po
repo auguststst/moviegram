@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-10 07:26+0100\n"
+"POT-Creation-Date: 2020-09-05 15:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: templates/base.html:12
+#: templates/base.html:12 templates/base.html:19
 msgid ""
 "Наш сайт предназначен для поиска и просмотра фильмов, предварительно скачав "
 "их и подгрузив вы сможете смотреть в дальнейшем без интернета"
@@ -27,35 +27,39 @@ msgstr ""
 "موقعنا يهدف إلى البحث عن الأفلام ومشاهدتها وتنزيلها مسبقًا يمكنك المشاهدة "
 "لاحقًا بدون الإنترنت"
 
-#: templates/base.html:53
+#: templates/base.html:67
+msgid "Рекомендуем"
+msgstr "موصى به"
+
+#: templates/base.html:76
 msgid "Подборки"
 msgstr "اختيار"
 
-#: templates/base.html:56 templates/movie.html:196
+#: templates/base.html:79 templates/movie.html:199
 msgid "Случайный фильм"
 msgstr "فيلم عشوائي"
 
-#: templates/base.html:59
+#: templates/base.html:82
 msgid "Поддержка"
 msgstr "الدعم"
 
-#: templates/base.html:60 templates/index.html:34
+#: templates/base.html:83 templates/index.html:34
 msgid "О сайте"
 msgstr "حول الموقع"
 
-#: templates/base.html:61 templates/index.html:35
+#: templates/base.html:84 templates/index.html:35
 msgid "Контакты"
 msgstr "اتصل بنا"
 
-#: templates/base.html:62
+#: templates/base.html:85
 msgid "Пожертвовать на сайт"
 msgstr "تبرع"
 
-#: templates/base.html:69 templates/index.html:42
+#: templates/base.html:93 templates/index.html:43
 msgid "Поиск..."
 msgstr "بحث..."
 
-#: templates/base.html:71 templates/index.html:44
+#: templates/base.html:95 templates/index.html:45
 msgid "Поиск"
 msgstr "بحث"
 
@@ -78,15 +82,14 @@ msgstr "الدعم"
 msgid "Жанры"
 msgstr "النوع"
 
-#: templates/categorymov.html:51 templates/index.html:58
-#: templates/movie.html:48 templates/movie.html:53 templates/movie.html:123
-#: templates/movie.html:127
-msgid "Смотреть"
-msgstr "راقب"
-
-#: templates/categorymov.html:57
+#: templates/categorymov.html:41
 msgid "Больше"
 msgstr "نتائج أخرى"
+
+#: templates/film.html:12 templates/index.html:59 templates/movie.html:51
+#: templates/movie.html:56 templates/movie.html:126 templates/movie.html:130
+msgid "Смотреть"
+msgstr "راقب"
 
 #: templates/index.html:16
 msgid "Фильмы в Telegram"
@@ -128,19 +131,19 @@ msgstr "السابق"
 msgid "Вперед"
 msgstr "التالي"
 
-#: templates/movie.html:26
+#: templates/movie.html:29
 msgid "часть"
 msgstr "جزء"
 
-#: templates/movie.html:63 templates/movie.html:139
+#: templates/movie.html:66 templates/movie.html:142
 msgid "Подробнее о"
 msgstr "مزيد من التفاصيل حول"
 
-#: templates/movie.html:63 templates/movie.html:139
+#: templates/movie.html:66 templates/movie.html:142
 msgid "вы можете узнать здесь..."
 msgstr "يمكنك ان تجد هنا..."
 
-#: templates/search.html:23
+#: templates/search.html:23 templates/search_ajax.html:18
 msgid "Ничего не найдено..."
 msgstr "لم يتم العثور على..."
 
@@ -161,8 +164,8 @@ msgstr ""
 msgid "Другое"
 msgstr "آخر"
 
-#: templates/sidebar.html:24 templates/telegram.html:22
-#: templates/telegram.html:30
+#: templates/sidebar.html:24 templates/telegram.html:26
+#: templates/telegram.html:34
 msgid "Telegram"
 msgstr "تيليجرام"
 
@@ -182,15 +185,15 @@ msgstr "ما هو برنامج Moviegram؟"
 msgid "Больше чем просто фильмы..."
 msgstr "أكثر من مجرد أفلام..."
 
-#: templates/telegram.html:19
+#: templates/telegram.html:23
 msgid "Папка с фильмами"
 msgstr "المجلد مع الأفلام"
 
-#: templates/telegram.html:22
+#: templates/telegram.html:26
 msgid "Наш"
 msgstr "نحن "
 
-#: templates/telegram.html:22
+#: templates/telegram.html:26
 msgid ""
 "сайт предназначен для поиска и просмотра фильмов, предварительно скачав их и "
 "подгрузив вы сможете смотреть в дальнейшем без интернета"
@@ -198,23 +201,23 @@ msgstr ""
 "يهدف موقع الويب إلى البحث عن الأفلام ومشاهدتها وتنزيلها مسبقًايمكنك المشاهدة "
 "لاحقًا بدون الإنترنت"
 
-#: templates/telegram.html:22
+#: templates/telegram.html:26
 msgid "Чем больше люди смотрят фильмы в"
 msgstr "كلما زاد عدد الأشخاص الذين يشاهدون الأفلام في"
 
-#: templates/telegram.html:22
+#: templates/telegram.html:26
 msgid "тем быстрее они подгружаются. Этим сайтом мы хотели показать, что"
 msgstr "كلما زادت سرعة تنزيل الأفلام. بعد إنشاء هذا الموقع ، أردنااظهر ذلك "
 
-#: templates/telegram.html:22
+#: templates/telegram.html:26
 msgid "Telegram "
 msgstr "تيليجرام"
 
-#: templates/telegram.html:22
+#: templates/telegram.html:26
 msgid "больше, чем просто мэссэнджер"
 msgstr "أكثر من مجرد رسايل"
 
-#: templates/telegram.html:22
+#: templates/telegram.html:26
 msgid ""
 "Что не только контакты в мэссэнджере можна рассматривать как отдельные "
 "сущности, но и фильмы. После появления папок в "
@@ -222,27 +225,27 @@ msgstr ""
 "لا يمكن وصف جهات الاتصال في برنامج المراسلة فقط بأنها كيانات منفصلةولكن أيضًا "
 "الأفلام. بعد ظهور المجلدات في"
 
-#: templates/telegram.html:22
+#: templates/telegram.html:26
 msgid "нам прийшла в голову идея создания этого сайта."
 msgstr "توصلنا إلى فكرة إنشاء هذا الموقع."
 
-#: templates/telegram.html:26
+#: templates/telegram.html:30
 msgid "Добавить фильм на сайт"
 msgstr "إضافة فيلم إلى الموقع"
 
-#: templates/telegram.html:30
+#: templates/telegram.html:34
 msgid "Вы можете"
 msgstr "يمكنك"
 
-#: templates/telegram.html:30
+#: templates/telegram.html:34
 msgid "помочь нашему сайту развиваться и рости"
 msgstr "ساعدنا لكي نطور موقعنا"
 
-#: templates/telegram.html:30
+#: templates/telegram.html:34
 msgid "просто создав публичный"
 msgstr "اصنع اعلانا"
 
-#: templates/telegram.html:30
+#: templates/telegram.html:34
 msgid ""
 "канал с кратким описанием фильма, загрузив фильм в возможном для "
 "воспроизведения формате не больше 1.5gb. Скидывайте нам ссылку на канал и "
@@ -251,15 +254,15 @@ msgstr ""
 "قناة مع وصف قصير للفيلم ، تنزيل الفيلم ممكن لـتنسيق المشاهدة ، لا يزيد عن 2 "
 "جيجابايت. أرسل لنا رابط القناة ومشاركة الأفلام مع الجميع"
 
-#: templates/telegram.html:30
+#: templates/telegram.html:34
 msgid "бесплатно"
 msgstr "مجانا "
 
-#: templates/telegram.html:44
+#: templates/telegram.html:48
 msgid "Ссылка на ваш канал"
 msgstr "رابط قناتك"
 
-#: templates/telegram.html:56
+#: templates/telegram.html:60
 msgid ""
 "После валидации и проверки ваш канал добавится на наш сайт. Если фильм, "
 "сериал или мультфильм, который вы добавили не повторяется - он будет "

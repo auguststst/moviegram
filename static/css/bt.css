@@ -97,6 +97,10 @@ body{
 	font-size: 106%;
 }
 
+#part{
+	margin-top:90px;
+}
+
 
 
 img{
@@ -513,7 +517,9 @@ img:hover{
 	}
 
 	.navbar-nav > li > a {
-    	text-align: center!important;
+    		text-align: left!important;
+		font-size: 30px!important;
+    		margin-top: 5px;
 	}
 
 	.nav > li:hover{

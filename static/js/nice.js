@@ -16,6 +16,25 @@ $(function() {
               $("#gm").css("display","block");
           });
 
+          $("#phonefilm").focus(function(){
+              $(".jumbotron").hide(400);
+              $(".navbar").hide(200);
+              $("#phonebutton").hide();
+              $("#dis").hide();
+              $(this).css("width","100%");
+              $(this).css("margin-top","-120px");
+
+            });
+
+            $("#phonefilm").blur(function(){
+              $(".jumbotron").show(200);
+              $(".navbar").show(400);
+              $("#phonebutton").show(410);
+              $("#dis").show();
+              $(this).css("width","90%");
+              $(this).css("margin-top","0");
+            });
+
           $('#film').keyup(function(){
 
                 console.log($(this).val());

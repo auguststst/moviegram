@@ -29,19 +29,20 @@
 
 
 	  </div>
-
-          <div class="container hidden-lg hidden-md hidden-sm visible-xs text-center" id="phoneicons">
-            <a href="{% url 'telegram' %}">{% trans "О сайте" %}</a>
-            <a href="{% url 'email' %}">{% trans "Контакты" %}</a>
-            <a href="{% url 'donate' %}">{% trans "Поддержите нас" %}</a>
-          </div>
+          <div id = "dis">
+          	<div class="container hidden-lg hidden-md hidden-sm visible-xs text-center" id="phoneicons">
+            		<a href="{% url 'telegram' %}">{% trans "О сайте" %}</a>
+            		<a href="{% url 'email' %}">{% trans "Контакты" %}</a>
+            		<a href="{% url 'donate' %}">{% trans "Поддержите нас" %}</a>
+          	</div>
+	  </div><!-- dis -->
 
 
           <form method="GET" autocomplete="off" action="{% url 'search' %}" class="navbar-form hidden-md hidden-sm hidden-lg visible-xs">
             <div class="form-group">
-              <input name = "q" value="{{ request.GET.q }}" type="text" class="form-control" placeholder="{% trans 'Поиск...' %}">
+              <input id="phonefilm" name = "q" value="{{ request.GET.q }}" type="text" class="form-control" placeholder="{% trans 'Поиск...' %}">
             </div>
-            <button style="margin: 0 auto!important; display:block!important; margin-top: 10px!important;" type="submit" class="btn btn-primary">{% trans "Поиск" %}</button>
+            <button id="phonebutton" style="margin: 0 auto!important; display:block!important; margin-top: 10px!important;" type="submit" class="btn btn-primary">{% trans "Поиск" %}</button>
           </form>
 
           <div class="row" id="eq">

@@ -29,6 +29,10 @@ def index(request):
 	movies = Movie.objects.filter(wall=True).order_by('-id').exclude(title=None)[:6]
 	genres = Genre.objects.all().order_by('name')
 	categories = Category.objects.all()
+
+
+
+	asd = get_object_or_404(Movie,id=Movie.Random('1'))
 	
 	if request.method == "GET":
 		text = request.GET.get('search_text')
@@ -49,7 +53,7 @@ def index(request):
 	    return JsonResponse({ 'seconds':html }, status=200)
 
 	context = {
-
+                "asd":asd,
 		"movies": movies,
 		"genres": genres,
 		'categories': categories,
@@ -66,9 +70,10 @@ def detail(request, pk):
 	genres = Genre.objects.all().order_by('name')
 	categories = Category.objects.all()
 	movies = Movie.objects.filter(telegram__exact=movie.telegram)
-	
-	context = {
 
+	asd = get_object_or_404(Movie,id=Movie.Random('1'))
+	context = {
+		"asd": asd,
 		"movie":movie,
 		"genres": genres,
 		'categories': categories,
@@ -111,7 +116,10 @@ def genremovies(request, slug):
 	genres = Genre.objects.all().order_by('name')
 	categories = Category.objects.all()
 
+	asd = get_object_or_404(Movie,id=Movie.Random('1'))
+
 	context = {
+		"asd": asd,
 		"page": page,
 		"genres": genres,
 		"movies": movies,
@@ -147,7 +155,10 @@ def categorymovies(request, cat):
        html = render_to_string(template_name="film.html", context={"movies": movies })
        return JsonResponse({'posts_html':html, 'has_next':movies.has_next()}, status=200)
    
+   asd = get_object_or_404(Movie,id=Movie.Random('1'))
+
    context = {
+	  "asd": asd,
 	  "page": page,
           "genres": genres,
    	  "categories": categories,
@@ -191,7 +202,9 @@ def telegram(request):
 	template = 'telegram.html'
 	categories = Category.objects.all()
 	movies = Movie.objects.all()
+	asd = get_object_or_404(Movie,id=Movie.Random('1'))
 	context = {
+		'asd': asd,
 		'movies': movies,
 		'categories': categories,
 	}
@@ -204,7 +217,10 @@ def email(request):
 	template = 'email.html'
 	movies = Movie.objects.all()
 	categories = Category.objects.all()
+	asd = get_object_or_404(Movie,id=Movie.Random('1'))
+
 	context = {
+		'asd': asd,
 		'categories': categories,
 		'movies': movies,
 	}
@@ -216,7 +232,9 @@ def donate(request):
 	template = 'btc.html'
 	movies = Movie.objects.all()
 	categories = Category.objects.all()
+	asd = get_object_or_404(Movie,id=Movie.Random('1'))
 	context = {
+		'asd':asd,
 		'movies':movies,
 		'categories': categories,
 	}
@@ -231,6 +249,9 @@ def search(request):
    movies = Movie.objects.all()
    categories = Category.objects.all()
    query = request.GET.get('q')
+
+   asd = get_object_or_404(Movie,id=Movie.Random('1'))
+
    if query is not None and query != "":
    		query.encode("utf-8")
    		logging.info(query)
@@ -242,6 +263,7 @@ def search(request):
 
 
    context = {
+		'asd':asd,
 		'movies': movies,
 		'results': results,
 		'categories': categories,
