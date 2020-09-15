@@ -16,24 +16,6 @@ $(function() {
               $("#gm").css("display","block");
           });
 
-          $("#phonefilm").focus(function(){
-              $(".jumbotron").hide(400);
-              $(".navbar").hide(200);
-              $("#phonebutton").hide();
-              $("#dis").hide();
-              $(this).css("width","100%");
-              $(this).css("margin-top","-120px");
-
-            });
-
-            $("#phonefilm").blur(function(){
-              $(".jumbotron").show(200);
-              $(".navbar").show(400);
-              $("#phonebutton").show(410);
-              $("#dis").show();
-              $(this).css("width","90%");
-              $(this).css("margin-top","0");
-            });
 
           $('#film').keyup(function(){
 
@@ -42,7 +24,7 @@ $(function() {
 
                 $.ajax({
                     type: "GET",
-                    url: '/',
+                    url: url_search(window.location.href),
                     data: {
                         'search_text' : $('#film').val(),
 			'csrfmiddlewaretoken': window.CSRF_TOKEN
@@ -57,10 +39,10 @@ $(function() {
 });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-            let sentinel = document.getElementById("sentinel");
-            let end = false;
-            let observer = new IntersectionObserver((entries) => {
+document.addEventListener("DOMContentLoaded", function(){
+            var sentinel = document.getElementById("sentinel");
+            var end = false;
+            var observer = new IntersectionObserver(function(entries){
               entry = entries[0];
               if (entry.intersectionRatio > 0) {
                 
@@ -113,6 +95,20 @@ function url_switch(url){
               default:
                 console.log("shit happens with url");
             }
+          }
+
+function url_search(url){ 
+           if (url.indexOf("en") >= 0){
+              return "/en";
+           }else if (url.indexOf("de") >= 0){
+              return "/de";
+           }else if (url.indexOf("fr") >= 0){
+              return "/fr";
+           }else if (url.indexOf("ar") >= 0){
+              return "/ar"
+           }else{
+              return "/";
+           }
           }
 
 

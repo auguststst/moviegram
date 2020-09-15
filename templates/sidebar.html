@@ -12,7 +12,7 @@
             <h3>{% trans "Жанры" %}</h3>
             <ol class="list-unstyled">
             {% for g in genres %}
-                <li><a href="{% url 'genremovies' g.url %}" rel="nofollow">{{ g.name }}</a></li>
+                <li><a href="{% url 'genremovies' g.url %}">{{ g.name }}</a></li>
             {% endfor %}  
             </ol>
           </div>

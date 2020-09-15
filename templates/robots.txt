@@ -19,3 +19,5 @@ Disallow: /
 
 
 Sitemap: https://www.themoviegram.com/sitemap.xml
+Sitemap: https://www.themoviegram.com/en/sitemap.xml
+
