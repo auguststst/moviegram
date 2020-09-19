@@ -29,8 +29,18 @@
   src: url(../webfonts/Roboto-Regular.ttf);
 }
 
+
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 700;
+  src: url(../webfonts/Gilroy-SemiBold.ttf);
+}
+
 body{
   color: #300!important;
+  font-family: Gilroy!important;
+  font-size: 15px!important;
 }
 
 @-moz-document url-prefix() {
@@ -388,7 +398,6 @@ img:hover{
 #telegram-info{
 	font-size: 26px;
 	text-align: justify;
-	font-family: Tahoma;
 	line-height: 32px;
 }
 #limitless{
@@ -507,10 +516,6 @@ img:hover{
 		text-align: center!important;
 	}
 
-
-	body{
-		font-family: 'PT Serif', serif!important;
-	}
 	
 	.jumbotron strong{
 		font-size: 67px!important;
@@ -521,6 +526,18 @@ img:hover{
 		font-size: 30px!important;
     		margin-top: 5px;
 	}
+
+        .navbar-toggle{
+		padding: 13px 15px !important;
+	}
+	.icon-bar{
+		width: 28px!important;
+	}
+	.navbar-brand{
+		margin-left: 5px!important;
+		margin-top: 5px!important;
+	}
+
 
 	.nav > li:hover{
 		background: azure!important;

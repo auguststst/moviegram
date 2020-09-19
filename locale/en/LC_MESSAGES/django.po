@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-05 15:43+0100\n"
+"POT-Creation-Date: 2020-09-15 18:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/base.html:12 templates/base.html:19
+#: templates/base.html:12 templates/base.html:20
 msgid ""
 "Наш сайт предназначен для поиска и просмотра фильмов, предварительно скачав "
 "их и подгрузив вы сможете смотреть в дальнейшем без интернета"
@@ -26,39 +26,39 @@ msgstr ""
 "Our website is aimed for searching and watching movies, pre-downloading them "
 "you can watch later without internet"
 
-#: templates/base.html:67
+#: templates/base.html:68
 msgid "Рекомендуем"
 msgstr "Recommended"
 
-#: templates/base.html:76
+#: templates/base.html:77
 msgid "Подборки"
 msgstr "Selection"
 
-#: templates/base.html:79 templates/movie.html:199
+#: templates/base.html:80 templates/movie.html:199
 msgid "Случайный фильм"
 msgstr "Random Movie"
 
-#: templates/base.html:82
+#: templates/base.html:83
 msgid "Поддержка"
 msgstr "Support"
 
-#: templates/base.html:83 templates/index.html:34
+#: templates/base.html:84 templates/index.html:34
 msgid "О сайте"
 msgstr "About website"
 
-#: templates/base.html:84 templates/index.html:35
+#: templates/base.html:85 templates/index.html:35
 msgid "Контакты"
 msgstr "Contact us"
 
-#: templates/base.html:85
+#: templates/base.html:86
 msgid "Пожертвовать на сайт"
 msgstr "Donate"
 
-#: templates/base.html:93 templates/index.html:43
+#: templates/base.html:94 templates/index.html:43
 msgid "Поиск..."
 msgstr "Search..."
 
-#: templates/base.html:95 templates/index.html:45
+#: templates/base.html:96 templates/index.html:45
 msgid "Поиск"
 msgstr "Search"
 
@@ -86,7 +86,8 @@ msgid "Больше"
 msgstr "See more"
 
 #: templates/film.html:12 templates/index.html:59 templates/movie.html:51
-#: templates/movie.html:56 templates/movie.html:126 templates/movie.html:130
+#: templates/movie.html:56 templates/movie.html:82 templates/movie.html:126
+#: templates/movie.html:130 templates/movie.html:161
 msgid "Смотреть"
 msgstr "Watch"
 
@@ -141,6 +142,14 @@ msgstr "More details about "
 #: templates/movie.html:66 templates/movie.html:142
 msgid "вы можете узнать здесь..."
 msgstr "you can find out here..."
+
+#: templates/movie.html:92 templates/movie.html:172
+msgid "Oфлайн"
+msgstr "Offline"
+
+#: templates/movie.html:93 templates/movie.html:173
+msgid "Онлайн"
+msgstr "Online"
 
 #: templates/search.html:23 templates/search_ajax.html:18
 msgid "Ничего не найдено..."
