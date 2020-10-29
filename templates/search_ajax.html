@@ -6,7 +6,7 @@
 {% if results %}
   {% for n in results %}
     <div id = "component"> 
-      <a target="_blank" href = "{% url 'detail' n.id %}">{{ n.title }}</a>
+      <a href = "{% url 'detail' n.id %}">{{ n.title }}</a>
       <h4>{{ n.world_premiere }}</h4>
       <p>{{ n.ShortenText }}...</p>
         <hr/>

@@ -13,8 +13,8 @@
 
         <div class="col-xs-12 col-sm-9">
           <div class="jumbotron">
-            <h1><strong>{% trans "Фильмы в Telegram" %} <img class = "telegram" src = "{% static 'img/logo.png'%}"/></strong></h1>
-            <h2>{% trans "Смотрите и скачивайте фильмы в Telegram вместе с Moviegram..." %}</h2>
+            <h1><strong style="display:block;text-align:center;">{% trans "Фильмы в Telegram" %} <img class = "telegram" src = "{% static 'img/logo.png'%}"/></strong></h1>
+            <h2 style="text-align:center;">{% trans "Смотрите и скачивайте фильмы в Telegram вместе с Moviegram..." %}</h2>
 
 	    {% get_current_language as LANGUAGE_CODE %}
             {% get_available_languages as LANGUAGES %}
@@ -29,21 +29,6 @@
 
 
 	  </div>
-          <div id = "dis">
-          	<div class="container hidden-lg hidden-md hidden-sm visible-xs text-center" id="phoneicons">
-            		<a href="{% url 'telegram' %}">{% trans "О сайте" %}</a>
-            		<a href="{% url 'email' %}">{% trans "Контакты" %}</a>
-            		<a href="{% url 'donate' %}">{% trans "Поддержите нас" %}</a>
-          	</div>
-	  </div><!-- dis -->
-
-
-          <form method="GET" autocomplete="off" action="{% url 'search' %}" class="navbar-form hidden-md hidden-sm hidden-lg visible-xs">
-            <div class="form-group">
-              <input id="phonefilm" name = "q" value="{{ request.GET.q }}" type="text" class="form-control" placeholder="{% trans 'Поиск...' %}">
-            </div>
-            <button id="phonebutton" style="margin: 0 auto!important; display:block!important; margin-top: 10px!important;" type="submit" class="btn btn-primary">{% trans "Поиск" %}</button>
-          </form>
 
           <div class="row" id="eq">
 

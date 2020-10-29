@@ -16,6 +16,48 @@ $(function() {
               $("#gm").css("display","block");
           });
 
+	  var url = window.location.href;
+          var sablon = /^https:\/\/www.themoviegram.com\/[0-9]*\/$/;
+          var exist = sablon.test(url);
+
+          var sablon2 = /^https:\/\/www.themoviegram.com\/[a-z]*\/[0-9]*\/$/;
+          var exist2 = sablon2.test(url);
+
+          
+          if(exist || exist2){
+            $(".navbar-toggle").addClass('change_button');
+            $("#direction").removeClass('hidden-xs');
+          }
+
+	   $('.mb-search').click(function(){
+              $(this).fadeOut(100);
+              $(".navbar-brand").fadeOut(200);
+              $(".in-search").addClass("visible-xs");
+              $(".in-search input").focus();
+              $(".navbar-toggle").addClass('change_button');
+              $("#direction2").removeClass('hidden-xs');
+              $("#direction").remove();
+          });
+
+	 $('#filmm').keyup(function(){
+
+                console.log($(this).val());
+                $("#part").remove();
+
+                $.ajax({
+                    type: "GET",
+                    url: url_search(window.location.href),
+                    data: {
+                        'search_text' : $('#filmm').val(),
+      'csrfmiddlewaretoken': window.CSRF_TOKEN
+                    },
+                    success: function(response){
+                        $('#ajax').html(response.seconds)
+                    }
+                });
+
+            });
+
 
           $('#film').keyup(function(){
 
@@ -91,7 +133,18 @@ function url_switch(url){
                 return "/categorymovies/series/"
                 break;
               case "https://www.themoviegram.com/categorymovies/multiki/":
+                return "/categorymovies/multiki/"
+		break;
+	      case "https://www.themoviegram.com/de/categorymovies/movies/":
+                return "/de/categorymovies/movies/";
                 break;
+	      case "https://www.themoviegram.com/de/categorymovies/series/":
+                return "/de/categorymovies/series/";
+                break;
+	      case "https://www.themoviegram.com/de/categorymovies/multiki/":
+                return "/de/categorymovies/multiki/";
+                break;
+
               default:
                 console.log("shit happens with url");
             }
@@ -104,8 +157,8 @@ function url_search(url){
               return "/de";
            }else if (url.indexOf("fr") >= 0){
               return "/fr";
-           }else if (url.indexOf("ar") >= 0){
-              return "/ar"
+           }else if (url.indexOf("ar") >= 0 && url.includes("search") != true){
+              return "/ar";
            }else{
               return "/";
            }
