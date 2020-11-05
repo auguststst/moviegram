@@ -24,7 +24,7 @@ def index(request):
 
 	PageUrl.i = None
 	
-	template = 'index.html'
+	template = 'index_fast.html'
 
 	movies = Movie.objects.filter(wall=True).order_by('-id').exclude(title=None)[:6]
 	genres = Genre.objects.all().order_by('name')
@@ -49,7 +49,7 @@ def index(request):
 	
 
 	if request.is_ajax():
-	    html = render_to_string(template_name="search_ajax.html", context={ "results": results })
+	    html = render_to_string(template_name="search_ajax_fast.html", context={ "results": results })
 	    return JsonResponse({ 'seconds':html }, status=200)
 
 	context = {
@@ -64,7 +64,7 @@ def index(request):
 
 def detail(request, pk):
 	
-	template = 'movie.html'
+	template = 'movie_fast.html'
 
 	movie = get_object_or_404(Movie,pk=pk)
 	genres = Genre.objects.all().order_by('name')
@@ -84,7 +84,7 @@ def detail(request, pk):
 
 def genremovies(request, slug):
 
-	template = 'irc.html'
+	template = 'irc_fast.html'
 	
 	genre = get_object_or_404(Genre, url__exact=slug)
 	
@@ -132,7 +132,7 @@ def genremovies(request, slug):
 
 def categorymovies(request, cat):
    
-   template = 'categorymov.html'
+   template = 'categorymov_fast.html'
 
    PageUrl.i = cat
 
@@ -152,7 +152,7 @@ def categorymovies(request, cat):
    	   movies = paginator.page(paginator.num_pages)
    
    if request.is_ajax():
-       html = render_to_string(template_name="film.html", context={"movies": movies })
+       html = render_to_string(template_name="film_fast.html", context={"movies": movies })
        return JsonResponse({'posts_html':html, 'has_next':movies.has_next()}, status=200)
    
    asd = get_object_or_404(Movie,id=Movie.Random('1'))
@@ -199,7 +199,7 @@ def is_valid_url(url):
 
 def telegram(request):
 	
-	template = 'telegram.html'
+	template = 'telegram_fast.html'
 	categories = Category.objects.all()
 	movies = Movie.objects.all()
 	asd = get_object_or_404(Movie,id=Movie.Random('1'))
@@ -214,7 +214,7 @@ def telegram(request):
 
 def email(request):
 
-	template = 'email.html'
+	template = 'email_fast.html'
 	movies = Movie.objects.all()
 	categories = Category.objects.all()
 	asd = get_object_or_404(Movie,id=Movie.Random('1'))
@@ -229,7 +229,7 @@ def email(request):
 
 def donate(request):
 	
-	template = 'btc.html'
+	template = 'btc_fast.html'
 	movies = Movie.objects.all()
 	categories = Category.objects.all()
 	asd = get_object_or_404(Movie,id=Movie.Random('1'))
@@ -244,7 +244,7 @@ def donate(request):
 
 def search(request):
 
-   template = "search.html"
+   template = "search_fast.html"
    
    movies = Movie.objects.all()
    categories = Category.objects.all()
@@ -269,7 +269,7 @@ def search(request):
 		'categories': categories,
    }
    
-   return render(request, "search.html", context)
+   return render(request, template, context)
 
 
 def changelanguage(request, language_code):

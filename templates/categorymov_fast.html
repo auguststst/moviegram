@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}{{ category.name }} {% endblock %}
+{% load static i18n %}
+{% block content %}
+<div class="container second">
+<div class="row row-offcanvas row-offcanvas-right">
+<div class="col-xs-12 col-sm-9">
+<div class="jumbotron hidden-md hidden-sm hidden-lg hidden-xs">
+<h1><strong>Фильмы в Telegram <img class="telegram" src="{% static 'img/logo.png'%}"/></strong></h1>
+<h2>Смотрите и скачивайте фильмы в Telegram вместе с Moviegram...</h2>
+</div>
+<form class="navbar-form hidden-md hidden-sm hidden-lg hidden-xs">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Поиск...">
+</div>
+<button type="submit" class="btn btn-primary">Поиск</button>
+</form>
+<div class="row" id="eq" style="margin-top:-26px">
+<div id="mm" class="hidden-lg hidden-md hidden-sm visible-xs clearfix">
+<h3 id="gt" class="bnt btn-info" style="margin-top:-15px!important;padding:10px 0">{% trans "Жанры" %}</h3>
+<ol id="gm" class="list-unstyled">
+{% for g in genres %}
+<li><a href="{% url 'genremovies' g.url %}" rel="nofollow">{{ g.name }}</a></li>
+{% endfor %}
+</ol>
+</div>
+<br />
+<div style="display:flex;flex-wrap:wrap;align-items:stretch" id="lazyload">{% include "film.html" %}</div>
+<br />
+<a style="display:block;text-decoration:none" id="lazyLoadLink" href="javascript:void(0)" data-page="2"><button type="button" id="stb" class="btn btn-block">{% trans "Больше"%}</button></a>
+</div>
+</div>
+{% include 'sidebar.html' %}
+<div id="sentinel"></div>
+<hr />
+{% endblock %}
+{% block footer %}
+<footer>
+<p>&copy; 2020 Moviegram</p>
+</footer>
+{% endblock %}

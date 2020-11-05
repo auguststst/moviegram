@@ -7,9 +7,9 @@
               <h2>{{ a.title }}</h2>
               <a href = "{% url 'detail' a.id %}"><img id="sz" src = "{{a.poster.url}}" alt="{{ a.title }}" id ="transperent" class = "img-thumbnail"/></a>
               
-              <p class = "inside">{{a.ShortenText}}...</p>
+              <p class = "inside">{{ a.description | truncatechars:152 }}</p>
               
-              <p><a class="btn btn-lg btn-default" id="more" href="{% url 'detail' a.id %}" role="button">{% trans "Смотреть" %}&raquo;</a></p>
+              <p class="hidden-lg hidden-md hidden-sm"><a class="btn btn-lg btn-default" id="more" href="{% url 'detail' a.id %}" role="button">{% trans "Смотреть" %}&raquo;</a></p>
              
             </div><!--/.col-xs-6.col-lg-4-->
 

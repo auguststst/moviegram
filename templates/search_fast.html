@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %} Поиск {% endblock %}
+{% load static i18n %}
+{% block content %}
+<div class="container" id="searchpart">
+{% if results %}
+{% for r in results %}
+<div id="component">
+<a href="{% url 'detail' r.id %}">{{ r.title }}</a>
+<h4>{{ r.world_premiere }}</h4>
+<p>{{ r.ShortenText }}...</p>
+<hr/>
+</div>
+{% endfor %}
+{% else %}
+<div id="component">
+<h1 class="text-center">{% trans "Ничего не найдено..." %}</h1>
+</div>
+{% endif %}
+{% endblock %}
+{% block footer %}
+<div class="container text-center">
+<footer>
+<p>&copy; 2020 Moviegram</p>
+</footer>
+</div>
+{% endblock %}

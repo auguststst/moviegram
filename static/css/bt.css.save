@@ -232,7 +232,7 @@ img:hover{
 	text-align: center;
 }
 #phoneicons a{
-	font-size: 24px!important;
+	font-size: 25px!important;
 	margin-left: 10px;
 	color: #000;
 }
@@ -782,9 +782,7 @@ img:hover{
 		top: 0;
 	}
 	
-	#dis a {
-		font-size: 11px;
-	}	
+	#ph	
 	
 }	
 

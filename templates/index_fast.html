@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<div class="container second">
+<div class="row row-offcanvas row-offcanvas-right">
+<div class="col-xs-12 col-sm-9">
+<div class="jumbotron">
+<h1><strong style="display:block">{% trans "Фильмы в Telegram" %} <img class="telegram" src="{% static 'img/logo.png'%}"/></strong></h1>
+<h2>{% trans "Смотрите и скачивайте фильмы в Telegram вместе с Moviegram..." %}</h2>
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+<div id="languages">
+{% for language in languages %}
+<a href="{% url 'activate_language' language.code %}">{{ language.name }}</a>
+{% endfor %}
+</div>
+</div>
+<div class="row" id="eq">
+{% for x in movies %}
+<div class="col-xs-12 col-md-6 col-sm-6 col-lg-4">
+<h2>{{ x.title }}</h2>
+<a href="{% url 'detail' x.id %}"><img id="sz" src="{{x.poster.url}}" alt="{{ x.title }}" id="transperent" class="img-thumbnail"/></a>
+<p class="inside">{{ x.description | truncatechars:152 }}</p>
+<p class="hidden-lg hidden-md hiddem-sm"><a class="btn btn-lg btn-default" id="more" href="{% url 'detail' x.id %}" role="button">{% trans "Смотреть" %}&raquo;</a></p>
+</div>
+{% endfor %}
+</div>
+</div>
+{% include 'sidebar.html' %}
+<hr />
+{% endblock %}
+{% block footer %}
+<footer>
+<p>&copy; 2020 Moviegram | We post the Stuff that are already available on Internet or Telegram</p>
+</footer>
+{% endblock %}
