@@ -44,6 +44,32 @@ img:hover{
 	opacity: 80%!important;
 }
 
+div.scrollup{
+	background: none;
+	left: 0;
+	top: 62px;
+	width: 180px;
+	min-height: 100vh;
+	height: 100%;
+	position: fixed;
+	border-radius: 1px;
+	text-align: center;
+	overflow: hidden;
+	z-index: 9999;
+	display: none;
+	transition: opacity ease in out 0.2s; 
+}
+
+div.scrollup:hover{
+	background: rgb(51, 122, 183, 0.1);
+}
+.scrollup i {
+	margin-top: 20px;
+	font-size: 26px;
+	line-height: 40px;
+	color:#2e87ca!important;
+}
+
 
 				  /*-------  header -------*/
 .mid{

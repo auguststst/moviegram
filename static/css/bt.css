@@ -120,6 +120,32 @@ img:hover{
 	opacity: 80%!important;
 }
 
+div.scrollup{
+	background: none;
+	left: 0;
+	top: 62px;
+	width: 180px;
+	min-height: 100vh;
+	height: 100%;
+	position: fixed;
+	border-radius: 1px;
+	text-align: center;
+	overflow: hidden;
+	z-index: 9999;
+	display: none;
+	transition: opacity ease in out 0.2s; 
+}
+
+div.scrollup:hover{
+	background: rgb(51, 122, 183, 0.1);
+}
+.scrollup i {
+	margin-top: 20px;
+	font-size: 26px;
+	line-height: 40px;
+	color:#2e87ca!important;
+}
+
 
 				  /*-------  header -------*/
 .mid{
@@ -508,6 +534,35 @@ img:hover{
 		display: none;
 	}
 
+	.horizontalMobileScroll {
+	  --items: 6;
+	  --cell-padding: 0.5rem;
+	  --cell-basis: calc((100% - var(--cell-padding) * 2) / var(--items));
+	  display: flex;
+	  overflow: auto;
+	  top: 76px;
+	  z-index: 995;
+	  position: fixed;
+	  width: 100%;
+	  background: white;
+	  padding: 0;
+
+	}
+
+	.horizontalMobileScroll__cell {
+	  flex: 1 0 var(--cell-basis);
+	  padding: var(--cell-padding);
+	}
+
+
+	.horizontalMobileScroll::-webkit-scrollbar {
+	  width: -5px;
+	  display: none;
+	}
+
+	.horizontalMobileScroll::-webkit-scrollbar-thumb {
+	  display: none!important;
+	}
 
 	.mb-search{
 		display: block;
@@ -643,7 +698,7 @@ img:hover{
 	}
 
 	#eq{
-		margin-top: 50px;
+		margin-top: 10px!important;
 	}
 
 	#eq > .col-md-6{
@@ -666,26 +721,6 @@ img:hover{
 		width: 100%;
 	}
 
-	#mm{
-		text-align: center!important;
-	}
-
-	#mm h3{
-		font-size: 37px;
-	}
-
-	#mm a{
-		margin-left: 15px;
-	    	font-size: 29px!important;
-	}
-	#mm ol li{
-		display: inline-block!important;
-	}
-	#gm{display: none;}
-
-	#mobile-menu a:hover {
-		background: #E0FFFF!important;
-	}
 
 	.col-xs-6 h2{
 		font-size: 25px!important;

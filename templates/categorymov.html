@@ -5,6 +5,7 @@
 
 {% block content %}
    <!-- second part -->
+     <div class="scrollup hidden-xs"><i class="fa fa-chevron-up"></i></div>
      <div class="container second">
 
       <div class="row row-offcanvas row-offcanvas-right">
@@ -23,15 +24,14 @@
         </form>
 
           <div class="row" id="eq" style="margin-top:-26px;">
-          
-          <div id = "mm" class="hidden-lg hidden-md hidden-sm visible-xs clearfix">
-             <h3 id="gt" class="bnt btn-info" style="margin-top: -15px!important; padding: 10px 0;">{% trans "Жанры" %}</h3>
-             <ol id="gm" class="list-unstyled">
-             {% for g in genres %}
-                 <li><a href="{% url 'genremovies' g.url %}" rel="nofollow">{{ g.name }}</a></li>
-             {% endfor %}  
-            </ol>
-          </div><!-- mm -->
+	   <div class="horizontalMobileScroll hidden-lg hidden-md hidden-sm">
+           {% for g in genres %}
+            <div class="horizontalMobileScroll__cell">
+              <div class="horizontalMobileScroll__inner"><a class="btn btn-default" style="font-size: 36px; border-radius: 20px" href="{% url 'genremovies' g.url %}" rel="nofollow">{{ g.name }}</a></div>
+            </div>
+           {% endfor %}
+          </div>          
+
 	<br />
 
 	<div style="display:flex; flex-wrap: wrap; align-items: stretch;" id="lazyload">{% include "film.html" %}</div>

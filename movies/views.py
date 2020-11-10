@@ -84,7 +84,7 @@ def detail(request, pk):
 
 def genremovies(request, slug):
 
-	template = 'irc_fast.html'
+	template = 'categorymov_fast.html'
 	
 	genre = get_object_or_404(Genre, url__exact=slug)
 	
@@ -98,29 +98,16 @@ def genremovies(request, slug):
 	else:
 	    movie_list = genre.movie_set.all().order_by('-year').exclude(title=None)
 
-	
 
-
-	paginator = Paginator(movie_list, 5)
-	
-	try:
-		page = request.GET.get('page','1')
-	except:
-		page = 1
-	
-	try:
-		movies = paginator.page(page)
-	except(EmptyPage, InvalidPage):
-		movies = paginator.page(paginator.num_pages)
 
 	genres = Genre.objects.all().order_by('name')
 	categories = Category.objects.all()
 
+	movies = movie_list
 	asd = get_object_or_404(Movie,id=Movie.Random('1'))
 
 	context = {
 		"asd": asd,
-		"page": page,
 		"genres": genres,
 		"movies": movies,
 		"categories": categories,
