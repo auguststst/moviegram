@@ -26,7 +26,7 @@ def index(request):
 	
 	template = 'index_fast.html'
 
-	movies = Movie.objects.filter(wall=True).order_by('-id').exclude(title=None)[:6]
+	movies = Movie.objects.filter(wall=True,draft=False).order_by('-id').exclude(title=None)[:6]
 	genres = Genre.objects.all().order_by('name')
 	categories = Category.objects.all()
 
@@ -94,9 +94,9 @@ def genremovies(request, slug):
 	    pag = get_object_or_404(Category, url__exact=PageUrl.i)
 	
 	if pag:
-	    movie_list = genre.movie_set.all().order_by('-year').filter(category__exact=pag).exclude(title=None)
+	    movie_list = genre.movie_set.all().order_by('-year').filter(category__exact=pag,draft=False).exclude(title=None)
 	else:
-	    movie_list = genre.movie_set.all().order_by('-year').exclude(title=None)
+	    movie_list = genre.movie_set.all().order_by('-year').exclude(title=None).filter(draft=False)
 
 
 
@@ -127,7 +127,7 @@ def categorymovies(request, cat):
    genres = Genre.objects.all().order_by('name')
    categories = Category.objects.all()
    category = get_object_or_404(Category, url__exact=cat)
-   movies = category.movie_set.all().order_by('-world_premiere').exclude(title=None)
+   movies = category.movie_set.all().order_by('-world_premiere').exclude(title=None).filter(draft=False)
    paginator = Paginator(movies, 6)
    
    page = request.GET.get('page')

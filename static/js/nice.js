@@ -151,13 +151,13 @@ function url_switch(url){
           }
 
 function url_search(url){ 
-           if (url.indexOf("en") >= 0){
+           if (url.indexOf("/en") >= 0){
               return "/en";
-           }else if (url.indexOf("de") >= 0){
+           }else if (url.indexOf("/de") >= 0){
               return "/de";
-           }else if (url.indexOf("fr") >= 0){
+           }else if (url.indexOf("/fr") >= 0){
               return "/fr";
-           }else if (url.indexOf("ar") >= 0 && url.includes("search") != true){
+           }else if (url.indexOf("/ar") >= 0 && url.includes("search") != true){
               return "/ar";
            }else{
               return "/";

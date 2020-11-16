@@ -7,12 +7,12 @@ from modeltranslation.admin import TranslationAdmin
 
 
 class MovieAdmin(TranslationAdmin):
-	list_display = ("title","telegram","wall","year")
+	list_display = ("title","draft","telegram","wall","year")
 	list_display_links = ("telegram",)
 	list_filter = ("category",)
 	search_fields = ("title",)
 	filter_horizontal = ('actors','directors',)
-	list_editable = ("wall",)
+	list_editable = ("wall","draft",)
 	readonly_fields = ("get_image",)
 
 	def get_image(self,obj):

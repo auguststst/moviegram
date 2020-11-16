@@ -621,6 +621,7 @@ div.scrollup:hover{
 
 	nav{
 		height: 57px;
+		z-index: 900!important;
 	}
 
 
