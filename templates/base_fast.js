@@ -28,7 +28,7 @@
 <script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script>
 <![endif]-->
 {% block extrahead %}
-<script defer type=text/javascript src=http://code.jquery.com/jquery-1.9.1.js></script>
+<script defer src=https://code.jquery.com/jquery-2.2.4.min.js integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="crossorigin=anonymous></script>
 <script async src="{% static 'js/touchSwipe.js' %}"></script>
 <script defer src="{% static 'js/bootstrap.min.js' %}"></script>
 <script type=text/javascript>window.CSRF_TOKEN="{{ csrf_token }}";</script>

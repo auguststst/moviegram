@@ -12,7 +12,6 @@
     <meta name="description" content="{% block description %}{% trans "Наш сайт предназначен для поиска и просмотра фильмов, предварительно скачав их и подгрузив вы сможете смотреть в дальнейшем без интернета" %}{% endblock %}">
     <meta name="fragment" content="!">
     <meta name="keywords" content="Moviegram">    
-    
     <meta property="og:title" content="{% block t %}Moviegram{% endblock %}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.themoviegram.com/" />
@@ -38,12 +37,12 @@
     <![endif]-->      
     {% block extrahead %}
        <script defer src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="crossorigin="anonymous"></script>
-       <script defer src="{% static 'js/touchSwipe.js' %}"></script>
+       <script async src="{% static 'js/touchSwipe.js' %}"></script>
        <script defer src="{% static 'js/bootstrap.min.js' %}"></script>
        <script type="text/javascript"> window.CSRF_TOKEN = "{{ csrf_token }}"; </script>
        <script defer src="{% static 'js/fast.js' %}"></script>
-       <script defer src="{% static 'js/sidebarNavigation.js' %}"></script>
-       <script defer src="{% static 'js/slideAndSwipe.js' %}"></script> 
+       <script async src="{% static 'js/sidebarNavigation.js' %}"></script>
+       <script async src="{% static 'js/slideAndSwipe.js' %}"></script>
    {% endblock extrahead %}
    </head>
   <body> 

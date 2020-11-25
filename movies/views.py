@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, JsonResponse
 from .models import Movie, Genre, Category, TelegramChannel
 from django.core.paginator import Paginator, EmptyPage, InvalidPage, PageNotAnInteger
+from django.views.decorators.cache import cache_control
 from django.db.models import Q
 from django.core.validators import URLValidator
 from django.template.loader import render_to_string
@@ -20,6 +21,7 @@ class PageUrl:
 
 	i = None
 
+@cache_control(max_age=60)
 def index(request):
 
 	PageUrl.i = None
@@ -61,7 +63,7 @@ def index(request):
 	
 	return render(request, template, context)
 
-
+@cache_control(max_age=60)
 def detail(request, pk):
 	
 	template = 'movie_fast.html'
@@ -81,7 +83,7 @@ def detail(request, pk):
 	}
 	return render(request, template, context)
 
-
+@cache_control(max_age=60)
 def genremovies(request, slug):
 
 	template = 'categorymov_fast.html'
@@ -116,7 +118,7 @@ def genremovies(request, slug):
 
 	return render(request, template, context)
 
-
+@cache_control(max_age=60)
 def categorymovies(request, cat):
    
    template = 'categorymov_fast.html'
@@ -183,7 +185,7 @@ def is_valid_url(url):
     except:
         return False 
 
-
+@cache_control(max_age=60)
 def telegram(request):
 	
 	template = 'telegram_fast.html'
@@ -198,7 +200,7 @@ def telegram(request):
 
 	return render(request, template, context)
 
-
+@cache_control(max_age=60)
 def email(request):
 
 	template = 'email_fast.html'
@@ -214,6 +216,7 @@ def email(request):
 	
 	return render(request, template, context)
 
+@cache_control(max_age=60)
 def donate(request):
 	
 	template = 'btc_fast.html'
@@ -228,7 +231,7 @@ def donate(request):
 
 	return render(request, template, context)
 
-
+@cache_control(max_age=60)
 def search(request):
 
    template = "search_fast.html"
