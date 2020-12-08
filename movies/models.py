@@ -125,7 +125,7 @@ class Movie(models.Model):
 		return "%i/" % self.id
 
 	def Random(self):
-		movies = Movie.objects.all().exclude(title=None)
+		movies = Movie.objects.all().exclude(title=None).filter(draft=False)
 		options = []
 
 		for m in movies:

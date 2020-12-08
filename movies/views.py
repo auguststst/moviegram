@@ -20,8 +20,9 @@ logging.basicConfig(filename="/home/august/mg/logfile", level=logging.INFO)
 class PageUrl:
 
 	i = None
+	time = 3600
 
-@cache_control(max_age=60)
+@cache_control(max_age=PageUrl.time)
 def index(request):
 
 	PageUrl.i = None
@@ -63,7 +64,7 @@ def index(request):
 	
 	return render(request, template, context)
 
-@cache_control(max_age=60)
+@cache_control(max_age=PageUrl.time)
 def detail(request, pk):
 	
 	template = 'movie_fast.html'
@@ -83,7 +84,7 @@ def detail(request, pk):
 	}
 	return render(request, template, context)
 
-@cache_control(max_age=60)
+@cache_control(max_age=PageUrl.time)
 def genremovies(request, slug):
 
 	template = 'categorymov_fast.html'
@@ -118,7 +119,7 @@ def genremovies(request, slug):
 
 	return render(request, template, context)
 
-@cache_control(max_age=60)
+@cache_control(max_age=PageUrl.time)
 def categorymovies(request, cat):
    
    template = 'categorymov_fast.html'
@@ -185,7 +186,7 @@ def is_valid_url(url):
     except:
         return False 
 
-@cache_control(max_age=60)
+@cache_control(max_age=PageUrl.time)
 def telegram(request):
 	
 	template = 'telegram_fast.html'
@@ -200,7 +201,7 @@ def telegram(request):
 
 	return render(request, template, context)
 
-@cache_control(max_age=60)
+@cache_control(max_age=PageUrl.time)
 def email(request):
 
 	template = 'email_fast.html'
@@ -216,7 +217,7 @@ def email(request):
 	
 	return render(request, template, context)
 
-@cache_control(max_age=60)
+@cache_control(max_age=PageUrl.time)
 def donate(request):
 	
 	template = 'btc_fast.html'
@@ -231,7 +232,7 @@ def donate(request):
 
 	return render(request, template, context)
 
-@cache_control(max_age=60)
+@cache_control(max_age=PageUrl.time)
 def search(request):
 
    template = "search_fast.html"
