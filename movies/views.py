@@ -5,6 +5,7 @@ from .models import Movie, Genre, Category, TelegramChannel
 from django.core.paginator import Paginator, EmptyPage, InvalidPage, PageNotAnInteger
 from django.views.decorators.cache import cache_control
 from django.db.models import Q
+from django.db.models import F
 from django.core.validators import URLValidator
 from django.template.loader import render_to_string
 from django.utils import translation
@@ -70,6 +71,8 @@ def detail(request, pk):
 	template = 'movie_fast.html'
 
 	movie = get_object_or_404(Movie,pk=pk)
+	movie.visit_num = F('visit_num') + 1
+	movie.save()
 	genres = Genre.objects.all().order_by('name')
 	categories = Category.objects.all()
 	movies = Movie.objects.filter(telegram__exact=movie.telegram)

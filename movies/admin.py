@@ -7,7 +7,7 @@ from modeltranslation.admin import TranslationAdmin
 
 
 class MovieAdmin(TranslationAdmin):
-	list_display = ("title","draft","telegram","wall","year")
+	list_display = ("visit_num","title","draft","telegram","wall","year")
 	list_display_links = ("telegram",)
 	list_filter = ("category",)
 	search_fields = ("title",)
