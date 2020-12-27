@@ -523,6 +523,54 @@ div.scrollup:hover{
 	text-decoration: none!important;
 }
 
+.movie-filters{
+	position: fixed; 
+	right: 50px; 
+	bottom: 12px;
+	display: flex;
+	justify-content:space-between;
+	align-items: center;
+}
+
+.movie-filters > .filter-element{
+	margin-left: 25px!important;
+	height: 23px;
+	width: 23px;
+}
+
+.movie-filters > .filterelement-text{
+	font-size: 19px;
+}
+
+.filter-panel{
+	position: fixed;
+	height: 45px;
+	width: 100%;
+	border-top: 1px solid #ccc;
+	z-index: 999;
+	bottom: 0;
+	left: 0;
+	background: #fff;
+}
+
+.filter-button{
+	float: right;
+	font-size: 40px;
+	color: black;
+	margin-top: 6px;
+	margin-right: 20px;
+}
+
+
+#filter-panel .filter-element{
+	height: 16px!important;
+	width: 16px!important;
+}
+
+#filter-panel .filterelement-text{
+	font-size: 19px!important;
+}
+
 
 
 

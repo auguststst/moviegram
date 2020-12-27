@@ -21,7 +21,7 @@ logging.basicConfig(filename="/home/august/mg/logfile", level=logging.INFO)
 class PageUrl:
 
 	i = None
-	time = 3600
+	time = 604800
 
 @cache_control(max_age=PageUrl.time)
 def index(request):
@@ -90,30 +90,173 @@ def detail(request, pk):
 @cache_control(max_age=PageUrl.time)
 def genremovies(request, slug):
 
+	
 	template = 'categorymov_fast.html'
 	
 	genre = get_object_or_404(Genre, url__exact=slug)
+
+	full_url = request.build_absolute_uri(None)
 	
 	pag=""
+
+
+	rec = []
+	
+	if request.POST.getlist('filter[]'):
+		rec = request.POST.getlist('filter[]')
+		rec = unique_array(rec)
+
+	data = {
+		"-id": "recently",
+		"-year": "date",
+		"-imdb": "rating",
+		"-visit_num": "popular" 
+	}
+
+	an = []
+	for x, y in data.items():
+		if y in full_url:
+			an.append(x)
+
+	fi = []
+	for x, y in data.items():
+		if y in rec:
+			fi.append(x)
 	
 	if PageUrl.i is not None:
 	    pag = get_object_or_404(Category, url__exact=PageUrl.i)
 	
 	if pag:
-	    movie_list = genre.movie_set.all().order_by('-year').filter(category__exact=pag,draft=False).exclude(title=None)
+		if len(fi) == 1:
+			print('work')
+			movies = genre.movie_set.all().order_by(fi[0]).filter(category__exact=pag,draft=False).exclude(title=None)
+			paginator = Paginator(movies, 6)
+			page = request.GET.get('page')
+			try:
+				movies = paginator.page(page)
+			except PageNotAnInteger:
+				movies = paginator.page(1)
+			except EmptyPage:
+				movies = paginator.page(paginator.num_pages)
+
+			if request.is_ajax():
+				html = render_to_string(template_name="film_fast.html", context={ "movies": movies })
+				return JsonResponse({ 'posts_html':html, 'has_next': movies.has_next() }, status=200)
+
+		if len(fi) == 2:
+			print('work')
+			movies = genre.movie_set.all().order_by(fi[0],fi[1]).filter(category__exact=pag,draft=False).exclude(title=None)
+			paginator = Paginator(movies, 6)
+			page = request.GET.get('page')
+			try:
+				movies = paginator.page(page)
+			except PageNotAnInteger:
+				movies = paginator.page(1)
+			except EmptyPage:
+				movies = paginator.page(paginator.num_pages)
+
+			if request.is_ajax():
+				html = render_to_string(template_name="film_fast.html", context={ "movies": movies })
+				return JsonResponse({ 'posts_html':html, 'has_next': movies.has_next() }, status=200)
+
+		if len(fi) == 3:
+			print('work')
+			movies = genre.movie_set.all().order_by(fi[0],fi[1],fi[2]).filter(category__exact=pag,draft=False).exclude(title=None)
+			paginator = Paginator(movies, 6)
+			page = request.GET.get('page')
+			try:
+				movies = paginator.page(page)
+			except PageNotAnInteger:
+				movies = paginator.page(1)
+			except EmptyPage:
+				movies = paginator.page(paginator.num_pages)
+
+			if request.is_ajax():
+				html = render_to_string(template_name="film_fast.html", context={ "movies": movies })
+				return JsonResponse({ 'posts_html':html, 'has_next': movies.has_next() }, status=200)
+
+		if len(fi) == 4:
+			print('work')
+			movies = genre.movie_set.all().order_by(fi[0],fi[1],fi[2],fi[3]).filter(category__exact=pag,draft=False).exclude(title=None)
+			paginator = Paginator(movies, 6)
+			page = request.GET.get('page')
+			try:
+				movies = paginator.page(page)
+			except PageNotAnInteger:
+				movies = paginator.page(1)
+			except EmptyPage:
+				movies = paginator.page(paginator.num_pages)
+
+			if request.is_ajax():
+				html = render_to_string(template_name="film_fast.html", context={ "movies": movies })
+				return JsonResponse({ 'posts_html':html, 'has_next': movies.has_next() }, status=200)
+			
+		
+		else:
+			print('now work')
+			if an:
+				if len(an) == 2:
+					movies = genre.movie_set.all().order_by(an[0],an[1]).filter(category__exact=pag,draft=False).exclude(title=None)
+				elif len(an) == 3:
+					movies = genre.movie_set.all().order_by(an[0],an[1],an[2]).filter(category__exact=pag,draft=False).exclude(title=None)
+				elif len(an) == 4:
+					movies = genre.movie_set.all().order_by(an[0],an[1],an[2],an[3]).filter(category__exact=pag,draft=False).exclude(title=None)
+				else:
+					movies = genre.movie_set.all().order_by(an[0]).filter(category__exact=pag,draft=False).exclude(title=None)
+			else:
+				movies = genre.movie_set.all().order_by('-world_premiere').filter(category__exact=pag,draft=False).exclude(title=None)
+			paginator = Paginator(movies, 6)
+			page = request.GET.get('page')
+			try:
+				movies = paginator.page(page)
+			except PageNotAnInteger:
+				movies = paginator.page(1)
+			except EmptyPage:
+				movies = paginator.page(paginator.num_pages)
+
+			if request.is_ajax():
+				html = render_to_string(template_name="film_fast.html", context={ "movies": movies })
+				return JsonResponse({ 'posts_html':html, 'has_next': movies.has_next() }, status=200)
+			
+		
 	else:
-	    movie_list = genre.movie_set.all().order_by('-year').exclude(title=None).filter(draft=False)
+		print('not work')
+		if an:
+			if len(an) == 2:
+				movies = genre.movie_set.all().order_by(an[0],an[1]).exclude(title=None).filter(draft=False)
+			elif len(an) == 3:
+				movies = genre.movie_set.all().order_by(an[0],an[1],an[2]).exclude(title=None).filter(draft=False)
+			elif len(an) == 4:
+				movies = genre.movie_set.all().order_by(an[0],an[1],an[2],an[3]).exclude(title=None).filter(draft=False)
+			else:
+				movies = genre.movie_set.all().order_by(an[0]).exclude(title=None).filter(draft=False)
+		else:
+			movies = genre.movie_set.all().order_by('-world_premiere').exclude(title=None).filter(draft=False)
 
 
+		paginator = Paginator(movies, 6)
+		page = request.GET.get('page')
+		try:
+			movies = paginator.page(page)
+		except PageNotAnInteger:
+			movies = paginator.page(1)
+		except EmptyPage:
+			movies = paginator.page(paginator.num_pages)
+		
+		if request.is_ajax():
+			html = render_to_string(template_name="film_fast.html", context={ "movies": movies })
+			return JsonResponse({ 'posts_html':html, 'has_next': movies.has_next() }, status=200)
+		
 
 	genres = Genre.objects.all().order_by('name')
 	categories = Category.objects.all()
 
-	movies = movie_list
+	movies = movies
 	asd = get_object_or_404(Movie,id=Movie.Random('1'))
 
 	context = {
 		"asd": asd,
+		"page": page,
 		"genres": genres,
 		"movies": movies,
 		"categories": categories,
@@ -124,43 +267,159 @@ def genremovies(request, slug):
 
 @cache_control(max_age=PageUrl.time)
 def categorymovies(request, cat):
-   
-   template = 'categorymov_fast.html'
+	template = 'categorymov_fast.html'
+	PageUrl.i = cat
+	genres = Genre.objects.all().order_by('name')
+	categories = Category.objects.all()
+	category = get_object_or_404(Category, url__exact=cat)
 
-   PageUrl.i = cat
+	asd = get_object_or_404(Movie,id=Movie.Random('1'))
+	
+	full_url = request.build_absolute_uri()
+	print(full_url)
+	rec = []
+	
+	if request.POST.getlist('filter[]'):
+		rec = request.POST.getlist('filter[]')
+		rec = unique_array(rec)
 
-   
-   genres = Genre.objects.all().order_by('name')
-   categories = Category.objects.all()
-   category = get_object_or_404(Category, url__exact=cat)
-   movies = category.movie_set.all().order_by('-world_premiere').exclude(title=None).filter(draft=False)
-   paginator = Paginator(movies, 6)
-   
-   page = request.GET.get('page')
-   try:
-       movies = paginator.page(page)
-   except PageNotAnInteger:
-       movies = paginator.page(1)
-   except EmptyPage:
-   	   movies = paginator.page(paginator.num_pages)
-   
-   if request.is_ajax():
-       html = render_to_string(template_name="film_fast.html", context={"movies": movies })
-       return JsonResponse({'posts_html':html, 'has_next':movies.has_next()}, status=200)
-   
-   asd = get_object_or_404(Movie,id=Movie.Random('1'))
+	data = {
+		"-id": "recently",
+		"-year": "date",
+		"-imdb": "rating",
+		"-visit_num": "popular",
+	}
 
-   context = {
-	  "asd": asd,
-	  "page": page,
-          "genres": genres,
-   	  "categories": categories,
-   	  "movies": movies,
-   	  "category": category,
-   }
-   
-   return render(request, template, context)
+	an = []
+	for x, y in data.items():
+		if y in full_url:
+			an.append(x)
 
+	print(an)
+	
+	url = request.build_absolute_uri(None)
+
+	fi = []
+	for x, y in data.items():
+		if y in rec:
+			fi.append(x)
+
+
+	#print(PageUrl.option)
+	#print(fi)
+	page = ""
+	if len(fi) == 1:
+		movies = category.movie_set.exclude(title=None).filter(draft=False).order_by(fi[0])
+		paginator = Paginator(movies, 6)
+		page = request.GET.get('page')
+		try:
+			movies = paginator.page(page)
+		except PageNotAnInteger:
+			movies = paginator.page(1)
+		except EmptyPage:
+			movies = paginator.page(paginator.num_pages)
+
+		if request.is_ajax():
+			html = render_to_string(template_name="film_fast.html", context={ "movies": movies })
+			return JsonResponse({ 'posts_html':html, 'has_next': movies.has_next() }, status=200)
+
+
+	elif len(fi) == 2:
+		movies = category.movie_set.exclude(title=None).filter(draft=False).order_by(fi[0],fi[1])
+		paginator = Paginator(movies, 6)
+		page = request.GET.get('page')
+		try:
+			movies = paginator.page(page)
+		except PageNotAnInteger:
+			movies = paginator.page(1)
+		except EmptyPage:
+			movies = paginator.page(paginator.num_pages)
+
+		if request.is_ajax():
+			html = render_to_string(template_name="film_fast.html", context={ "movies": movies })
+			return JsonResponse({ 'posts_html':html, 'has_next': movies.has_next() }, status=200)
+
+	elif len(fi) == 3:
+		movies = category.movie_set.exclude(title=None).filter(draft=False).order_by(fi[0],fi[1],fi[2])
+		paginator = Paginator(movies, 6)
+		page = request.GET.get('page')
+		try:
+			movies = paginator.page(page)
+		except PageNotAnInteger:
+			movies = paginator.page(1)
+		except EmptyPage:
+			movies = paginator.page(paginator.num_pages)
+
+		if request.is_ajax():
+			html = render_to_string(template_name="film_fast.html", context={ "movies": movies })
+			return JsonResponse({ 'posts_html':html, 'has_next': movies.has_next() }, status=200)
+
+	elif len(fi) == 4:
+		movies = category.movie_set.exclude(title=None).filter(draft=False).order_by(fi[0],fi[1],fi[2],fi[3])
+		paginator = Paginator(movies, 6)
+		page = request.GET.get('page')
+		try:
+			movies = paginator.page(page)
+		except PageNotAnInteger:
+			movies = paginator.page(1)
+		except EmptyPage:
+			movies = paginator.page(paginator.num_pages)
+
+		if request.is_ajax():
+			html = render_to_string(template_name="film_fast.html", context={ "movies": movies })
+			return JsonResponse({ 'posts_html':html, 'has_next': movies.has_next() }, status=200)
+
+	else:
+		if an:
+			if len(an) == 2:
+				movies = category.movie_set.exclude(title=None).filter(draft=False).order_by(an[0],an[1])
+			elif len(an) == 3:
+				movies = category.movie_set.exclude(title=None).filter(draft=False).order_by(an[0],an[1],an[2])
+			elif len(an) == 4:
+				movies = category.movie_set.exclude(title=None).filter(draft=False).order_by(an[0],an[1],an[2],an[3])
+			else:
+				movies = category.movie_set.exclude(title=None).filter(draft=False).order_by(an[0])
+		else:
+			movies = category.movie_set.exclude(title=None).filter(draft=False).order_by('-world_premiere')
+
+		paginator = Paginator(movies, 6)
+		page = request.GET.get('page')
+		try:
+			movies = paginator.page(page)
+		except PageNotAnInteger:
+			movies = paginator.page(1)
+		except EmptyPage:
+			movies = paginator.page(paginator.num_pages)
+
+		if request.is_ajax():
+			html = render_to_string(template_name="film_fast.html", context={ "movies": movies })
+			return JsonResponse({ 'posts_html':html, 'has_next': movies.has_next() }, status=200)
+
+	"""
+	paginator = Paginator(movies, 6)
+	page = request.GET.get('page')
+	try:
+		movies = paginator.page(page)
+	except PageNotAnInteger:
+		movies = paginator.page(1)
+	except EmptyPage:
+		movies = paginator.page(paginator.num_pages)
+
+	if request.is_ajax():
+		html = render_to_string(template_name="film_fast.html", context={ "movies": movies })
+		return JsonResponse({ 'posts_html':html, 'has_next': movies.has_next() }, status=200)
+    """
+
+	context = {
+		"asd":asd,
+		"page":page,
+		"genres": genres,
+		"categories": categories,
+		"movies": movies,
+		"category": category,
+	}
+
+	return render(request, template, context)
 
 def addChannel(request):
 	
@@ -273,6 +532,12 @@ def changelanguage(request, language_code):
    return redirect('index')
 
 
+def unique_array(items):
+	a = []
+	for word in items:
+		if word not in a:
+			a.append(word)
 
+	return a
 
 

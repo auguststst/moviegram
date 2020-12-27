@@ -1,3 +1,4 @@
+var all = [];
 $(function() {
           $('#full, #full1, #full2, #full3, #full4, #full5, #full6, #full7, #full8, #full9, #full10').hide();
 
@@ -38,6 +39,169 @@ $(function() {
               $("#direction2").removeClass('hidden-xs');
               $("#direction").remove();
           });
+
+	 var movvv = document.querySelector('.inside');
+
+
+          //localStorage.clear();
+
+
+
+
+          var retrievedData = localStorage.getItem("myArray");
+          if(retrievedData){
+            retrievedData = retrievedData.replace(/^\[(.+)\]$/,'$1');
+            var elements = retrievedData.split(',');
+
+            loopfilter();
+            //console.log(all);
+          }
+
+          function loopfilter(){
+            for(var x = 0; x < elements.length; x++){
+              //console.log(elements[x].slice(1, -1));
+              $(':checkbox[value='+elements[x]+']').prop("checked","true");
+              all.push(elements[x].slice(1, -1));
+
+              $.ajax({
+                              type: "post",
+                              url: url_switch(window.location.href),
+                              data: {
+                                  'filter' : all,
+                                  'csrfmiddlewaretoken': window.CSRF_TOKEN
+                              },
+                              success: function(response){
+                                  $('#lazyload').html(response.posts_html);
+                              }
+                        });
+
+              $.ajax({
+                                type: "post",
+                                url: window.location.href,
+                                data: {
+                                    'filter' : all,
+                                    'csrfmiddlewaretoken': window.CSRF_TOKEN
+                                },
+                                success: function(response){
+                                    $('#lazyload').html(response.posts_html);
+                                }
+                          });
+
+              }
+          }
+
+
+         
+          document.querySelectorAll('.filter-element').forEach(function(item){
+
+                                
+
+                item.addEventListener('change', function(e) {
+                  
+
+                    if(item.checked){
+                         document.activeElement.blur();
+                         all.push($(this).val());
+                         
+                         if (localStorage.length !== 0){
+                           var existingEntries = JSON.parse(localStorage.getItem("myArray"));
+                           appendFilter();
+                         }
+
+                         function appendFilter(){
+                           for(var x = 0; x < existingEntries.length; x++){
+              
+
+                            if(all.indexOf(existingEntries[x]) === -1) {
+                                all.push(existingEntries[x]);
+                            }
+                           }
+                         }
+
+
+                         localStorage.setItem('myArray', JSON.stringify(all));
+                         
+
+                         $.ajax({
+                                type: "post",
+                                url: url_switch(window.location.href),
+                                data: {
+                                    'filter' : all,
+                                    'csrfmiddlewaretoken': window.CSRF_TOKEN
+                                },
+                                success: function(response){
+                                    $('#lazyload').html(response.posts_html);
+                                }
+                          });
+
+                          $.ajax({
+                                type: "post",
+                                url: window.location.href,
+                                data: {
+                                    'filter' : all,
+                                    'csrfmiddlewaretoken': window.CSRF_TOKEN
+                                },
+                                success: function(response){
+                                    $('#lazyload').html(response.posts_html);
+                                }
+                          });
+
+                        
+                       }else{ 
+                         document.activeElement.blur();
+                         if (localStorage.length !== 0){
+                           var items = JSON.parse(localStorage.getItem("myArray"));
+                           items.splice(all.indexOf($("input:checkbox:not(:checked)")), 1);
+                           all.splice(all.indexOf($("input:checkbox:not(:checked)")), 1);
+                           all = items;
+                           all.reverse(); 
+                           //console.log(all); 
+                           
+                           if(all.length >= 1){                      
+                              localStorage.setItem('myArray', JSON.stringify(all));
+                           }else{
+                              localStorage.removeItem('myArray');
+                           }
+
+                      }
+
+              
+                         $.ajax({
+                                type: "post",
+                                url: url_switch(window.location.href),
+                                data: {
+                                    'filter' : all,
+                                    'csrfmiddlewaretoken': window.CSRF_TOKEN
+                                },
+                                success: function(response){
+                                    $('#lazyload').html(response.posts_html)
+                                }
+                          });
+
+                         $.ajax({
+                                type: "post",
+                                url: window.location.href,
+                                data: {
+                                    'filter' : all,
+                                    'csrfmiddlewaretoken': window.CSRF_TOKEN
+                                },
+                                success: function(response){
+                                    $('#lazyload').html(response.posts_html);
+                                }
+                          });
+
+
+                        
+                      
+                      }
+
+                      
+                  });
+          });
+
+
+
+
 
 	 $('#filmm').keyup(function(){
 
@@ -96,10 +260,10 @@ document.addEventListener("DOMContentLoaded", function(){
                       var end = false;
 
                       $.ajax({
-                        type: 'get',
+                        type: 'GET',
                         url: url_switch(window.location.href),
                         data: {
-                          'page': page,
+                          'page': page, 'filter': all,
                           'csrfmiddlewaretoken': window.CSRF_TOKEN
                         },
                         success: function(data) {

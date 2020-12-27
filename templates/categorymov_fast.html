@@ -3,6 +3,36 @@
 {% load static i18n %}
 {% block content %}
 <div class="scrollup hidden-xs"><i class="fa fa-chevron-up"></i></div>
+<div class="filter-panel hidden-lg hidden-md hidden-sm visible-xs">
+<a class="fa fa-ellipsis-h filter-button" aria-hidden="true" data-toggle="modal" data-target="#myModal"></a>
+</div>
+<div id="myModal" class="modal fade" role="dialog">
+<div class="modal-dialog hidden-lg hidden-md hidden-sm">
+<div id="filter-panel" class="modal-content" style="top:60px;zoom:180%!important">
+<div class="modal-header flex-container">
+<button style="font-size:35px" type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title" style="font-size:20px">Filters</h4>
+</div>
+<div class="modal-body">
+<div class="phone-filters">
+<input class="filter-element" name="rec" type="checkbox" value="recently"/>&nbsp;<label class="filterelement-text" for="recently">Recently added</label><br />
+<input class="filter-element" name="rec" type="checkbox" value="date"/>&nbsp;<label class="filterelement-text" for="date">By date</label><br />
+<input class="filter-element" name="rec" type="checkbox" value="rating"/>&nbsp;<label class="filterelement-text" for="rating">By rating</label><br />
+<input class="filter-element" name="rec" type="checkbox" value="popular"/>&nbsp;<label class="filterelement-text" for="popular">By popularity</label><br />
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+<div class="movie-filters hidden-xs hidden-sm hidden-md">
+<input class="filter-element" name="rec" type="checkbox" value="recently"/>&nbsp;<label class="filterelement-text" for="recently">Recently added</label>
+<input class="filter-element" name="rec" type="checkbox" value="date"/>&nbsp;<label class="filterelement-text" for="date">By date</label>
+<input class="filter-element" name="rec" type="checkbox" value="rating"/>&nbsp;<label class="filterelement-text" for="rating">By rating</label>
+<input class="filter-element" name="rec" type="checkbox" value="popular"/>&nbsp;<label class="filterelement-text" for="popular">By popularity</label>
+</div>
 <div class="container second">
 <div class="row row-offcanvas row-offcanvas-right">
 <div class="col-xs-12 col-sm-9">
@@ -20,7 +50,7 @@
 <div class="horizontalMobileScroll hidden-lg hidden-md hidden-sm">
 {% for g in genres %}
 <div class="horizontalMobileScroll__cell">
-<div class="horizontalMobileScroll__inner"><a class="btn btn-default" style="font-size:41px;border-radius:20px" href="{% url 'genremovies' g.url %}" rel="nofollow">{{ g.name }}</a></div>
+<div class="horizontalMobileScroll__inner"><a class="btn btn-default" style="font-size:36px;border-radius:20px" href="{% url 'genremovies' g.url %}" rel="nofollow">{{ g.name }}</a></div>
 </div>
 {% endfor %}
 </div>
