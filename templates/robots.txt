@@ -1,0 +1,23 @@
+# robots.txt file for Moviegram
+# Impossible means that you haven't found a solution yet. (Henry Ford)
+
+User-agent: *
+Disallow: /admin/
+Disallow: /genremovies/
+Disallow: /en/genremovies/
+Disallow: /de/genremovies/
+Disallow: /fr/genremovies/
+Disallow: /ar/genremovies/
+Disallow: /search/
+Disallow: /en/search/
+Disallow: /de/search/
+Disallow: /fr/search/
+Disallow: /ar/search/
+
+User-agent: Riddler
+Disallow: /
+
+
+Sitemap: https://www.themoviegram.com/sitemap.xml
+Sitemap: https://www.themoviegram.com/en/sitemap.xml
+

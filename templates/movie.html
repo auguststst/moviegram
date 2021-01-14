@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block title %} {{movie.title}} {% endblock %}
+{% block t %} {{movie.title}} {% endblock %}
+{% block im %}{% if movie.wallpaper.url != Null %}{{movie.wallpaper.url}}{% else %}{{movie.poster.url}}{% endif %}{% endblock %}
+{% block d %} {{movie.MetaDescription}} {% endblock %}
+{% block description %} {{ movie.MetaDescription }} {% endblock %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block content %}
+<!-- second part -->
+     <div class="container second">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+          
+          <div class="row" style = "margin-top:-49px!important;">
+            
+
+          {% if movies.count > 1 %}
+
+          <div class = "col-lg-11">
+              <div class="page-header" style="border-bottom: none;">
+                  <h1><strong>{{ movie.short_title }}</strong></h1>
+                  <ul class="nav nav-tabs" role="tablist" id="mennu">
+            
+                    {%for x in movies %}
+                      <li role="presentation"><a href="#home{{forloop.counter}}" aria-controls="home{{forloop.counter}}" role="tab" data-toggle="tab">{{ forloop.counter }} {% trans "часть" %}</a></li>
+                  {% endfor %}
+                  </ul>
+              </div><!-- page-header -->
+
+          
+
+          <div class="tab-content">
+            {% for i in movies %}
+              <div role="tabpanel" class="tab-pane{% if i.title == movie.title %} active in {% endif %}" id="home{{forloop.counter}}">
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="{{ i.youtube }}" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <br>
+                
+
+
+
+
+	      {% if i.online and LANGUAGE_CODE == "ru" or i.online_en and LANGUAGE_CODE == "en"%}
+
+                <a target="_blank" href="#" class="btn btn-lg btn-primary btn-block watch" data-toggle="modal" data-target="#myModal{{forloop.counter}}">  
+                {% trans "Смотреть" %}</a>
+
+              {% else %}
+
+                <a target="_blank" href="{{ i.telegram }}" class="btn btn-lg btn-primary btn-block watch">  
+                {% trans "Смотреть" %}</a>
+
+              {% endif %}
+                
+
+
+
+
+	        <h2 style="font-size: 34px!important;" id="movie-desc{{forloop.counter}}">{{ i.description | truncatechars:160 }}</h2>
+                <h2 style="font-size: 34px!important;" id="full{{forloop.counter}}" style="min-height:100px;">{{ i.description | linebreaksbr }}</h2>
+		<p style = "margin-top: 20px; font-size: 33px!important; font-weight:bold;">{% trans "Подробнее о" %} <a target="_blank" href="{{ i.wikipedia }}">{{ i.title }} </a> {% trans "вы можете узнать здесь..." %}</p>
+            	<br/>
+		<br/>
+		<br/>
+		<i id="imbd" class="fa fa-star" aria-hidden="true"> {{ i.imdb }}</i>  
+	    </div>
+
+	    
+              {% if i.online and LANGUAGE_CODE == "ru" or i.online_en and LANGUAGE_CODE == "en"%}
+
+              <!-- Modal -->  
+                <div class="modal fade" id="myModal{{forloop.counter}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="zoom: 215%!important;">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title text-center" id="myModalLabel">{% trans "Смотреть" %}</h4>
+                          </div>
+
+                          <div class="modal-body">
+                            {% if i.wallpaper %}
+                              <img src = "{{ i.wallpaper.url }}" style="opacity: 100%!important;">
+                            {% endif %}
+                          </div>
+  
+                          <div class="modal-footer" style="text-align: center;">
+				<a href = "{{ i.telegram }}" class="btn btn-primary btn-lg">{% trans "Oфлайн" %}</a>
+                                <a href = "{{ i.online }}" class="btn btn-default btn-lg">{% trans "Онлайн" %}</a>
+                          </div>
+                          </div>
+                      </div>
+                  </div>
+
+               {% endif %}
+		
+           
+           {% endfor %}
+
+          </div><!-- tab-content -->
+         </div><!-- 11 -->
+
+          
+           
+          
+          {% else %}
+
+
+          <div class = "col-lg-11">
+              <div class="page-header clearfix">
+		<h1><strong>{{ movie.title }}</strong>  <i style="float: right; font-size: 36px;" class="fa fa-star" aria-hidden="true"> {{ movie.imdb }}</i></h1>
+              </div>
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="{{ movie.youtube }}" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <br>
+            
+
+
+	    {% if movie.online and LANGUAGE_CODE == "ru" or movie.online_en and LANGUAGE_CODE == "en"%}
+
+            	<a target="_blank" href="#" class="btn btn-lg btn-primary btn-block watch" data-toggle="modal" data-target="#myModal">{% trans "Смотреть" %}</a>
+          
+            {% else %}
+
+            	<a target="_blank" href="{{ movie.telegram }}" class="btn btn-lg btn-primary btn-block watch">{% trans "Смотреть" %}</a>
+
+            {% endif %}
+            
+
+
+
+	    
+	    <h2 id="movie-desc">{{ movie.description | truncatechars:160 }}</h2>
+            <h2 id="full" style="min-height:100px;">{{ movie.description | linebreaksbr }}</h2>
+            
+	    {% if movie.wikipedia %}
+	    	<p style = "margin-top: 20px; font-size: 29px; font-weight:bold;">{% trans "Подробнее о" %}<a target="_blank" href="{{ movie.wikipedia }}">{{ movie.title }} </a>{% trans "вы можете узнать здесь..." %}</p>
+            	<br />
+		<br />
+		<br />
+	    {% else %}
+		<br />
+                <br />
+		<br />
+	    {% endif %}  
+
+	</div><!-- 11 --> 
+
+{% if movie.online and LANGUAGE_CODE == "ru" or movie.online_en and LANGUAGE_CODE == "en"%}
+          
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="zoom: 190%!important;">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title text-center" id="myModalLabel">{% trans "Смотреть" %}</h4>
+                          </div>
+
+                          <div class="modal-body">
+                            {% if movie.wallpaper.url %}
+                              <img src="{{ movie.wallpaper.url }}" style="opacity: 100%!important;">
+                            {% endif %}
+                            
+                          </div>
+  
+                          <div class="modal-footer" style="text-align: center;">
+				<a href = "{{ movie.telegram }}" class="btn btn-primary btn-lg">{% trans "Oфлайн" %}</a>
+                                <a href = "{{ movie.online }}" class="btn btn-default btn-lg">{% trans "Онлайн" %}</a>
+                          </div>
+                          </div>
+                      </div>
+                  </div>
+
+      {% endif %}	
+
+	
+
+
+
+
+
+
+
+
+           {% endif %}
+
+
+
+
+
+          </div><!--/row-->
+        </div><!--/.col-xs-12.col-sm-9-->
+	{% for film in movies|slice:"1" %}
+	    <a class="hidden-lg hidden-md hidden-sm btn btn-lg btn-default btn-block" style="position: fixed; bottom: 0; background-color: #f0f0f0;" href="{% url 'detail' film.Random %}">{% trans "Случайный фильм" %}</a>
+	{% endfor %}
+         
+         {% include 'sidebar.html' %}
+               
+
+
+{% endblock %}
+
+{% block footer %}
+   <div class = "container text-center hidden-lg hidden-md hidden-sm hidden-xs">
+      <footer>
+        <p>&copy; 2020 Moviegram, Inc.</p>
+      </footer>
+  </div>
+{% endblock %}

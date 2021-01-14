@@ -1,0 +1,559 @@
+					
+/** the solution for firefox(zoom) **/
+
+@-moz-document url-prefix() {
+  
+  #browser{
+    display: none;
+  }
+  #search{
+  	margin-left: 15px;
+  }
+
+  .container{
+	padding-left: 0!important;
+	padding-right: 0!important;
+  }
+
+  #eq > .col-md-6{
+	height: 900px!important;
+	}
+
+  #sz{
+  	height: 400px!important;
+  }
+
+}
+					/*------- general -------*/
+
+*{
+	zoom: 94%!important;
+	font-size: 106%;
+}
+
+
+
+
+img{
+	opacity: 100%;
+	width: 100%;
+	height: auto;
+}
+
+img:hover{
+	opacity: 80%!important;
+}
+
+div.scrollup{
+	background: none;
+	left: 0;
+	top: 62px;
+	width: 180px;
+	min-height: 100vh;
+	height: 100%;
+	position: fixed;
+	border-radius: 1px;
+	text-align: center;
+	overflow: hidden;
+	z-index: 9999;
+	display: none;
+	transition: opacity ease in out 0.2s; 
+}
+
+div.scrollup:hover{
+	background: rgb(51, 122, 183, 0.1);
+}
+.scrollup i {
+	margin-top: 20px;
+	font-size: 26px;
+	line-height: 40px;
+	color:#2e87ca!important;
+}
+
+
+				  /*-------  header -------*/
+.mid{
+	margin-top: 9px;
+}
+
+.navbar{
+	background-color: #fff !important; 
+}
+
+.navbar-default .navbar-brand {
+    font-family: 'Bevan', cursive!important;
+    font-size: 29px !important; 
+	font-color: #000!important;
+	top: 1px!important;
+}
+
+.navbar-default .navbar-nav>li>a {
+    font-size: 20px!important;
+    line-height: 33px;
+}
+
+.form-group{
+	margin-top: 3px;
+}
+
+.navbar-form input[type="text"]{
+	border-radius: 25px !important;
+	-webkit-border-radius: 25px !important;
+	-moz-border-radius: 25px !important; 
+	height: 33px;
+	width: 130%;
+	background: aliceblue;
+}
+
+
+.navbar-form button[type="submit"]{
+	border-radius: 44px !important;
+	-webkit-border-radius: 44px !important;
+	-moz-border-radius: 44px !important; 
+	height: 33px!important;
+	outline: none!important;
+	cursor: pointer;
+	font-weight: bold;
+	margin-left: 70px;
+	margin-top: 1px;
+
+}
+
+.navbar-right > li > a{
+	width: 49px!important;
+}
+
+.fab,
+.fas{
+	font-size: 35px;
+}
+
+
+
+
+
+						/*-------- jumbotron --------*/
+.jumbotron{
+	background: rgba(358, 244, 461, 5.3) !important;
+}
+
+.jumbotron h1 {
+    font-size: 60px!important;
+}
+
+
+.jumbotron h2{
+	margin-top: 15px;
+	padding-bottom: -60px;
+}
+
+.telegram{
+	width: 75px;
+	height: 75px;
+}
+
+.second{
+	margin-top: 40px;
+}
+
+.inside{
+	padding-top: 10%!important;
+}
+
+
+#sz{
+	height: 542px;
+	display: block;
+}
+
+#eq > .col-md-6{
+	height: 760px;
+}
+
+#eq h2 {
+	text-align: center;
+}
+#phoneicons a{
+	font-size: 25px!important;
+	margin-left: 10px;
+	color: #000;
+}
+#phoneicons a:nth-child(1){
+	margin-left: 0;
+}
+
+
+						/*--------- sidebar  -------*/
+
+.sidebar-module{
+	margin-top: 35px;
+}
+
+.sidebar-module p{
+	font-weight: normal;
+	font-size: 20px;
+}
+
+.sidebar-module:nth-child(1){
+	margin-top: -20px;
+}
+
+.sidebar-module h3{
+	font-weight: bold !important;
+}
+
+.sidebar-module a{
+	font-weight: normal!important;
+	font-size: 24px;
+}
+
+
+
+						/*------- detail.html  ---------*/
+.btn-block{
+	font-size: 29px!important;
+	border: none!important;
+	font-weight: bold!important;
+}
+.watch{
+	height: 60px;
+}
+.watch a{
+	font-size: 40px!important;
+}
+
+
+						/*---------- movies ---------*/
+#br h2{
+	font-size: 34px;
+}
+
+#title{
+	margin-left: 20px;
+}
+#wrpbr{
+	margin-top: 15px;
+}
+#br{
+	margin-top: 50px;
+	padding-bottom: 15px!important;
+	padding-left: 100px!important;
+	line-height: 5px;
+}
+#br:nth-child(1){
+	margin-top: -40px;
+}
+#br:last-child{
+	border: none!important;
+}
+#br a{
+	color: blue;
+}
+.disc h3{
+	font-size: 28px;
+}
+.disc h3 strong{
+	font-size: 29px;
+}
+
+
+					/*--------- pagination ---------*/
+
+.pager{
+	font-size: 19px;
+}
+
+					/********** telegram ************/
+
+#telegramblock{
+	padding: 0 200px!important;
+	zoom: 90%!important;
+}
+
+#telegramblock h1 h2 h3 h4 h5 h6{
+	text-align: center;
+}
+
+
+
+#telegramblock h2{
+	font-size: 32px;
+}
+
+
+#imgwrp{
+	margin: 0 auto; 
+	height: 670px; 
+	width: 320px;
+}
+
+#imgwrp > img:hover,
+#exception > img:hover{
+	opacity: 95%!important;
+}
+
+#telegram-info{
+	font-size: 28px;
+	text-align: justify;
+	font-family: Tahoma;
+	line-height: 32px;
+}
+#limitless{
+	height: 650px;
+}
+/*
+#desctiptor{
+	height: 425px;
+}
+
+*/
+
+#turl label{
+	font-weight: normal;
+}
+
+.input-group-lg>.form-control,
+.input-group-lg>.input-group-addon,
+.input-group-lg>.input-group-btn>.btn {
+	height: 48px !important;
+}
+				/*---------- email ------------*/
+
+
+.all-inner{
+	text-align: center;
+	margin-top: 110px;
+}
+
+
+.all-inner a{
+	color: dimgrey;
+	font-size: 70px;
+	padding: 5px 5px;
+	font-family: 'Dancing Script', cursive;
+}
+.all-inner a:hover{
+	color: #000;
+	text-decoration: none;
+}
+
+.all-inner p{
+	font-size: 23px;
+}
+
+
+					/*------------ btc --------------*/
+
+#imgwrp2{
+	margin: 0 auto; 
+	height: 275px; 
+	width: 320px;
+}
+
+
+#imgwrp2 > img:hover{
+	opacity: 100%!important;
+}
+
+#adress{
+	color:#000;
+	text-align: center!important;
+	display: block;
+	font-size: 32px;
+}
+
+				/*----------- search -------------*/
+#searchpart{
+	margin-top: 50px;
+	zoom: 88%!important;
+}
+
+#searchpart h4{
+	color: grey;
+}
+
+#searchpart a{
+	color:#093ABC!important;
+	background-color: transparent;
+	cursor: pointer;
+	font-size: 29px;
+}
+#searchpart a:hover{
+	color:#000;
+	font-weight: bold;
+}
+#searchpart p{
+	margin: 0 0 10px;
+	font-size: 20px;
+	color: #333333;
+}
+
+#component{
+	padding: 0 50px;
+}
+
+#more a{
+	color: #093A41!important;
+	text-decoration: none!important;
+}
+
+
+
+
+
+/*Small devices (landscape phones, 576px and up)*/
+
+@media only screen and (max-width: 576px) {
+	.navbar-nav > li > a {
+    		text-align: center!important;
+		line-height: 20px;
+	}
+
+	.nav > li:hover{
+		background: azure!important;
+	}
+
+	*{
+		zoom: 94%!important;
+	}
+
+	.navbar-form input[type="text"]{
+		width: 90%;
+		height: 30px!important;
+		margin: 0 auto;
+	}
+	.navbar-form button[type="submit"]{
+		margin-left: 25px!important;
+		width: 90%;
+		height: 30px;
+		margin-top: 4px;
+	}
+
+	.jumbotron{
+		margin-top: -30px;
+		text-align: center;
+	}
+
+	.jumbotron h2{
+		font-size: 27px!important;
+	}
+	.sidebar-module{
+		margin-top: 30px!important;
+	}
+/*pictures */
+	#sz, #xz{
+		height: 600px;
+		width: 430px!important;
+		margin: 0 auto;
+	}
+
+	#eq{
+		margin-top: 50px;
+	}
+
+	#eq > .col-md-6{
+	 	height: 950px;
+	}
+
+
+	#eq h2{
+		font-size: 40px; 
+	}
+
+	.inside{
+		font-size: 24px;
+		text-align: justify;
+	}
+
+
+	#more{
+		width: 100%;
+	}
+
+	.sidebar-module a {
+    	float: left;
+    	margin-left: 15px;
+	}
+
+	#mobile-menu a:hover {
+		background: #E0FFFF!important;
+	}
+
+	.col-xs-6 h2{
+		font-size: 25px!important;
+	}
+
+	.col-xs-6 p{
+		font-size: 25px!important;
+	}
+
+	#title{
+		text-align: center;
+	}
+	.disc h3{
+		font-size: 27px!important;
+		padding: 0 5px;
+	}
+
+	img:hover{
+		opacity: none;
+	}
+
+	#br{
+		padding: 0 20px!important;
+	}
+	#br h2{
+		font-size: 35px;
+	}
+	#telegramblock{
+		padding: 0!important;
+	}
+
+	#limitless{
+		height: 500px!important;
+	}
+	#adress{
+		font-size: 20px;
+	}
+	.all-inner{
+		margin-top: 20px;
+	}
+
+	.all-inner a{
+		font-size: 35px;
+		padding: 0!important;
+	}
+
+	#component{
+		padding: 0 0;
+	}
+
+}	
+
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+	.navbar-form{
+		display:none!important;
+	}
+
+	#component{
+		padding: 0 0;
+	}
+
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+	.navbar-default .navbar-brand {
+    	font-family: 'Bevan', cursive!important;
+		font-size: 150%!important; 
+	}
+
+	#component{
+		padding: 0 0;
+	}
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */

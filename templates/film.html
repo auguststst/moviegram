@@ -1,0 +1,16 @@
+{% load i18n %}
+
+
+{% for a in movies %} 
+            <div class="col-xs-12 col-md-6 col-sm-6 col-lg-4">
+
+              <h2>{{ a.title }}</h2>
+              <a href = "{% url 'detail' a.id %}"><img id="sz" src = "{{a.poster.url}}" alt="{{ a.title }}" id ="transperent" class = "img-thumbnail"/></a>
+              
+              <p class = "inside">{{ a.description | truncatechars:152 }}</p>
+              
+              <p class="hidden-lg hidden-md hidden-sm"><a class="btn btn-lg btn-default" id="more" href="{% url 'detail' a.id %}" role="button">{% trans "Смотреть" %}&raquo;</a></p>
+             
+            </div><!--/.col-xs-6.col-lg-4-->
+
+{% endfor %}

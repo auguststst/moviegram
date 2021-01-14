@@ -1,0 +1,29 @@
+{% load static i18n %}
+
+
+<div style="margin-top:102px!important;" class = "container" id ="searchpart">
+
+{% if results %}
+  {% for n in results %}
+    <div id = "component"> 
+      <a href = "{% url 'detail' n.id %}">{{ n.title }}</a>
+      <h4>{{ n.world_premiere }}</h4>
+      <p>{{ n.ShortenText }}...</p>
+        <hr/>
+    </div>
+{% endfor %}
+
+{% else %}
+  <div id = "component">
+    <h1 class="text-center">{% trans "Ничего не найдено..." %}</h1>
+  </div>
+{% endif %}
+
+{% block footer %}
+     <div class = "container text-center">
+        <footer>
+          <p>&copy; 2021 Moviegram</p>
+        </footer>
+     </div>
+{% endblock %}
+
