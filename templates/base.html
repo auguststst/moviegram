@@ -45,7 +45,11 @@
        <script async src="{% static 'js/slideAndSwipe.js' %}"></script>
    {% endblock extrahead %}
    </head>
-  <body> 
+   {% if dark == "on" %}
+    <body class="black-body">
+   {% else %}
+    <body>
+   {% endif %}
    <nav class="navbar navbar-default navbar-fixed-top sidebarNavigation" datasidebarClass="navbar-inverse">
     <div class="container mid">
 
@@ -75,7 +79,7 @@
             <br class="hidden-lg hidden-md hidden-sm"/>
 
             {% for a in categories %}
-              <li><a href="{% url 'categorymovies' a.url %}">{{ a.name }} <span class="hidden-lg hidden-md hidden-sm" style="font-weight: bold; color:#2F4F4F; font-size:23px; float:right;">{{ a.get_items }}</span> </a></li>
+              <li><a href="{% url 'categorymovies' a.url %}">{{ a.name }} <span id="numbers" class="hidden-lg hidden-md hidden-sm" style="font-weight: bold; color:#2F4F4F; font-size:23px; float:right;">{{ a.get_items }}</span> </a></li>
             {% endfor %}
 
 	    <hr class="hidden-lg hidden-md hidden-sm"/>
@@ -84,6 +88,16 @@
             <h2 style="text-align:center">{{ asd.title }}</h2>
               <a href="{% url 'detail' asd.id %}"><img src="{{asd.poster.url}}"></a>
               <h3 style="text-align:center;">{% trans "Рекомендуем" %}</h3>
+	      <div id = "switch-wrapper" style="position: absolute; bottom: 0; transform: translateX(-50%); left: 50%;">
+                <label class="switch" class="hidden-lg hidden-md hidden-sm visible-xs">
+                  {% if dark == "on" %}
+	          <input checked type="checkbox">
+		  {% else %}
+		  <input type="checkbox">
+                  {% endif %}
+                  <span class="slider round"></span>
+                </label>
+              </div><!-- switch-wrapper -->
             </div>
 
 
@@ -111,6 +125,15 @@
           </form>
 
           <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs" id ="browser">
+	    <li> <label class="switch" class="hidden-xs" style="margin-top: 15px; margin-right: 20px;">
+		  {% if dark == "on" %}
+                    <input checked type="checkbox">
+                  {% else %}
+                    <input type="checkbox">
+                  {% endif %}
+                  <span class="slider round"></span>
+                </label>
+            </li>
             <li><a href="{% url 'telegram' %}"><i class="fab fa-telegram">&nbsp;</i></a></li>
             <li><a href="{% url 'email' %}"><i class="fas fa-envelope">&nbsp;</i></a></li>
             <li><a href="{% url 'donate' %}"><i class="fab fa-bitcoin">&nbsp;</i></a></li>

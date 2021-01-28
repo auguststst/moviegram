@@ -21,9 +21,9 @@
 {% for x in movies %}
 <div class="col-xs-12 col-md-6 col-sm-6 col-lg-4">
 <h2>{{ x.title }}</h2>
-<a href="{% url 'detail' x.id %}"><img id="sz" src="{{x.poster.url}}" alt="{{ x.title }}" id="transperent" class="img-thumbnail"/></a>
+<a href="{% url 'detail' x.id %}"><img id="sz" src="{{x.poster.url}}" alt="{{ x.title }}" id="transperent"></a>
 <p class="inside">{{ x.description | truncatechars:152 }}</p>
-<p class="hidden-lg hidden-md hiddem-sm"><a class="btn btn-lg btn-default" id="more" href="{% url 'detail' x.id %}" role="button">{% trans "Смотреть" %}&raquo;</a></p>
+<p class="hidden-lg hidden-md hiddem-sm"><a class="btn btn-lg btn-primary" id="more" href="{% url 'detail' x.id %}" role="button">{% trans "Смотреть" %}&raquo;</a></p>
 </div>
 {% endfor %}
 </div>
@@ -33,6 +33,6 @@
 {% endblock %}
 {% block footer %}
 <footer>
-<p>&copy; 2021 Moviegram | We post the Stuff that are already available on Internet or Telegram</p>
+<p>&copy; 2021 Moviegram | Disclaimer. This site does not store any files on its server. All contents are provided by non-affiliated third parties.</p>
 </footer>
 {% endblock %}

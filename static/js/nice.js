@@ -12,6 +12,24 @@ $(function() {
             $('#full, #full1, #full2, #full3, #full4, #full5, #full6, #full7, #full8, #full9, #full10').hide(300);
           });
 
+	  var switchStatus = false;
+          
+          
+          $(".switch input").on('change', function() {
+              if ($(this).is(':checked')) {
+                  switchStatus = $(this).is(':checked');
+                  document.cookie = 'dark='+ $(this).val() + "; path=/";
+                  $("body").addClass("black-body");
+                  document.activeElement.blur();
+              }
+              else {
+                 switchStatus = $(this).is(':checked');
+                 document.cookie = 'dark='+ "None" + "; path=/";
+                 $("body").removeClass("black-body");
+                 document.activeElement.blur();
+              }
+          });
+
 	  $("#gt").on('click',function(){
               $(this).css("display","none");
               $("#gm").css("display","block");
@@ -43,7 +61,7 @@ $(function() {
 	 var movvv = document.querySelector('.inside');
 
 
-          //localStorage.clear();
+         //localStorage.clear();
 
 
 

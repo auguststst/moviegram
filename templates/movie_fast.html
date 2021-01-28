@@ -9,7 +9,7 @@
 {% block content %}
 <div class="container second">
 <div class="row row-offcanvas row-offcanvas-right">
-<div class="col-xs-12 col-sm-9">
+<div class="col-xs-12 col-sm-9" id="cinema">
 <div class="row" style="margin-top:-49px!important">
 {% if movies.count > 1 %}
 <div class="col-lg-11">
@@ -37,7 +37,7 @@
 {% endif %}
 <h2 style="font-size:34px!important" id="movie-desc{{forloop.counter}}">{{ i.description | truncatechars:160 }}</h2>
 <h2 style="font-size:34px!important" id="full{{forloop.counter}}" style="min-height:100px;">{{ i.description | linebreaksbr }}</h2>
-<p style="margin-top:20px;font-size:33px!important;font-weight:bold">{% trans "Подробнее о" %} <a target="_blank" href="{{ i.wikipedia }}">{{ i.title }} </a> {% trans "вы можете узнать здесь..." %}</p>
+<p id="wikiwords" style="margin-top:20px;font-size:33px!important;font-weight:bold">{% trans "Подробнее о" %} <a target="_blank" href="{{ i.wikipedia }}">{{ i.title }} </a> {% trans "вы можете узнать здесь..." %}</p>
 <br/>
 <br/>
 <br/>
@@ -84,7 +84,7 @@
 <h2 id="movie-desc">{{ movie.description | truncatechars:160 }}</h2>
 <h2 id="full" style="min-height:100px">{{ movie.description | linebreaksbr }}</h2>
 {% if movie.wikipedia %}
-<p style="margin-top:20px;font-size:29px;font-weight:bold">{% trans "Подробнее о" %}<a target="_blank" href="{{ movie.wikipedia }}">{{ movie.title }} </a>{% trans "вы можете узнать здесь..." %}</p>
+<p id="wikiwords" style="margin-top:20px;font-size:29px;font-weight:bold">{% trans "Подробнее о" %}<a target="_blank" href="{{ movie.wikipedia }}">{{ movie.title }} </a>{% trans "вы можете узнать здесь..." %}</p>
 <br />
 <br />
 <br />
@@ -119,7 +119,7 @@
 </div>
 </div>
 {% for film in movies|slice:"1" %}
-<a class="hidden-lg hidden-md hidden-sm btn btn-lg btn-default btn-block" style="position:fixed;bottom:0;background-color:#f0f0f0" href="{% url 'detail' film.Random %}">{% trans "Случайный фильм" %}</a>
+<a class="hidden-lg hidden-md hidden-sm btn btn-lg btn-default btn-block" id="random-button" href="{% url 'detail' film.Random %}">{% trans "Случайный фильм" %}</a>
 {% endfor %}
 {% include 'sidebar.html' %}
 {% endblock %}

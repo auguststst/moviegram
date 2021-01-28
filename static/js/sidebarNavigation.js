@@ -31,6 +31,18 @@ window.onload = function () {
                  }
               });
 
+	      $("#switch-wrapper .switch input").on('change', function() {
+                  if ($(this).is(':checked')) {
+                      document.cookie = 'dark='+ $(this).val() + "; path=/";
+                      $("body").addClass("black-body");
+                  }
+                  else {
+                     document.cookie = 'dark='+ "None" + "; path=/";
+                     $("body").removeClass("black-body");
+                     document.activeElement.blur();
+                  }
+              });
+
               
 
 

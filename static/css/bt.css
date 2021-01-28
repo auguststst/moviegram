@@ -38,6 +38,7 @@ body{
   color: #300!important;
   font-family: Gilroy!important;
   font-size: 15px!important;
+  transition: all .6s;
 }
 
 @-moz-document url-prefix() {
@@ -571,6 +572,173 @@ div.scrollup:hover{
 	font-size: 19px!important;
 }
 
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.black-body{
+	background: #000!important;
+	transition: all .6s;
+}
+.black-body nav{
+	background: #111!important;
+	border-bottom: 0;
+}
+.black-body .modal-content,
+.black-body #stb,
+
+.black-body .dropdown-menu{
+	background: #111!important;
+}
+.black-body .dropdown-toggle:focus{
+	background: #111!important;
+}
+.black-body .dropdown:active{
+	background: #111!important;
+}
+
+.black-body .dropdown-menu li a:hover{
+	background: #111!important;
+}
+
+.black-body .inside,
+.black-body #sidebar p,
+.black-body #searchpart p,
+.black-body #telegramblock h4,
+.black-body #telegramblock h5,
+.black-body .all-inner p,
+.black-body .dropdown-menu li a{
+	color: #959595!important;
+}
+
+.black-body h2,
+.black-body .jumbotron h1 strong,
+.black-body h3,
+.black-body .navbar-brand,
+.black-body #cinema strong,
+.black-body #cinema i,
+.black-body .movie-filters label
+.black-body #telegram-info,
+.black-body #searchpart a,
+.black-body footer p,
+.black-body #telegram-info,
+.black-body #adress,
+.black-body .all-inner a,
+.black-body .filterelement-text,
+.black-body .modal-content,
+.black-body .modal-content button span,
+.black-body #stb,
+.black-body #wikiwords,
+.black-body #component h1{
+	color: #E9ECEF!important;
+}
+.black-body .navbar a:hover,
+.black-body #languages a:hover{
+	color: #E9ECEF!important;
+}
+
+
+
+.black-body .modal-header{
+	border-bottom: none;
+}
+
+.black-body .modal-footer{
+	border-top: none;
+}
+
+.modal-body{
+	padding: 0!important;
+}
+
+.black-body #searchpart #component hr{
+	display: none;
+}
+
+.black-body hr{
+	display: none!important;
+}
+
+
+
+.black-body .jumbotron{
+	background: #000!important;
+}
+
+.black-body .page-header,
+.black-body .nav-tabs{
+	border-bottom: none!important;
+}
+
+.black-body #sd ol li a,
+.black-body #wikiwords a,
+.black-body #languages a{
+	color: #2196F3;
+}
+
+.black-body #sd ol li a:hover{
+	color: #E9ECEF!important;
+}
+
+
 
 
 
@@ -869,6 +1037,85 @@ div.scrollup:hover{
 	#dis a {
 		font-size: 11px;
 	}	
+	
+	.body-black{
+		background: #000!important;
+	}
+
+	.black-body #direction,
+	.black-body #direction2{
+		color: #777!important;
+	}
+
+	.black-body .navbar-form input[type="text"]{
+		color: #E9ECEF!important;
+	}
+
+	.black-body #mobile-menu h3{
+		color: #959595!important;
+	}
+
+	.black-body .navbar-nav > li > a{
+		color: #E9ECEF!important;
+	}
+
+	.black-body #numbers{
+		color: #959595!important;
+	}
+
+	.black-body .overlay{
+		background: #111;
+	}
+	.black-body .navbar-toggle{
+		border: none;
+	}
+
+    .black-body .horizontalMobileScroll{
+    	background: #000;
+    }
+
+    #random-button{
+    	position: fixed; 
+    	bottom: 0; 
+    	background-color: #f0f0f0;
+    }
+
+    .black-body #random-button{
+    	background: #111;
+    	color: #E9ECEF;
+    }
+
+     .black-body .filter-panel{
+     	background: #111;
+     	border-top: none;
+     }
+
+     .black-body .filter-panel a{
+     	color: #E9ECEF!important;
+     }
+
+     .black-body #mennu{
+     	color: #2196F3!important;
+     }
+
+
+    .black-body .horizontalMobileScroll__cell a{
+    	background: #000!important;
+    	font-style: regular;
+    	color: #E9ECEF;
+    	border: none;
+    }
+
+    .black-body .horizontalMobileScroll__cell a:active{
+        background: #2196F3!important;
+    	color: #E9ECEF;
+    	font-style: regular;
+    }
+
+    .black-body .navbar-default .navbar-toggle .icon-bar{
+    	background: #fff!important;
+    }
+
 	
 }	
 

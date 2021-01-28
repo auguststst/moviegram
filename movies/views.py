@@ -21,7 +21,7 @@ logging.basicConfig(filename="/home/august/mg/logfile", level=logging.INFO)
 class PageUrl:
 
 	i = None
-	time = 604800
+	time = 30
 
 @cache_control(max_age=PageUrl.time)
 def index(request):
@@ -48,7 +48,10 @@ def index(request):
 	
 	
 
-
+	if "dark" in request.COOKIES:
+		d = request.COOKIES["dark"]
+	else:
+		d = ""
 
 	
 
@@ -61,9 +64,16 @@ def index(request):
 		"movies": movies,
 		"genres": genres,
 		'categories': categories,
+		"dark": d,
 	}
 	
-	return render(request, template, context)
+	response = render(request, template, context)
+	
+	if not request.COOKIES:
+		response.set_cookie(key="dark",value=None,path='/', max_age = None, expires='Thu, 31 Dec 2039 12:00:00 UTC')
+	
+	return response
+
 
 @cache_control(max_age=PageUrl.time)
 def detail(request, pk):
@@ -78,12 +88,19 @@ def detail(request, pk):
 	movies = Movie.objects.filter(telegram__exact=movie.telegram)
 
 	asd = get_object_or_404(Movie,id=Movie.Random('1'))
+
+	if "dark" in request.COOKIES:
+		d = request.COOKIES["dark"]
+	else:
+		d = ""
+
 	context = {
 		"asd": asd,
 		"movie":movie,
 		"genres": genres,
 		'categories': categories,
 		"movies": movies,
+		"dark": d,
 	}
 	return render(request, template, context)
 
@@ -110,7 +127,7 @@ def genremovies(request, slug):
 		"-id": "recently",
 		"-year": "date",
 		"-imdb": "rating",
-		"-visit_num": "popular" 
+		"-visit_num": "popular", 
 	}
 
 	an = []
@@ -254,6 +271,11 @@ def genremovies(request, slug):
 	movies = movies
 	asd = get_object_or_404(Movie,id=Movie.Random('1'))
 
+	if "dark" in request.COOKIES:
+		d = request.COOKIES["dark"]
+	else:
+		d = ""
+
 	context = {
 		"asd": asd,
 		"page": page,
@@ -261,6 +283,7 @@ def genremovies(request, slug):
 		"movies": movies,
 		"categories": categories,
 		"genre": genre,
+		"dark": d,
 	}
 
 	return render(request, template, context)
@@ -410,6 +433,11 @@ def categorymovies(request, cat):
 		return JsonResponse({ 'posts_html':html, 'has_next': movies.has_next() }, status=200)
     """
 
+	if "dark" in request.COOKIES:
+		d = request.COOKIES['dark']
+	else:
+		d = ""
+
 	context = {
 		"asd":asd,
 		"page":page,
@@ -417,6 +445,7 @@ def categorymovies(request, cat):
 		"categories": categories,
 		"movies": movies,
 		"category": category,
+		"dark":d,
 	}
 
 	return render(request, template, context)
@@ -455,10 +484,17 @@ def telegram(request):
 	categories = Category.objects.all()
 	movies = Movie.objects.all()
 	asd = get_object_or_404(Movie,id=Movie.Random('1'))
+	
+	if "dark" in request.COOKIES:
+		d = request.COOKIES["dark"]
+	else:
+		d = ""
+
 	context = {
 		'asd': asd,
 		'movies': movies,
 		'categories': categories,
+		'dark': d,
 	}
 
 	return render(request, template, context)
@@ -471,10 +507,16 @@ def email(request):
 	categories = Category.objects.all()
 	asd = get_object_or_404(Movie,id=Movie.Random('1'))
 
+	if "dark" in request.COOKIES:
+		d = request.COOKIES["dark"]
+	else:
+		d = ""
+
 	context = {
 		'asd': asd,
 		'categories': categories,
 		'movies': movies,
+		'dark': d,
 	}
 	
 	return render(request, template, context)
@@ -486,10 +528,17 @@ def donate(request):
 	movies = Movie.objects.all()
 	categories = Category.objects.all()
 	asd = get_object_or_404(Movie,id=Movie.Random('1'))
+
+	if "dark" in request.COOKIES:
+		d = request.COOKIES["dark"]
+	else:
+		d = ""
+
 	context = {
 		'asd':asd,
 		'movies':movies,
 		'categories': categories,
+		'dark': d,
 	}
 
 	return render(request, template, context)
@@ -514,12 +563,17 @@ def search(request):
                                                                       Q(short_title__icontains=query)
                                                                        ).order_by('-imdb').exclude(title=None)
 
+   if "dark" in request.COOKIES:
+       d = request.COOKIES['dark']
+   else:
+       d = ""
 
    context = {
 		'asd':asd,
 		'movies': movies,
 		'results': results,
 		'categories': categories,
+		'dark': d,
    }
    
    return render(request, template, context)
