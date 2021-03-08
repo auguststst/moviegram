@@ -39,6 +39,7 @@ body{
   font-family: Gilroy!important;
   font-size: 15px!important;
   transition: all .6s;
+  padding-top: 120px;
 }
 
 @-moz-document url-prefix() {
@@ -124,7 +125,7 @@ img:hover{
 div.scrollup{
 	background: none;
 	left: 0;
-	top: 62px;
+	top: 109px;
 	width: 180px;
 	min-height: 100vh;
 	height: 100%;
@@ -141,7 +142,7 @@ div.scrollup:hover{
 	background: rgb(51, 122, 183, 0.1);
 }
 .scrollup i {
-	margin-top: 20px;
+	margin-top: 35px;
 	font-size: 26px;
 	line-height: 40px;
 	color:#2e87ca!important;
@@ -190,7 +191,9 @@ div.scrollup:hover{
 	font-size: 19px!important;
 }
 
-
+nav{
+	border:none;
+}
 
 .navbar-form button[type="submit"]{
 	border-radius: 44px !important;
@@ -491,7 +494,7 @@ div.scrollup:hover{
 
 				/*----------- search -------------*/
 #searchpart{
-	margin-top: 50px;
+	margin-top: 7px;
 	zoom: 88%!important;
 }
 
@@ -548,7 +551,7 @@ div.scrollup:hover{
 	height: 45px;
 	width: 100%;
 	border-top: 1px solid #ccc;
-	z-index: 999;
+	z-index: 997;
 	bottom: 0;
 	left: 0;
 	background: #fff;
@@ -746,6 +749,14 @@ input:checked + .slider:before {
 
 @media only screen and (max-width: 576px) {
 	
+	.overlay{
+		top: 49px!important;
+	}
+
+	#mobile-menu{
+		margin-top: 5px;
+	}
+	
 	.change_button{
 		display: none;
 	}
@@ -762,6 +773,7 @@ input:checked + .slider:before {
 	  width: 100%;
 	  background: white;
 	  padding: 0;
+	  margin-top: 61px;
 
 	}
 
@@ -831,6 +843,10 @@ input:checked + .slider:before {
 		display: block!important;
 	}
 
+	#searchpart{
+		margin-top: -10px!important;
+	}
+
 	#searchpart p{
 		display: none!important;
 	}
@@ -838,6 +854,7 @@ input:checked + .slider:before {
 	nav{
 		height: 57px;
 		z-index: 900!important;
+		border: none;
 	}
 
 
@@ -891,9 +908,8 @@ input:checked + .slider:before {
 	}
 
 	.jumbotron{
-		margin-top: -30px;
 		text-align: center;
-		height: 360px;	
+		height: 360px;
 	}
 
 	.jumbotron h2{
@@ -1033,6 +1049,7 @@ input:checked + .slider:before {
 	#imbd{
 		top: 0;
 	}
+
 	
 	#dis a {
 		font-size: 11px;

@@ -49,13 +49,9 @@
    {% else %}
     <body>
    {% endif %}
-<div style="position: fixed; top: 0; left:0; width: 100%; z-index: 991;">
-<div class="dgdhdh" style="width: 100%; height: 50px; background:white;">
-   <iframe data-aa="1573908" src="//acceptable.a-ads.com/1573908" scrolling="no" style="border:0px; padding:5px; width:100%; height:95%; overflow:hidden" allowtransparency="true"></iframe>
-</div>   
-<nav style="border-left:none;border-right:none;" class="navbar navbar-default sidebarNavigation" datasidebarClass="navbar-inverse">
-   <div class="container mid">
-   
+   <nav class="navbar navbar-default navbar-fixed-top sidebarNavigation" datasidebarClass="navbar-inverse">
+    <div class="container mid">
+
     <div class="navbar-header">
 	  <span onClick="history.back()" id="direction" class = "fa fa-arrow-left visible-xs hidden-lg hidden-md hidden-sm hidden-xs" style="float: left; font-size: 35px; padding: 0 15px 0 10px; margin: 7px 0 0 17px; text-decoration:none;"></span>
           <a href="{% url 'index' %}" id="direction2" class = "fa fa-arrow-left visible-xs hidden-lg hidden-md hidden-sm hidden-xs" style="float: left; font-size: 35px; padding: 0 15px 0 10px; margin: 7px 0 0 17px; text-decoration:none; color:black;"></a>
@@ -144,12 +140,11 @@
   
       </div><!--/.nav-collapse -->
 	</div>
-  </nav>
-</div><!-- div fixed -->
+</nav>
 <div id="ajax">
 
 </div>
-<div style="margin-top: -30px;" id = "part" class="content">
+<div id = "part" class="content">
 {% block content %}
 
 {% endblock %}
@@ -157,7 +152,6 @@
 <div class = "container">
 {% block footer %} {% endblock %}
 </div>
-
     </div><!--/.container-->
   </body>
 

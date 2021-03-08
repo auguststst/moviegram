@@ -19,7 +19,7 @@ urlpatterns = [
 
 
 urlpatterns += i18n_patterns(
-	path('d8bd8e55d48bbf152cc4532e0e084b58/', admin.site.urls),
+	path('efb7315e6f3341d2ef370185f1a44707/', admin.site.urls),
 	path('sitemap.xml/', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 	path('robots.txt/', TemplateView.as_view(template_name="robots.txt", content_type='text/plain')),
 	path('', include('movies.urls')),
