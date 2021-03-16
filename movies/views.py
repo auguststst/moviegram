@@ -15,7 +15,6 @@ import locale
 if locale.getpreferredencoding().upper() != 'UTF-8':
 	locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 
-
 logging.basicConfig(filename="/home/august/mg/logfile", level=logging.INFO)
 
 class PageUrl:
@@ -37,7 +36,7 @@ def index(request):
 
 
 	asd = get_object_or_404(Movie,id=Movie.Random('1'))
-	
+	results = ""
 	if request.method == "GET":
 		text = request.GET.get('search_text')
 		if text is not None and text != "":
@@ -553,7 +552,7 @@ def search(request):
    query = request.GET.get('q')
 
    asd = get_object_or_404(Movie,id=Movie.Random('1'))
-
+   results = ""
    if query is not None and query != "":
    		query.encode("utf-8")
    		logging.info(query)
