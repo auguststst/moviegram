@@ -9,6 +9,8 @@ from django.db.models import F
 from django.core.validators import URLValidator
 from django.template.loader import render_to_string
 from django.utils import translation
+from django.conf import settings
+import cyrtranslit
 import logging
 import locale
 
@@ -21,6 +23,10 @@ class PageUrl:
 
 	i = None
 	time = 30
+	layout = dict(zip(map(ord, "qwertyuiop[]asdfghjkl;'zxcvbnm,./`"
+                           'QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>?~'),
+                           "йцукенгшщзхъфывапролджэячсмитьбю.ё"
+                           'ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ,Ё'))
 
 @cache_control(max_age=PageUrl.time)
 def index(request):
@@ -36,11 +42,21 @@ def index(request):
 
 
 	asd = get_object_or_404(Movie,id=Movie.Random('1'))
+	user_agent = request.META['HTTP_USER_AGENT']
+	mobile(user_agent)
 	results = ""
 	if request.method == "GET":
 		text = request.GET.get('search_text')
 		if text is not None and text != "":
-			search_text = request.GET.get('search_text')
+			#search_text = request.GET.get('search_text')
+			if (mobile(user_agent) == False) and (settings.LANGUAGES[0][0] == request.LANGUAGE_CODE):
+				text = text.translate(PageUrl.layout)
+			elif(mobile(user_agent) == True) and (settings.LANGUAGES[0][0] == request.LANGUAGE_CODE):
+				text = cyrtranslit.to_cyrillic(text)
+			else:
+				text = text
+
+
 			results = Movie.objects.filter(Q(title__icontains=text) | Q(short_title__icontains=text)).order_by('-id').exclude(title=None)
 		else:
 			results = []
@@ -551,32 +567,43 @@ def search(request):
    categories = Category.objects.all()
    query = request.GET.get('q')
 
+   user_agent = request.META['HTTP_USER_AGENT']
+   mobile(user_agent)
+
    asd = get_object_or_404(Movie,id=Movie.Random('1'))
    results = ""
-   if query is not None and query != "":
-   		query.encode("utf-8")
-   		logging.info(query)
+   if query is not None:
+        if (mobile(user_agent) == False) and (settings.LANGUAGES[0][0] == request.LANGUAGE_CODE):
+        	query = query.translate(PageUrl.layout)
+        elif(mobile(user_agent) == True) and (settings.LANGUAGES[0][0] == request.LANGUAGE_CODE):
+        	query = cyrtranslit.to_cyrillic(query)
+        else:
+        	query = query
 
+        print(query)
+        query.encode("utf-8")
+        logging.info(query)
+   
    results = Movie.objects.filter(Q(title__icontains=query) | 
                                                                       Q(year__icontains=query)  |
                                                                       Q(short_title__icontains=query)
                                                                        ).order_by('-imdb').exclude(title=None)
 
+
+
    if "dark" in request.COOKIES:
        d = request.COOKIES['dark']
    else:
        d = ""
-
    context = {
-		'asd':asd,
+   		'asd': asd,
 		'movies': movies,
 		'results': results,
 		'categories': categories,
 		'dark': d,
    }
    
-   return render(request, template, context)
-
+   return render(request, "search.html", context)
 
 def changelanguage(request, language_code):
    language_code = language_code
@@ -594,3 +621,20 @@ def unique_array(items):
 	return a
 
 
+def translate(text):
+    text = text.lower()
+    res = ''
+    for l in text:
+        if l in lat2cyr:
+            res += lat2cyr[l]
+        else:
+            res += l
+    return res
+
+
+def mobile(agent):
+	 keywords = ['Mobile','Opera Mini','Android']
+	 if any(word in agent for word in keywords):
+	 	return True
+	 else:
+	 	return False  
