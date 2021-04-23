@@ -773,7 +773,7 @@ input:checked + .slider:before {
 	  width: 100%;
 	  background: white;
 	  padding: 0;
-	  margin-top: 61px;
+	  margin-top: 58px;
 
 	}
 
@@ -1053,6 +1053,27 @@ input:checked + .slider:before {
 	
 	#dis a {
 		font-size: 11px;
+	}
+
+	.upp{
+		display: none;
+		position: absolute; 
+		left: 0; 
+		right: 0; 
+		margin-left: auto; 
+		margin-right: auto; 
+		margin-top: 5px;
+		width: 100px;
+	}
+
+	.upp i{
+		font-size: 35px;
+		font-style: bold;
+		margin-left: 40px;
+	}
+
+	.black-body .upp i{
+		color: #E9ECEF;
 	}	
 	
 	.body-black{

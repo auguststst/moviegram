@@ -367,7 +367,7 @@ function wallet(text) {
 
 $(function() {
     
-        $('.scrollup').click(function() {
+        $('.scrollup').add('.upp').click(function() {
           $("html, body").animate({
             scrollTop:0
           },1000);
@@ -378,11 +378,11 @@ $(function() {
 
         if ($(this).scrollTop()>200) {
 
-          $('.scrollup').fadeIn();
+          $('.scrollup').add('.upp').fadeIn();
         }
         
         else {
-          $('.scrollup').fadeOut();
+          $('.scrollup').add('.upp').fadeOut();
         }
       });
 
