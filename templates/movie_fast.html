@@ -14,7 +14,7 @@
 {% if movies.count > 1 %}
 <div class="col-lg-11">
 <div class="page-header" style="border-bottom:0">
-<h1><strong>{{ movie.short_title }}</strong></h1>
+<h1><strong>{{ movie.short_title }}</strong><!-- &nbsp;<span style="font-size:36px;background:#f0f0f0;padding:0 10px">{%if movie.get_views < 1000 %}{{ movie.get_views }}k</span>{% else %} {{ movie.get_views }}m {% endif %} --></h1>
 <ul class="nav nav-tabs" role="tablist" id="mennu">
 {%for x in movies %}
 <li role="presentation"><a href="#home{{forloop.counter}}" aria-controls="home{{forloop.counter}}" role="tab" data-toggle="tab">{{ forloop.counter }} {% trans "часть" %}</a></li>
@@ -70,7 +70,7 @@
 {% else %}
 <div class="col-lg-11">
 <div class="page-header clearfix">
-<h1><strong>{{ movie.title }}</strong> <i style="float:right;font-size:36px" class="fa fa-star" aria-hidden="true"> {{ movie.imdb }}</i></h1>
+<h1><strong>{{ movie.title }}</strong><!-- &nbsp;<span style="font-size:36px;background:#f0f0f0;padding:0 10px">{%if movie.get_views < 1000 %}{{ movie.get_views }}k</span>{% else %} {{ movie.get_views }}m {% endif %} --> <i style="float:right;font-size:36px" class="fa fa-star" aria-hidden="true"> {{ movie.imdb }}</i></h1>
 </div>
 <div class="embed-responsive embed-responsive-16by9">
 <iframe class="embed-responsive-item" src="{{ movie.youtube }}" frameborder="0" allowfullscreen></iframe>
@@ -126,7 +126,7 @@
 {% block footer %}
 <div class="container text-center hidden-lg hidden-md hidden-sm hidden-xs">
 <footer>
-<p>&copy; 2020 Moviegram, Inc.</p>
+<p>&copy; 2021 Moviegram, Inc.</p>
 </footer>
 </div>
 {% endblock %}

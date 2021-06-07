@@ -23,8 +23,8 @@ msgid ""
 "Наш сайт предназначен для поиска и просмотра фильмов, предварительно скачав "
 "их и подгрузив вы сможете смотреть в дальнейшем без интернета"
 msgstr ""
-"Our website is aimed for searching and watching movies, pre-downloading them "
-"you can watch later without internet"
+"A platform for searching for movies, TV series,  "
+"and cartoons on Telegram"
 
 #: templates/base.html:68
 msgid "Рекомендуем"

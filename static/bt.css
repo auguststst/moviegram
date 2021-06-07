@@ -486,6 +486,9 @@ div.scrollup:hover{
 	.col-xs-6 p{
 		font-size: 25px!important;
 	}
+	.col-xs-6{
+		height: 520px!important;
+	}
 
 	#title{
 		text-align: center;

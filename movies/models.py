@@ -124,6 +124,7 @@ class Movie(models.Model):
 
 	def get_absolute_url(self):
 		return "%i/" % self.id
+	
 
 	def Random(self):
 		movies = Movie.objects.all().exclude(title=None).filter(draft=False)

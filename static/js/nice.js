@@ -1,5 +1,16 @@
 var all = [];
 $(function() {
+	  
+	  var text = window.location.href;
+          var term = "categorymovies";
+          var gen = "genremovies";
+
+          if(text.indexOf( term ) != -1 || text.indexOf( gen ) != -1 && $(window).width() <= 576){
+              $('.lightbox img').attr('id', 'fz');
+          }else{
+              $('.lightbox img').attr('id', 'sz');
+          }
+
           $('#full, #full1, #full2, #full3, #full4, #full5, #full6, #full7, #full8, #full9, #full10').hide();
 
           $('#movie-desc, #movie-desc1, #movie-desc2, #movie-desc3, #movie-desc4, #movie-desc5, #movie-desc6, #movie-desc7, #movie-desc8, #movie-desc9, #movie-desc10').on('mouseover', function(){
@@ -285,7 +296,7 @@ document.addEventListener("DOMContentLoaded", function(){
                           'csrfmiddlewaretoken': window.CSRF_TOKEN
                         },
                         success: function(data) {
-
+			$('.lightbox img').attr('id', 'fz');
                          if (data.has_next) {
                               link.data('page', page+1);
                               $('#lazyload').append(data.posts_html);
