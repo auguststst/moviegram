@@ -1,8 +1,11 @@
 asgiref==3.2.7
-Django==3.0.6
+cyrtranslit==0.4
+Django==3.0.13
+django-modeltranslation==0.15
 mod-wsgi==4.7.1
 mod-wsgi-httpd==2.4.41.1
 Pillow==7.1.2
 PyMySQL==0.9.3
 pytz==2020.1
+six==1.15.0
 sqlparse==0.3.1
