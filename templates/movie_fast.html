@@ -14,7 +14,7 @@
 {% if movies.count > 1 %}
 <div class="col-lg-11">
 <div class="page-header" style="border-bottom:0">
-<h1><strong>{{ movie.short_title }}</strong><!-- &nbsp;<span style="font-size:36px;background:#f0f0f0;padding:0 10px">{%if movie.get_views < 1000 %}{{ movie.get_views }}k</span>{% else %} {{ movie.get_views }}m {% endif %} --></h1>
+<h1><strong>{{ movie.short_title }}</strong></h1>
 <ul class="nav nav-tabs" role="tablist" id="mennu">
 {%for x in movies %}
 <li role="presentation"><a href="#home{{forloop.counter}}" aria-controls="home{{forloop.counter}}" role="tab" data-toggle="tab">{{ forloop.counter }} {% trans "часть" %}</a></li>
@@ -32,7 +32,7 @@
 <a target="_blank" href="#" class="btn btn-lg btn-primary btn-block watch" data-toggle="modal" data-target="#myModal{{forloop.counter}}">
 {% trans "Смотреть" %}</a>
 {% else %}
-<a target="_blank" href="{{ i.telegram }}" class="btn btn-lg btn-primary btn-block watch">
+<a target="_blank" href="{{ i.telegram }}" class="btn btn-lg btn-primary btn-block watch raduga">
 {% trans "Смотреть" %}</a>
 {% endif %}
 <h2 style="font-size:34px!important" id="movie-desc{{forloop.counter}}">{{ i.description | truncatechars:160 }}</h2>
@@ -70,7 +70,7 @@
 {% else %}
 <div class="col-lg-11">
 <div class="page-header clearfix">
-<h1><strong>{{ movie.title }}</strong><!-- &nbsp;<span style="font-size:36px;background:#f0f0f0;padding:0 10px">{%if movie.get_views < 1000 %}{{ movie.get_views }}k</span>{% else %} {{ movie.get_views }}m {% endif %} --> <i style="float:right;font-size:36px" class="fa fa-star" aria-hidden="true"> {{ movie.imdb }}</i></h1>
+<h1><strong>{{ movie.title }}</strong><i style="float:right;font-size:36px" class="fa fa-star" aria-hidden="true"> {{ movie.imdb }}</i></h1>
 </div>
 <div class="embed-responsive embed-responsive-16by9">
 <iframe class="embed-responsive-item" src="{{ movie.youtube }}" frameborder="0" allowfullscreen></iframe>
@@ -79,7 +79,7 @@
 {% if movie.online and LANGUAGE_CODE == "ru" or movie.online_en and LANGUAGE_CODE == "en"%}
 <a target="_blank" href="#" class="btn btn-lg btn-primary btn-block watch" data-toggle="modal" data-target="#myModal">{% trans "Смотреть" %}</a>
 {% else %}
-<a target="_blank" href="{{ movie.telegram }}" class="btn btn-lg btn-primary btn-block watch">{% trans "Смотреть" %}</a>
+<a target="_blank" href="{{ movie.telegram }}" class="btn btn-lg btn-primary btn-block watch raduga">{% trans "Смотреть" %}</a>
 {% endif %}
 <h2 id="movie-desc">{{ movie.description | truncatechars:160 }}</h2>
 <h2 id="full" style="min-height:100px">{{ movie.description | linebreaksbr }}</h2>

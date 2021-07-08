@@ -155,7 +155,8 @@ div.scrollup:hover{
 }
 
 .navbar{
-	background-color: #fff !important; 
+	background-color: #fff !important;
+	box-shadow: 5px 5px 5px #f0f0f0; 
 }
 
 .navbar-default .navbar-brand {
@@ -642,6 +643,13 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.raduga:hover {
+    color: #4484DE!important;
+    background-color: #fff!important;
+    border: 4px solid #337ab7!important;
+    font-weight: bold!improtant;
+ }
+
 .black-body{
 	background: #000!important;
 	transition: all .6s;
@@ -649,6 +657,7 @@ input:checked + .slider:before {
 .black-body nav{
 	background: #111!important;
 	border-bottom: 0;
+	box-shadow: none;
 }
 .black-body .modal-content,
 .black-body #stb,

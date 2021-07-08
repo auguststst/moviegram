@@ -72,7 +72,7 @@ $(function() {
 	 var movvv = document.querySelector('.inside');
 
 
-         //localStorage.clear();
+         // localStorage.clear();
 
 
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-05 15:56+0100\n"
+"POT-Creation-Date: 2021-07-08 11:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,51 +18,53 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: templates/base.html:12 templates/base.html:19
+#: templates/base.html:12 templates/base.html:19 templates/base_fast.html:10
+#: templates/base_fast.html:17
 msgid ""
 "Наш сайт предназначен для поиска и просмотра фильмов, предварительно скачав "
 "их и подгрузив вы сможете смотреть в дальнейшем без интернета"
-msgstr ""
-"Une plate-forme pour la recherche de films, séries télévisées "
-"et dessins animés sur Telegram"
+msgstr "Plateforme de recherche de films, séries TV animés dans Telegram"
 
-#: templates/base.html:67
-msgid "Рекомендуем"
-msgstr "Conseillé"
-
-#: templates/base.html:76
-msgid "Подборки"
-msgstr "Selection"
-
-#: templates/base.html:79 templates/movie.html:199
-msgid "Случайный фильм"
-msgstr "Film Aléatoire"
-
-#: templates/base.html:82
-msgid "Поддержка"
-msgstr "Soutien"
-
-#: templates/base.html:83 templates/index.html:34
-msgid "О сайте"
-msgstr "A propos du site Web"
-
-#: templates/base.html:84 templates/index.html:35
-msgid "Контакты"
-msgstr "Nous contacter"
-
-#: templates/base.html:85
-msgid "Пожертвовать на сайт"
-msgstr "Faire un don"
-
-#: templates/base.html:93 templates/index.html:43
+#: templates/base.html:72 templates/base.html:124 templates/base_fast.html:55
+#: templates/base_fast.html:88
 msgid "Поиск..."
 msgstr "Chercher..."
 
-#: templates/base.html:95 templates/index.html:45
+#: templates/base.html:93 templates/base_fast.html:70
+msgid "Рекомендуем"
+msgstr "Conseillé"
+
+#: templates/base.html:108 templates/base_fast.html:73
+msgid "Подборки"
+msgstr "Selection"
+
+#: templates/base.html:111 templates/base_fast.html:76 templates/movie.html:199
+#: templates/movie_fast.html:122
+msgid "Случайный фильм"
+msgstr "Film Aléatoire"
+
+#: templates/base.html:114 templates/base_fast.html:79
+msgid "Поддержка"
+msgstr "Soutien"
+
+#: templates/base.html:115 templates/base_fast.html:81
+msgid "Контакты"
+msgstr "Nous contacter"
+
+#: templates/base.html:116 templates/base_fast.html:82
+msgid "Пожертвовать на сайт"
+msgstr "Faire un don"
+
+#: templates/base.html:126 templates/base_fast.html:90
 msgid "Поиск"
 msgstr "Chercher"
 
-#: templates/btc.html:4 templates/btc.html:28
+#: templates/base_fast.html:80
+msgid "О сайте"
+msgstr "A propos du site Web"
+
+#: templates/btc.html:4 templates/btc.html:28 templates/btc_fast.html:3
+#: templates/btc_fast.html:20
 msgid ""
 "Ваше пожертвование поможет нам продолжать разработку Moviegram как свободной "
 "платформы для поиска и просмотра фильмов. Только благодаря вашей поддержке "
@@ -73,85 +75,126 @@ msgstr ""
 "grace a votre don que nous pourrons pour continuer a donner un acces a "
 "Moviegram pour les gens de partout dans le monde."
 
-#: templates/btc.html:19 templates/index.html:36
+#: templates/btc.html:19 templates/btc_fast.html:13
 msgid "Поддержите нас"
 msgstr "Soutien"
 
-#: templates/categorymov.html:28 templates/irc.html:11 templates/irc.html:42
-#: templates/sidebar.html:12
-msgid "Жанры"
-msgstr "Le genre"
+#: templates/categorymov.html:26 templates/categorymov.html:44
+#: templates/categorymov_fast.html:19 templates/categorymov_fast.html:32
+msgid "Новинки"
+msgstr ""
 
-#: templates/categorymov.html:41
+#: templates/categorymov.html:27 templates/categorymov.html:45
+#: templates/categorymov_fast.html:20 templates/categorymov_fast.html:33
+msgid "По дате"
+msgstr ""
+
+#: templates/categorymov.html:28 templates/categorymov.html:46
+#: templates/categorymov_fast.html:21 templates/categorymov_fast.html:34
+msgid "По рейтингу"
+msgstr ""
+
+#: templates/categorymov.html:29 templates/categorymov.html:47
+#: templates/categorymov_fast.html:22 templates/categorymov_fast.html:35
+msgid "Популярность"
+msgstr ""
+
+#: templates/categorymov.html:83 templates/categorymov_fast.html:61
 msgid "Больше"
 msgstr "Plus de resultats"
 
-#: templates/film.html:12 templates/index.html:59 templates/movie.html:51
-#: templates/movie.html:56 templates/movie.html:126 templates/movie.html:130
+#: templates/film.html:12 templates/film_fast.html:7 templates/index.html:44
+#: templates/index_fast.html:26 templates/movie.html:51 templates/movie.html:56
+#: templates/movie.html:82 templates/movie.html:126 templates/movie.html:130
+#: templates/movie.html:161 templates/movie_fast.html:33
+#: templates/movie_fast.html:36 templates/movie_fast.html:52
+#: templates/movie_fast.html:80 templates/movie_fast.html:82
+#: templates/movie_fast.html:103
 msgid "Смотреть"
 msgstr "Regarder"
 
-#: templates/index.html:16
+#: templates/index.html:16 templates/index_fast.html:9
 msgid "Фильмы в Telegram"
 msgstr "Films telegrammes"
 
-#: templates/index.html:17
+#: templates/index.html:17 templates/index_fast.html:10
 msgid "Смотрите и скачивайте фильмы в Telegram вместе с Moviegram..."
 msgstr "Regardez et telechargez des films sur Telegram avec Moviegram ..."
 
-#: templates/irc.html:39
+#: templates/irc.html:11 templates/irc.html:42 templates/irc_fast.html:6
+#: templates/irc_fast.html:32 templates/sidebar.html:12
+#: templates/sidebar_fast.html:8
+msgid "Жанры"
+msgstr "Le genre"
+
+#: templates/irc.html:39 templates/irc_fast.html:29
 msgid "Название"
 msgstr "Titre"
 
-#: templates/irc.html:40
+#: templates/irc.html:40 templates/irc_fast.html:30
 msgid "Страна"
 msgstr "Pays"
 
-#: templates/irc.html:41
+#: templates/irc.html:41 templates/irc_fast.html:31
 msgid "Год выхода"
 msgstr "Liberation"
 
-#: templates/irc.html:49
+#: templates/irc.html:49 templates/irc_fast.html:37
 msgid "Режиссер"
 msgstr "Realisateur"
 
-#: templates/irc.html:67
+#: templates/irc.html:67 templates/irc_fast.html:48
 msgid "В ролях"
 msgstr "Acteur"
 
-#: templates/irc.html:86
+#: templates/irc.html:86 templates/irc_fast.html:59
 msgid "Премьера"
 msgstr "Premiere"
 
-#: templates/irc.html:98 templates/irc.html:123
+#: templates/irc.html:98 templates/irc.html:123 templates/irc_fast.html:67
+#: templates/irc_fast.html:84
 msgid "Назад"
 msgstr "Precedent"
 
-#: templates/irc.html:110 templates/irc.html:135
+#: templates/irc.html:110 templates/irc.html:135 templates/irc_fast.html:77
+#: templates/irc_fast.html:94
 msgid "Вперед"
 msgstr "Suivant"
 
-#: templates/movie.html:29
+#: templates/movie.html:29 templates/movie_fast.html:20
 msgid "часть"
 msgstr "partie"
 
 #: templates/movie.html:66 templates/movie.html:142
+#: templates/movie_fast.html:40 templates/movie_fast.html:87
 msgid "Подробнее о"
 msgstr "Plus de details sur "
 
 #: templates/movie.html:66 templates/movie.html:142
+#: templates/movie_fast.html:40 templates/movie_fast.html:87
 msgid "вы можете узнать здесь..."
 msgstr "vous pouvez le decouvrir ici ..."
 
+#: templates/movie.html:92 templates/movie.html:172
+#: templates/movie_fast.html:60 templates/movie_fast.html:111
+msgid "Oфлайн"
+msgstr ""
+
+#: templates/movie.html:93 templates/movie.html:173
+#: templates/movie_fast.html:61 templates/movie_fast.html:112
+msgid "Онлайн"
+msgstr ""
+
 #: templates/search.html:23 templates/search_ajax.html:18
+#: templates/search_ajax_fast.html:14 templates/search_fast.html:17
 msgid "Ничего не найдено..."
 msgstr "Rien n'a ete trouve..."
 
-#: templates/sidebar.html:6
+#: templates/sidebar.html:6 templates/sidebar_fast.html:4
 msgid "О нас"
 msgstr "A propos de nous"
 
-#: templates/sidebar.html:7
+#: templates/sidebar.html:7 templates/sidebar_fast.html:5
 msgid ""
 "Мы создали сайт для любителей смотреть фильмы в Телеграме. Сайт довольно "
 "интересный. С его помощью вы сможете найти свои любимые фильмы а также "
@@ -160,40 +203,33 @@ msgstr ""
 "Ce site est assez interessant. Avec lui, vous pouvez trouver vos films "
 "preferes et regardez d'abord les nouveaux articles"
 
-#: templates/sidebar.html:22
+#: templates/sidebar.html:22 templates/sidebar_fast.html:16
 msgid "Другое"
 msgstr "Autre"
 
-#: templates/sidebar.html:24 templates/telegram.html:26
-#: templates/telegram.html:34
+#: templates/sidebar.html:24 templates/sidebar_fast.html:18
+#: templates/telegram.html:26 templates/telegram.html:34
+#: templates/telegram_fast.html:18 templates/telegram_fast.html:23
 msgid "Telegram"
 msgstr "Telegram"
 
-#: templates/sidebar.html:25
-msgid "Torrent"
-msgstr "Torrent"
-
-#: templates/sidebar.html:26
-msgid "PirateBay"
-msgstr "PirateBay"
-
-#: templates/telegram.html:11
+#: templates/telegram.html:11 templates/telegram_fast.html:6
 msgid "Что такое платформа Moviegram?"
 msgstr "Qu'est-ce que la plate-forme Moviegram?"
 
-#: templates/telegram.html:12
+#: templates/telegram.html:12 templates/telegram_fast.html:7
 msgid "Больше чем просто фильмы..."
 msgstr "Plus que des films ..."
 
-#: templates/telegram.html:23
+#: templates/telegram.html:23 templates/telegram_fast.html:16
 msgid "Папка с фильмами"
 msgstr "Dossier avec des films"
 
-#: templates/telegram.html:26
+#: templates/telegram.html:26 templates/telegram_fast.html:18
 msgid "Наш"
 msgstr "Notre"
 
-#: templates/telegram.html:26
+#: templates/telegram.html:26 templates/telegram_fast.html:18
 msgid ""
 "сайт предназначен для поиска и просмотра фильмов, предварительно скачав их и "
 "подгрузив вы сможете смотреть в дальнейшем без интернета"
@@ -201,25 +237,25 @@ msgstr ""
 "le site Web est destine a rechercher et regarder des films, a les pre-"
 "telecharger peut regarder plus tard sans Internet"
 
-#: templates/telegram.html:26
+#: templates/telegram.html:26 templates/telegram_fast.html:18
 msgid "Чем больше люди смотрят фильмы в"
 msgstr "Plus les gens regardent de films "
 
-#: templates/telegram.html:26
+#: templates/telegram.html:26 templates/telegram_fast.html:18
 msgid "тем быстрее они подгружаются. Этим сайтом мы хотели показать, что"
 msgstr ""
 "plus de films sont telecharges plus rapidement. Apres avoir cree ce site "
 "Web, nous voulions montrer ca "
 
-#: templates/telegram.html:26
+#: templates/telegram.html:26 templates/telegram_fast.html:18
 msgid "Telegram "
 msgstr "Telegram "
 
-#: templates/telegram.html:26
+#: templates/telegram.html:26 templates/telegram_fast.html:18
 msgid "больше, чем просто мэссэнджер"
 msgstr "plus qu'un simple messager"
 
-#: templates/telegram.html:26
+#: templates/telegram.html:26 templates/telegram_fast.html:18
 msgid ""
 "Что не только контакты в мэссэнджере можна рассматривать как отдельные "
 "сущности, но и фильмы. После появления папок в "
@@ -228,27 +264,27 @@ msgstr ""
 "des entites distinctes, mais aussi des films. Apres que les dossiers "
 "apparaissent dans "
 
-#: templates/telegram.html:26
+#: templates/telegram.html:26 templates/telegram_fast.html:18
 msgid "нам прийшла в голову идея создания этого сайта."
 msgstr "nous sommes venus a l'idee de creer ce site Web."
 
-#: templates/telegram.html:30
+#: templates/telegram.html:30 templates/telegram_fast.html:20
 msgid "Добавить фильм на сайт"
 msgstr "Ajout d'un film au site Web"
 
-#: templates/telegram.html:34
+#: templates/telegram.html:34 templates/telegram_fast.html:23
 msgid "Вы можете"
 msgstr "Tu peux"
 
-#: templates/telegram.html:34
+#: templates/telegram.html:34 templates/telegram_fast.html:23
 msgid "помочь нашему сайту развиваться и рости"
 msgstr "aidez notre site web a se developer"
 
-#: templates/telegram.html:34
+#: templates/telegram.html:34 templates/telegram_fast.html:23
 msgid "просто создав публичный"
 msgstr "créer une publicite "
 
-#: templates/telegram.html:34
+#: templates/telegram.html:34 templates/telegram_fast.html:23
 msgid ""
 "канал с кратким описанием фильма, загрузив фильм в возможном для "
 "воспроизведения формате не больше 1.5gb. Скидывайте нам ссылку на канал и "
@@ -258,15 +294,15 @@ msgstr ""
 "pour format de visionnage, pas plus de 2Go. Envoyez-nous le lien de la "
 "chaine et partager des films avec tout le monde "
 
-#: templates/telegram.html:34
+#: templates/telegram.html:34 templates/telegram_fast.html:23
 msgid "бесплатно"
 msgstr "gratuitement"
 
-#: templates/telegram.html:48
+#: templates/telegram.html:48 templates/telegram_fast.html:33
 msgid "Ссылка на ваш канал"
 msgstr "Lien de votre chaine"
 
-#: templates/telegram.html:60
+#: templates/telegram.html:60 templates/telegram_fast.html:43
 msgid ""
 "После валидации и проверки ваш канал добавится на наш сайт. Если фильм, "
 "сериал или мультфильм, который вы добавили не повторяется - он будет "
@@ -325,6 +361,12 @@ msgstr ""
 #: venv/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:409
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "Torrent"
+#~ msgstr "Torrent"
+
+#~ msgid "PirateBay"
+#~ msgstr "PirateBay"
 
 #~ msgid "Скоро на сайте"
 #~ msgstr "Sorties de films"
